@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="dashboard.png" />
+    <None Remove="help.png" />
+    <None Remove="infinity.png" />
+    <None Remove="logo.png" />
+    <None Remove="logout.png" />
+    <None Remove="plus.png" />
+    <None Remove="setting.png" />
+    <None Remove="switch.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="2.1.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="dashboard.png" />
+    <Resource Include="help.png" />
+    <Resource Include="infinity.png" />
+    <Resource Include="logout.png" />
+    <Resource Include="plus.png" />
+    <Resource Include="setting.png" />
+    <Resource Include="switch.png" />
+  </ItemGroup>
+
+</Project>

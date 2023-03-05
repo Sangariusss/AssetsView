@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "h8BNob0DuToi1LdaihduydqyckHLfxs06ArtlD5LJT6rvW8KqQN17F1YcmgzkyGe08rka3f/MaxI0be9xVZC4A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\E5-2670\\Desktop\\КР v2\\AssetsView\\AssetsView.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\E5-2670\\.nuget\\packages\\materialdesigncolors\\2.1.1\\materialdesigncolors.2.1.1.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\materialdesignthemes\\4.7.1\\materialdesignthemes.4.7.1.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}
