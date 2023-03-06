@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AssetsView"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"    
+        xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+        mc:Ignorable="d" 
         Title="AssetsView" Height="1024" Width="1440" ResizeMode="NoResize" Background="#000000" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -148,6 +148,10 @@
         </Style>
     </Window.Resources>
 
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    
     <Grid Height="1024">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -157,6 +161,7 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
         <!-- DragMove -->
         <Border Height="30" MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" VerticalAlignment="Center" Background="Black" Panel.ZIndex="1" Grid.Column="1"/>
         <!-- Vertical panel -->
@@ -194,7 +199,7 @@
                 <Grid Height="50">
                     <TextBox Width="461" Height="50" Background="Black" BorderThickness="1.5" BorderBrush="#141414" Margin="0,0,120,0" Padding="16,0,0,0" Foreground="White" FontFamily="c:\users\e5-2670\desktop\кр v2\assetsview\fonts\mariupol-regular.ttf" FontSize="18" FontWeight="Bold" TextAlignment="Left" VerticalContentAlignment="Center"/>
                     <Button Style="{DynamicResource ButtonHoverStyle}" Width="120" Height="50" Margin="461,0,0,0" Background="#141414" BorderThickness="0">
-                        
+
                     </Button>
                 </Grid>
             </StackPanel>
@@ -210,7 +215,14 @@
             </StackPanel>
         </StackPanel>
         <!-- ChartPanel -->
-        <StackPanel Width="640" Height="530" Margin="33,426,667,38" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1"/>
+        <StackPanel Width="640" Height="530" Margin="33,426,667,38" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1">
+            <StackPanel Width="640" Height="120">
+                
+            </StackPanel>
+            <lvc:CartesianChart 
+                Series="{Binding Series}" Width="504" Height="181">
+            </lvc:CartesianChart>
+        </StackPanel>
         <!-- Favourite&PopularPanel -->
         <StackPanel x:Name="FavouritePopularPanel" Width="603" Height="949" Margin="707,7,30,38" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1">
             <StackPanel Height="88">
@@ -231,6 +243,5 @@
                 <TextBlock Text="Popular" FontFamily="c:\users\e5-2670\desktop\кр v2\assetsview\fonts\mariupol-regular.ttf" FontSize="25" Width="93" Height="30" Foreground="White" Margin="35,23,473,22" FontWeight="Bold"/>
             </StackPanel>
         </StackPanel>
-
     </Grid>
 </Window>

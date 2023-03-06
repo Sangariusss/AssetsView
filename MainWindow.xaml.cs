@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.VisualElements;
+using SkiaSharp;
 
 namespace AssetsView
 {
+    public class ViewModel
+    {
+        public ISeries[] Series { get; set; }
+            = new ISeries[]
+            {
+                new LineSeries<double>
+                {
+                        Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
+                        Fill = null
+                    }
+            };
+    }
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -24,7 +41,6 @@ namespace AssetsView
         {
             InitializeComponent();
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

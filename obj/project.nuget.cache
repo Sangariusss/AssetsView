@@ -1,12 +1,24 @@
 {
   "version": 2,
-  "dgSpecHash": "h8BNob0DuToi1LdaihduydqyckHLfxs06ArtlD5LJT6rvW8KqQN17F1YcmgzkyGe08rka3f/MaxI0be9xVZC4A==",
+  "dgSpecHash": "/j+1ma3K7oScuevU7Sf/g28DeHtgInlJqqr5ooD5OogYtzp4oIVPZtvu/eImtDLD/T/qsVuHfgGKke8YGOfNZg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\E5-2670\\Desktop\\КР v2\\AssetsView\\AssetsView.csproj",
+  "projectFilePath": "C:\\Users\\E5-2670\\Desktop\\CW\\AssetsView\\AssetsView.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\E5-2670\\.nuget\\packages\\materialdesigncolors\\2.1.1\\materialdesigncolors.2.1.1.nupkg.sha512",
-    "C:\\Users\\E5-2670\\.nuget\\packages\\materialdesignthemes\\4.7.1\\materialdesignthemes.4.7.1.nupkg.sha512",
-    "C:\\Users\\E5-2670\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+    "C:\\Users\\E5-2670\\.nuget\\packages\\harfbuzzsharp\\2.8.2.3\\harfbuzzsharp.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\2.8.2.3\\harfbuzzsharp.nativeassets.macos.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\2.8.2.3\\harfbuzzsharp.nativeassets.win32.2.8.2.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\livechartscore\\2.0.0-beta.701\\livechartscore.2.0.0-beta.701.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0-beta.701\\livechartscore.skiasharpview.2.0.0-beta.701.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\livechartscore.skiasharpview.wpf\\2.0.0-beta.701\\livechartscore.skiasharpview.wpf.2.0.0-beta.701.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\microsoft.win32.systemevents\\4.5.0\\microsoft.win32.systemevents.4.5.0.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\skiasharp\\2.88.3\\skiasharp.2.88.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.3\\skiasharp.harfbuzz.2.88.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.3\\skiasharp.nativeassets.macos.2.88.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.3\\skiasharp.nativeassets.win32.2.88.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\skiasharp.views.desktop.common\\2.88.3\\skiasharp.views.desktop.common.2.88.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\skiasharp.views.wpf\\2.88.3\\skiasharp.views.wpf.2.88.3.nupkg.sha512",
+    "C:\\Users\\E5-2670\\.nuget\\packages\\system.drawing.common\\4.5.1\\system.drawing.common.4.5.1.nupkg.sha512"
   ],
   "logs": []
 }
