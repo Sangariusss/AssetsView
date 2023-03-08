@@ -65,3 +65,5 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\AssetsView.pdb
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\AssetsView.genruntimeconfig.cache
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\ref\AssetsView.dll
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Json.Net.dll
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
