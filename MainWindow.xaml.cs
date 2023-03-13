@@ -31,13 +31,15 @@ namespace AssetsView
                 new LineSeries<double>
                 {
                         Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
-                        Fill = null
+                        Fill = null,
+                        Stroke = new SolidColorPaint(SKColors.LimeGreen, 3)
                     }
             };
     }
 
     class Rates
     {
+        public string[] Countries { get; set; }
         public static bool Import()
         {
             try
@@ -55,6 +57,53 @@ namespace AssetsView
             {
                 return false;
             }
+        }
+    }
+
+    public class CurrencyCountry
+    {
+        public string Name { get; set; }
+        public string CurrencyCode { get; set; }
+        public string ImageSource { get; set; }
+    }
+
+    public class CurrencyCountryManager
+    {
+        public CurrencyCountry[] GetCurrencyCountries()
+        {
+            CurrencyCountry[] countries = new CurrencyCountry[]
+            {
+            new CurrencyCountry { Name = "United States dollar", CurrencyCode = "USD", ImageSource = "/USD.png" },
+            new CurrencyCountry { Name = "British pound", CurrencyCode = "GBP", ImageSource = "/GBP.png" },
+            new CurrencyCountry { Name = "Euro", CurrencyCode = "EUR", ImageSource = "/EUR.png" },
+            new CurrencyCountry { Name = "Australian dollar", CurrencyCode = "AUD", ImageSource = "/AUD.png" },
+            new CurrencyCountry { Name = "Canadian dollar", CurrencyCode = "CAD", ImageSource = "/CAd.png" },
+            new CurrencyCountry { Name = "Danish krone", CurrencyCode = "DKK", ImageSource = "/DKK.png" },
+            new CurrencyCountry { Name = "Hong Kong dollar", CurrencyCode = "HKD", ImageSource = "/HKD.png" },
+            new CurrencyCountry { Name = "Japanese yen", CurrencyCode = "JPY", ImageSource = "/JPY.png" },
+            new CurrencyCountry { Name = "New Zealand dollar", CurrencyCode = "NZD", ImageSource = "/NZD.png" },
+            new CurrencyCountry { Name = "Norwegian krone", CurrencyCode = "NOK", ImageSource = "/NOK.png" },
+            new CurrencyCountry { Name = "Swiss franc", CurrencyCode = "CHF", ImageSource = "/CHF.png" },
+            new CurrencyCountry { Name = "Singapore dollar", CurrencyCode = "SGD", ImageSource = "/SGD.png" },
+            new CurrencyCountry { Name = "Swedish krona", CurrencyCode = "SEK", ImageSource = "/SEK.png" },
+            new CurrencyCountry { Name = "Saudi rial", CurrencyCode = "SAR", ImageSource = "/SAR.png" },
+            new CurrencyCountry { Name = "Taiwan dollar", CurrencyCode = "TWD", ImageSource = "/TWD.png" },
+            new CurrencyCountry { Name = "South African rand", CurrencyCode = "ZAR", ImageSource = "/ZAR.png" },
+            new CurrencyCountry { Name = "Brazilian real", CurrencyCode = "BRL", ImageSource = "/BRL.png" },
+            new CurrencyCountry { Name = "Chinese yuan", CurrencyCode = "CNY", ImageSource = "/CNY.png" },
+            new CurrencyCountry { Name = "Czech koruna", CurrencyCode = "CZK", ImageSource = "/CZK.png" },
+            new CurrencyCountry { Name = "Hungarian forint", CurrencyCode = "HUF", ImageSource = "/HUF.png" },
+            new CurrencyCountry { Name = "Indian rupee", CurrencyCode = "INR", ImageSource = "/INR.png" },
+            new CurrencyCountry { Name = "Israeili shekel", CurrencyCode = "ILS", ImageSource = "/ILS.png" },
+            new CurrencyCountry { Name = "Malaysian ringgit", CurrencyCode = "MYR", ImageSource = "/MYR.png" },
+            new CurrencyCountry { Name = "Polish zloty", CurrencyCode = "PLN", ImageSource = "/PLN.png" },
+            new CurrencyCountry { Name = "Russian rubble", CurrencyCode = "RUB", ImageSource = "/RUB.png" },
+            new CurrencyCountry { Name = "South Korean won", CurrencyCode = "KRW", ImageSource = "/KRW.png" },
+            new CurrencyCountry { Name = "Thai baht", CurrencyCode = "THB", ImageSource = "/THB.png" },
+            new CurrencyCountry { Name = "Turkish lira", CurrencyCode = "TRY", ImageSource = "/TRY.png" },
+            };
+
+            return countries;
         }
     }
 
@@ -134,9 +183,32 @@ namespace AssetsView
         {
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        public string CreateIndicator(string currency1, string currency2)
         {
-            this.Close();
+            string lastLetter = "";
+            if (currency2 == "USD")
+            {
+                lastLetter = "D";
+            }
+            else if (currency2 == "GBP")
+            {
+                lastLetter = "S";
+            }
+            else if (currency2 == "EUR")
+            {
+                lastLetter = "ER";
+            }
+
+            return currency1 + lastLetter;
+        }
+
+        public string GenerateRequestUrl(string currency1, string currency2)
+        {
+            string indicator = CreateIndicator(currency1, currency2);
+            string apiKey = "PdEA66WhL4se9otbUq7R";
+
+            return $"https://data.nasdaq.com/api/v3/databases/BOE/XUDL{indicator}?api_key={apiKey}";
         }
 
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -148,9 +220,14 @@ namespace AssetsView
             }
         }
 
-        private void btnAddFavouriteRates_Click(object sender, RoutedEventArgs e)
+        private void ButtonAddFavouriteRates_Click(object sender, RoutedEventArgs e)
         {
             Rates.Import();
+        }
+
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

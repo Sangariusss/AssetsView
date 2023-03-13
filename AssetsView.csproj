@@ -16,6 +16,8 @@
     <None Remove="plus.png" />
     <None Remove="setting.png" />
     <None Remove="switch.png" />
+    <None Remove="USA.png" />
+    <None Remove="USD.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,6 +38,7 @@
     <Resource Include="plus.png" />
     <Resource Include="setting.png" />
     <Resource Include="switch.png" />
+    <Resource Include="USD.png" />
   </ItemGroup>
 
 </Project>
