@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="AssetsView.MVVM.View.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AssetsView.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="994" d:DesignWidth="1340">
+    <Grid>
+        <StackPanel Width="1270" Height="929" Background="#0E0E0E" Margin="37,27,33,38">
+            <StackPanel x:Name="Title" Width="1206" Height="63" Margin="31,33,33,0">
+                <TextBlock Text="Settings" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="25" FontWeight="Bold"/>
+                <TextBlock Text="Hotkeys" Margin="0,11,0,0"  Foreground="#828282" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,41,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,0" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+
+            <StackPanel Width="1206" Height="50" Margin="32,36,32,54" Orientation="Horizontal" Background="#141414">
+                <TextBlock Text="Open the window for selecting a currency" Margin="22,16,562,15" Width="350" Foreground="#FFFFFF" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="CTRL + S" Foreground="#42FF00" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+                <Button Style="{DynamicResource ButtonHoverStyle}" Content="?" Foreground="#FF0000" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Medium" Width="136" Height="50" Background="#171717" BorderThickness="0"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

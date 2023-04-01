@@ -106,3 +106,12 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Images\Flag
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Images\Flags\TWD.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Images\Flags\USD.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Images\Flags\ZAR.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\DashboardView.g.cs
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\DashboardView.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\App.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\SettingsView.g.cs
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\SettingsView.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\Theme\MenuButtonTheme.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\Theme\MenuButtonTheme.g.cs
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\HelpView.g.cs
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\HelpView.baml

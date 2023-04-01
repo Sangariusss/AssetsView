@@ -27,6 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="arrow.png" />
     <None Remove="dashboard.png" />
     <None Remove="Data\Fonts\Mariupol-Regular.ttf" />

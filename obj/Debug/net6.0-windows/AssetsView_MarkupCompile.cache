@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\E5-2670\Desktop\CW\AssetsView\App.xaml
-11407045341
+5177657128
 661994149224
-3-1233169557
+111478819418
 205-157178223
-MainWindow.xaml;
+MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Theme\MenuButtonTheme.xaml;
 
 False
 
