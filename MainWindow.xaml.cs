@@ -12,6 +12,7 @@ namespace AssetsView
         {
             InitializeComponent();
         }
+
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             // If left mouse button is down, start dragging the window

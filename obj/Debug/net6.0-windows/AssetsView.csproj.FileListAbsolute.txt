@@ -111,7 +111,7 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\Dashbo
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\App.baml
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\SettingsView.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\SettingsView.baml
-C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\Theme\MenuButtonTheme.baml
-C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\Theme\MenuButtonTheme.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\HelpView.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\MVVM\View\HelpView.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\Styles\ButtonStyles.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\Styles\ButtonStyles.g.cs

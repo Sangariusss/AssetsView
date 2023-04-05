@@ -18,9 +18,11 @@
             </Button>
         </DataTemplate>
     </UserControl.Resources>
+    
     <UserControl.DataContext>
         <local:ViewModel/>
     </UserControl.DataContext>
+    
     <Grid>
         <!-- SearchPanel -->
             <StackPanel x:Name="SearchPanel" Width="640" Height="388" Margin="37,27,663,579" Background="#0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Visibility="Visible">
@@ -31,7 +33,7 @@
                         <Image Source="/Data/Icons/logout.png" Width="25" Height="25" Margin="0,11,0,10"/>
                     </Button>
                 </Grid>
-                <ListView x:Name="CountryListView" Width="584" Height="247" BorderThickness="0" Margin="26,21,30,0" ItemTemplate="{StaticResource CurrencyListItem}" ItemsSource="{Binding CountrySeries}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                <ListView x:Name="CountryListView" Width="584" Height="247" Background="#0E0E0E" BorderThickness="0" Margin="26,21,30,0" ItemTemplate="{StaticResource CurrencyListItem}" ItemsSource="{Binding CountrySeries}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
             </StackPanel>
 
             <!-- ConvertPanel -->
