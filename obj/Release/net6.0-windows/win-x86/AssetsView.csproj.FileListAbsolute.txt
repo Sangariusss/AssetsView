@@ -1,7 +1,6 @@
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\AssetsView.deps.json
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\AssetsView.runtimeconfig.json
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Fonts\Mariupol-Regular.ttf
-C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Icons\arrow.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Icons\dashboard.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Icons\help.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Icons\logo.png
@@ -556,12 +555,10 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\zh-Han
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\zh-Hant\WindowsBase.resources.dll
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\zh-Hant\WindowsFormsIntegration.resources.dll
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\AssetsView.csproj.AssemblyReference.cache
-C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\Theme\MenuButtonTheme.baml
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\MainWindow.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\MVVM\View\DashboardView.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\MVVM\View\HelpView.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\MVVM\View\SettingsView.g.cs
-C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\Theme\MenuButtonTheme.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\App.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\AssetsView_Content.g.cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\GeneratedInternalTypeHelper.g.cs
@@ -585,3 +582,8 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\Assets
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\refint\AssetsView.dll
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\AssetsView.pdb
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\ref\AssetsView.dll
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Icons\down-arrow.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\win-x86\Data\Icons\upper-arrow.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\Styles\ButtonStyles.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\Styles\TextBlockStyles.baml
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\win-x86\Styles\ButtonStyles.g.cs

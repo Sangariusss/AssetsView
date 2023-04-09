@@ -53,13 +53,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AssetsView.exe" size="138663206">
+  <file name="AssetsView.exe" size="138675494">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>wu8i7girsJdvRJb7sLP4xdNk1eerLI5D2iOW/b/Foio=</dsig:DigestValue>
+      <dsig:DigestValue>BZYgnw4pcTi0xVh3edn31s1GkPbL9GdfXw3u4qj0clE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="D3DCompiler_47_cor3.dll" size="4127192">
@@ -80,15 +80,6 @@
       <dsig:DigestValue>kKWsU0FQEni5jtxV8P+bn9Qs+EVDWeb7N9edc4jMm9g=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Data\Icons\arrow.png" size="670">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>ofzaojfcmFs/0MtNT723QqRnZMGDBdqckhiohRkcJkA=</dsig:DigestValue>
-    </hash>
-  </file>
   <file name="Data\Icons\dashboard.png" size="931">
     <hash>
       <dsig:Transforms>
@@ -96,6 +87,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Cvy0LWsdN8yTZqHcAik2/2iIqFVlhAe1RA6g6dSa2rA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Data\Icons\down-arrow.png" size="670">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ofzaojfcmFs/0MtNT723QqRnZMGDBdqckhiohRkcJkA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\Icons\help.png" size="2084">
@@ -159,6 +159,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>PRd2CWt5FFEAni4iaIy4HI0vU/vNuHhn1Nkrxaxy6BI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Data\Icons\upper-arrow.png" size="1028">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XV3Ur5iRSHsGotzs6otS74Q9ca0B1KpPZIX4tQmIsuY=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Data\Images\Flags\AUD.png" size="2555">

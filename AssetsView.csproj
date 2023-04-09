@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>LogoImage.ico</ApplicationIcon>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,6 +38,7 @@
     <None Remove="Data\Fonts\Mariupol-Regular.ttf" />
     <None Remove="Data\Icons\arrow.png" />
     <None Remove="Data\Icons\dashboard.png" />
+    <None Remove="Data\Icons\down-arrow.png" />
     <None Remove="Data\Icons\help.png" />
     <None Remove="Data\Icons\logo.png" />
     <None Remove="Data\Icons\logout.png" />
@@ -43,6 +46,7 @@
     <None Remove="Data\Icons\search.png" />
     <None Remove="Data\Icons\setting.png" />
     <None Remove="Data\Icons\switch.png" />
+    <None Remove="Data\Icons\upper-arrow.png" />
     <None Remove="Data\Images\AUD.png" />
     <None Remove="Data\Images\BRL.png" />
     <None Remove="Data\Images\CAD.png" />
@@ -147,10 +151,10 @@
     <Content Include="Data\Fonts\Mariupol-Regular.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Icons\arrow.png">
+    <Content Include="Data\Icons\dashboard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Icons\dashboard.png">
+    <Content Include="Data\Icons\down-arrow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Icons\help.png">
@@ -174,34 +178,93 @@
     <Content Include="Data\Icons\switch.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Data\Images\FlagsRounded\AUDrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\BRLrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\CADrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\CHFrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\CNYrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\CZKrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\DKKrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\EURrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\GBProunded.png" />
-    <Content Include="Data\Images\FlagsRounded\HKDrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\HUFrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\ILSrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\INRrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\JPYrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\KRWrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\MYRrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\NOKrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\NZDrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\PLNrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\RUBrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\SARrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\SEKrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\SGDrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\THBrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\TRYrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\TWDrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\USDrounded.png" />
-    <Content Include="Data\Images\FlagsRounded\ZARrounded.png" />
+    <Content Include="Data\Icons\upper-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\AUDrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\BRLrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\CADrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\CHFrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\CNYrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\CZKrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\DKKrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\EURrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\GBProunded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\HKDrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\HUFrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\ILSrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\INRrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\JPYrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\KRWrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\MYRrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\NOKrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\NZDrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\PLNrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\RUBrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\SARrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\SEKrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\SGDrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\THBrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\TRYrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\TWDrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\USDrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Images\FlagsRounded\ZARrounded.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Data\Images\Flags\AUD.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -286,12 +349,46 @@
     <Content Include="Data\Images\Flags\ZAR.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LogoImage.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Json.Net" Version="1.0.33" />
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.701" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Core\ObservableObject.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="Core\RelayCommand.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="MVVM\ViewModel\DashboardViewModel.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="MVVM\ViewModel\HelpViewModel.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="MVVM\ViewModel\MainViewModel.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="MVVM\ViewModel\SettingsViewModel.cs">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MVVM\View\DashboardView.xaml">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Page>
+    <Page Update="MVVM\View\HelpView.xaml">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Page>
+    <Page Update="MVVM\View\SettingsView.xaml">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
 
 </Project>

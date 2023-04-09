@@ -9,8 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/fonts/mariupol-regular.ttf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/arrow.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/dashboard.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/down-arrow.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/help.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/logo.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/logout.png")]
@@ -18,6 +18,7 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/search.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/setting.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/switch.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/upper-arrow.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/images/flagsrounded/audrounded.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/images/flagsrounded/brlrounded.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/images/flagsrounded/cadrounded.png")]
@@ -74,5 +75,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/images/flags/twd.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/images/flags/usd.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/images/flags/zar.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logoimage.ico")]
 
 

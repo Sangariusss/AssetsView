@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:AssetsView.MVVM.View"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
              mc:Ignorable="d" 
-             d:DesignHeight="994" d:DesignWidth="1340">
+             d:DesignHeight="994" d:DesignWidth="1340" Loaded="UserControl_Loaded"> 
     <UserControl.Resources>
         <DataTemplate x:Key="CurrencyListItem">
             <Button Width="584" Style="{DynamicResource ButtonHoverStyle}" Click="CurrencyButton_Click" Height="46" Background="#0E0E0E" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -18,78 +18,78 @@
             </Button>
         </DataTemplate>
     </UserControl.Resources>
-    
+
     <UserControl.DataContext>
         <local:ViewModel/>
     </UserControl.DataContext>
-    
+
     <Grid>
         <!-- SearchPanel -->
-            <StackPanel x:Name="SearchPanel" Width="640" Height="388" Margin="37,27,663,579" Background="#0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Visibility="Visible">
-                <Grid>
-                    <TextBox x:Name="SearchTextBox" Width="584" Height="46" Margin="26,38,30,0" Background="#171717" BorderThickness="0" FontFamily="Mariupol" Foreground="Gray" Text="Type a country / currency" FontSize="15" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="60,16,80,16" FontWeight="Regular" BorderBrush="White" TextChanged="SearchTextBox_TextChanged"/>
-                    <Image Source="/Data/Icons/search.png" Width="25" Height="25" Margin="38,48,576,11"/>
-                    <Button x:Name="BackButton" Style="{DynamicResource ButtonHoverStyle}" Width="57" Height="46" Background="#1B1B1B" Margin="553,38,30,0" BorderThickness="0" Cursor="Hand" Click="BackButton_Click">
-                        <Image Source="/Data/Icons/logout.png" Width="25" Height="25" Margin="0,11,0,10"/>
+        <StackPanel x:Name="SearchPanel" Width="640" Height="388" Margin="37,27,663,579" Background="#0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Visibility="Visible">
+            <Grid>
+                <TextBox x:Name="SearchTextBox" Width="584" Height="46" Margin="26,38,30,0" Background="#171717" BorderThickness="0" FontFamily="Mariupol" Foreground="Gray" Text="Type a country / currency" FontSize="15" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="60,16,80,16" FontWeight="Regular" BorderBrush="White" TextChanged="SearchTextBox_TextChanged" PreviewTextInput="SearchTextBox_PreviewTextInput"/>
+                <Image Source="/Data/Icons/search.png" Width="25" Height="25" Margin="38,48,576,11"/>
+                <Button x:Name="BackButton" Style="{DynamicResource ButtonHoverStyle}" Width="57" Height="46" Background="#1B1B1B" Margin="553,38,30,0" BorderThickness="0" Cursor="Hand" Click="BackButton_Click">
+                    <Image Source="/Data/Icons/logout.png" Width="25" Height="25" Margin="0,11,0,10"/>
+                </Button>
+            </Grid>
+            <ListView x:Name="CountryListView" Width="584" Height="247" Background="#0E0E0E" BorderThickness="0" Margin="26,21,30,0" ItemTemplate="{StaticResource CurrencyListItem}" ItemsSource="{Binding CountrySeries}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+        </StackPanel>
+
+        <!-- ConvertPanel -->
+        <StackPanel x:Name="ConvertPanel" Width="640" Height="388" Margin="37,27,663,579" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Visibility="Visible">
+            <StackPanel>
+                <TextBlock x:Name="Title" Text="Convert" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="25" Width="95" Foreground="White" Height="24" Margin="30,35,515,0" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel Width="581" Height="50" Margin="29,30,30,0">
+                <Grid Height="50">
+                    <TextBox x:Name="CurrencyTextBox1" Width="461" Height="50" Background="Black" BorderThickness="1.5" BorderBrush="#141414" Margin="0,0,120,0" Padding="16,0,0,0" Foreground="White" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Bold" TextAlignment="Left" VerticalContentAlignment="Center" PreviewTextInput="CurrencyTextBox_PreviewTextInput" TextChanged="CurrencyTextBox_TextChanged"/>
+                    <Button x:Name="CurrencyButton1" Style="{DynamicResource ButtonHoverStyle}" Width="120" Height="50" Margin="461,0,0,0" Background="#141414" BorderThickness="0" Click="CurrencyButton1_Click">
+                        <StackPanel Orientation="Horizontal" Width="120" Height="50" Margin="-1,-1,0,0">
+                            <Image Source="{Binding ImageSource}" Width="19" Height="12" Margin="13,20,0,18"/>
+                            <TextBlock Text="{Binding CurrencyCode}" Width="32" Height="13" Margin="11,18,0,18" Foreground="#FFFFFF" FontSize="14" FontFamily="Fonts/Mariupol-Regular.ttf" FontWeight="Medium"/>
+                            <Image Source="/Data/Icons/down-arrow.png" Width="16" Height="21" Margin="16,15,13,14"/>
+                        </StackPanel>
                     </Button>
                 </Grid>
-                <ListView x:Name="CountryListView" Width="584" Height="247" Background="#0E0E0E" BorderThickness="0" Margin="26,21,30,0" ItemTemplate="{StaticResource CurrencyListItem}" ItemsSource="{Binding CountrySeries}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
             </StackPanel>
-
-            <!-- ConvertPanel -->
-            <StackPanel x:Name="ConvertPanel" Width="640" Height="388" Margin="37,27,663,579" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Visibility="Visible">
-                <StackPanel>
-                    <TextBlock x:Name="Title" Text="Convert" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="25" Width="95" Foreground="White" Height="24" Margin="30,35,515,0" FontWeight="Bold"/>
-                </StackPanel>
-                <StackPanel Width="581" Height="50" Margin="29,30,30,0">
-                    <Grid Height="50">
-                        <TextBox x:Name="CurrencyTextBox1" Width="461" Height="50" Background="Black" BorderThickness="1.5" BorderBrush="#141414" Margin="0,0,120,0" Padding="16,0,0,0" Foreground="White" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Bold" TextAlignment="Left" VerticalContentAlignment="Center"/>
-                        <Button x:Name="CurrencyButton1" Style="{DynamicResource ButtonHoverStyle}" Width="120" Height="50" Margin="461,0,0,0" Background="#141414" BorderThickness="0" Click="CurrencyButton1_Click">
-                            <StackPanel Orientation="Horizontal" Width="120" Height="50" Margin="-1,-1,0,0">
-                                <Image Source="{Binding ImageSource}" Width="19" Height="12" Margin="13,20,0,18"/>
-                                <TextBlock Text="{Binding CurrencyCode}" Width="32" Height="13" Margin="11,18,0,18" Foreground="#FFFFFF" FontSize="14" FontFamily="Fonts/Mariupol-Regular.ttf" FontWeight="Medium"/>
-                                <Image Source="/Data/Icons/arrow.png" Width="16" Height="21" Margin="16,15,13,14"/>
-                            </StackPanel>
-                        </Button>
-                    </Grid>
-                </StackPanel>
-                <!-- SwitchButton -->
-                <Button x:Name="SwitchButton" Style="{DynamicResource ButtonHoverStyle}" Width="52" Height="39" Margin="30,21,558,0" Background="#171717" BorderThickness="0">
-                    <Image Source="/Data/Icons/switch.png" Width="23" Height="31"/>
-                </Button>
-                <StackPanel Width="581" Height="50" Margin="29,20,30,0">
-                    <Grid Height="50">
-                        <TextBox x:Name="CurrencyTextBox2" Width="461" Height="50" Background="Black" BorderThickness="1.5" BorderBrush="#141414" Margin="0,0,120,0" Padding="16,0,0,0" Foreground="White" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Bold" TextAlignment="Left" VerticalContentAlignment="Center"/>
-                        <Button x:Name="CurrencyButton2" Style="{DynamicResource ButtonHoverStyle}" Width="120" Height="50" Margin="461,0,0,0" Background="#141414" BorderThickness="0" Click="CurrencyButton2_Click">
-                            <StackPanel Orientation="Horizontal" Width="120" Height="50" Margin="-1,-1,0,0">
-                                <Image Source="{Binding ImageSource}" Width="19" Height="12" Margin="13,20,0,18"/>
-                                <TextBlock Text="{Binding CurrencyCode}" Width="32" Height="13" Margin="11,18,0,18" Foreground="#FFFFFF" FontSize="14" FontFamily="Fonts/Mariupol-Regular.ttf" FontWeight="Medium"/>
-                                <Image Source="/Data/Icons/arrow.png" Width="16" Height="21" Margin="16,15,13,14"/>
-                            </StackPanel>
-                        </Button>
-                    </Grid>
-                </StackPanel>
-                <TextBlock x:Name="ExchangeRateTextBlock1" Text="1 EUR = 1,06770 USD" Width="175" Height="19" Margin="30,36,440,0" FontSize="18" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Medium" Foreground="#FFFFFF"/>
-                <TextBlock x:Name="PercentageChangeTextBlock" Text="Up by 0,00% (0,000000 USD)" Width="190" Height="18" Margin="30,16,420,30" FontSize="15" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Regular" Foreground="#42FF00"/>
+            <!-- SwitchButton -->
+            <Button x:Name="SwitchButton" Style="{DynamicResource ButtonHoverStyle}" Width="52" Height="39" Margin="30,21,558,0" Background="#171717" BorderThickness="0">
+                <Image Source="/Data/Icons/switch.png" Width="23" Height="31"/>
+            </Button>
+            <StackPanel Width="581" Height="50" Margin="29,20,30,0">
+                <Grid Height="50">
+                    <TextBox x:Name="CurrencyTextBox2" Width="461" Height="50" Background="Black" BorderThickness="1.5" BorderBrush="#141414" Margin="0,0,120,0" Padding="16,0,0,0" Foreground="White" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Bold" TextAlignment="Left" VerticalContentAlignment="Center" PreviewTextInput="CurrencyTextBox_PreviewTextInput" TextChanged="CurrencyTextBox_TextChanged"/>
+                    <Button x:Name="CurrencyButton2" Style="{DynamicResource ButtonHoverStyle}" Width="120" Height="50" Margin="461,0,0,0" Background="#141414" BorderThickness="0" Click="CurrencyButton2_Click">
+                        <StackPanel Orientation="Horizontal" Width="120" Height="50" Margin="-1,-1,0,0">
+                            <Image Source="{Binding ImageSource}" Width="19" Height="12" Margin="13,20,0,18"/>
+                            <TextBlock Text="{Binding CurrencyCode}" Width="32" Height="13" Margin="11,18,0,18" Foreground="#FFFFFF" FontSize="14" FontFamily="Fonts/Mariupol-Regular.ttf" FontWeight="Medium"/>
+                            <Image Source="/Data/Icons/down-arrow.png" Width="16" Height="21" Margin="16,15,13,14"/>
+                        </StackPanel>
+                    </Button>
+                </Grid>
             </StackPanel>
-            <!-- ChartPanel -->
-            <StackPanel x:Name="ChartPanel" Width="640" Height="530" Margin="37,426,667,38" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1">
-                <StackPanel Width="640" Height="120">
-                    <Grid Width="640" Height="120">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="94" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="/Data/Images/FlagsRounded/USDrounded.png" Width="30" Height="30" Margin="30,40,34,50" Grid.Column="0"/>
-                        <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="41,52,23,38" Grid.Column="0"/>
-                        <TextBlock x:Name="CurrencyConversionTextBlock" Text="USD to GBP" Width="100" Height="19" Margin="0,40,446,61" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#FFFFFF" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock x:Name="ExchangeRateTextBlock2" Text="1 USD = 0,830427 GPB" Width="155" Height="18" Margin="0,69,391,33" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#42FF00" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
-                    </Grid>
-                </StackPanel>
-                <lvc:CartesianChart 
+            <TextBlock x:Name="ExchangeRateTextBlock1" Text="1 EUR = 1,06770 USD" Width="175" Height="19" Margin="30,36,440,0" FontSize="18" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Medium" Foreground="#FFFFFF"/>
+            <TextBlock x:Name="PercentageChangeTextBlock" Text="Up by 0,00% (0,000000 USD)" Width="190" Height="18" Margin="30,16,420,30" FontSize="15" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Regular" Foreground="#42FF00"/>
+        </StackPanel>
+        <!-- ChartPanel -->
+        <StackPanel x:Name="ChartPanel" Width="640" Height="530" Margin="37,426,663,38" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1">
+            <StackPanel Width="640" Height="120">
+                <Grid Width="640" Height="120">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="94" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image x:Name="ImageRounded1" Source="{Binding ImageRoundedSource}" Loaded="UserControl_Loaded" Width="30" Height="30" Margin="30,40,34,50" Grid.Column="0"/>
+                    <Image x:Name="ImageRounded2" Source="{Binding ImageRoundedSource}" Loaded="UserControl_Loaded" Width="30" Height="30" Margin="41,52,23,38" Grid.Column="0"/>
+                    <TextBlock x:Name="CurrencyConversionTextBlock" Text="EUR to USD" Width="100" Height="19" Margin="0,40,446,61" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#FFFFFF" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                    <TextBlock x:Name="ExchangeRateTextBlock2" Text="1 EUR = 1,06770 USD" Width="155" Height="18" Margin="0,69,391,33" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#42FF00" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+            <lvc:CartesianChart 
                 Series="{Binding Series}" Width="504" Height="181">
-                </lvc:CartesianChart>
-            </StackPanel>
+            </lvc:CartesianChart>
+        </StackPanel>
         <!-- Favourite&PopularPanel -->
         <StackPanel x:Name="FavouritePopularPanel" Width="596" Height="933" Margin="711,27,33,38" Background="#FF0E0E0E" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1">
             <StackPanel x:Name="FavouriteRatesPanel" Height="88">

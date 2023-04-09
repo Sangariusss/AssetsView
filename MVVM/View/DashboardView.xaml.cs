@@ -1,6 +1,7 @@
 ﻿using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Painting;
+using Newtonsoft.Json.Linq;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -15,16 +16,16 @@ namespace AssetsView.MVVM.View
     public class ViewModel
     {
         // Gets or sets the chart's series
-        public ISeries[] Series { get; set; }
-            = new ISeries[]
+        public ISeries[] Series { get; set; } = new ISeries[]
+        {
+            new LineSeries<double>
             {
-                new LineSeries<double>
-                {
-                        Values = new double[] { 2, 1, 3, 5, 3, 4, 6 },
-                        Fill = null,
-                        Stroke = new SolidColorPaint(SKColors.LimeGreen, 3)
-                    }
-            };
+                Values = new double[] { 1.06, 1.1, 1.08 },
+                Fill = null,
+                Stroke = new SolidColorPaint(SKColors.LimeGreen, 3)
+            }
+        };
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         private readonly CurrencyCountryManager _currencyCountryManager;
@@ -44,8 +45,10 @@ namespace AssetsView.MVVM.View
     {
         public string Name { get; set; }
         public string CurrencyCode { get; set; }
-        public string ImageSource { get; set; }
         public string NasdaqCurrencyCode { get; set; }
+        public string ImageSource { get; set; }
+        public string ImageRoundedSource { get; set; }
+
     }
 
     public class CurrencyCountryManager
@@ -55,34 +58,34 @@ namespace AssetsView.MVVM.View
         {
             CurrencyCountry[] countries = new CurrencyCountry[]
             {
-            new CurrencyCountry { Name = "United States dollar", CurrencyCode = "USD", NasdaqCurrencyCode = "D", ImageSource = "/Data/Images/Flags/USD.png" },
-            new CurrencyCountry { Name = "British pound", CurrencyCode = "GBP", NasdaqCurrencyCode = "S", ImageSource = "/Data/Images/Flags/GBP.png" },
-            new CurrencyCountry { Name = "Euro", CurrencyCode = "EUR", NasdaqCurrencyCode = "ER", ImageSource = "/Data/Images/Flags/EUR.png" },
-            new CurrencyCountry { Name = "Australian dollar", CurrencyCode = "AUD", NasdaqCurrencyCode = "AD", ImageSource = "/Data/Images/Flags/AUD.png" },
-            new CurrencyCountry { Name = "Canadian dollar", CurrencyCode = "CAD", NasdaqCurrencyCode = "CD", ImageSource = "/Data/Images/Flags/CAD.png" },
-            new CurrencyCountry { Name = "Danish krone", CurrencyCode = "DKK", NasdaqCurrencyCode = "DK", ImageSource = "/Data/Images/Flags/DKK.png" },
-            new CurrencyCountry { Name = "Hong Kong dollar", CurrencyCode = "HKD", NasdaqCurrencyCode = "HD", ImageSource = "/Data/Images/Flags/HKD.png" },
-            new CurrencyCountry { Name = "Japanese yen", CurrencyCode = "JPY", NasdaqCurrencyCode = "JY", ImageSource = "/Data/Images/Flags/JPY.png" },
-            new CurrencyCountry { Name = "New Zealand dollar", CurrencyCode = "NZD", NasdaqCurrencyCode = "ND", ImageSource = "/Data/Images/Flags/NZD.png" },
-            new CurrencyCountry { Name = "Norwegian krone", CurrencyCode = "NOK", NasdaqCurrencyCode = "NK", ImageSource = "/Data/Images/Flags/NOK.png" },
-            new CurrencyCountry { Name = "Swiss franc", CurrencyCode = "CHF", NasdaqCurrencyCode = "SF", ImageSource = "/Data/Images/Flags/CHF.png" },
-            new CurrencyCountry { Name = "Singapore dollar", CurrencyCode = "SGD", NasdaqCurrencyCode = "SG", ImageSource = "/Data/Images/Flags/SGD.png" },
-            new CurrencyCountry { Name = "Swedish krona", CurrencyCode = "SEK", NasdaqCurrencyCode = "SK", ImageSource = "/Data/Images/Flags/SEK.png" },
-            new CurrencyCountry { Name = "Saudi rial", CurrencyCode = "SAR", NasdaqCurrencyCode = "SR", ImageSource = "/Data/Images/Flags/SAR.png" },
-            new CurrencyCountry { Name = "Taiwan dollar", CurrencyCode = "TWD", NasdaqCurrencyCode = "TW", ImageSource = "/Data/Images/Flags/TWD.png" },
-            new CurrencyCountry { Name = "South African rand", CurrencyCode = "ZAR", NasdaqCurrencyCode = "ZR", ImageSource = "/Data/Images/Flags/ZAR.png" },
-           /* new CurrencyCountry { Name = "Brazilian real", CurrencyCode = "BRL", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/BRL.png" },
-            new CurrencyCountry { Name = "Chinese yuan", CurrencyCode = "CNY", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/CNY.png" },
-            new CurrencyCountry { Name = "Czech koruna", CurrencyCode = "CZK", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/CZK.png" },
-            new CurrencyCountry { Name = "Hungarian forint", CurrencyCode = "HUF", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/HUF.png" },
-            new CurrencyCountry { Name = "Indian rupee", CurrencyCode = "INR", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/INR.png" },
-            new CurrencyCountry { Name = "Israeili shekel", CurrencyCode = "ILS", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/ILS.png" },
-            new CurrencyCountry { Name = "Malaysian ringgit", CurrencyCode = "MYR", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/MYR.png" },
-            new CurrencyCountry { Name = "Polish zloty", CurrencyCode = "PLN", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/PLN.png" },
-            new CurrencyCountry { Name = "Russian rubble", CurrencyCode = "RUB", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/RUB.png" },
-            new CurrencyCountry { Name = "South Korean won", CurrencyCode = "KRW", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/KRW.png" },
-            new CurrencyCountry { Name = "Thai baht", CurrencyCode = "THB", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/THB.png" },
-            new CurrencyCountry { Name = "Turkish lira", CurrencyCode = "TRY", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/TRY.png" },*/
+            new CurrencyCountry { Name = "United States dollar", CurrencyCode = "USD", NasdaqCurrencyCode = "D", ImageSource = "/Data/Images/Flags/USD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/USDrounded.png"},
+            new CurrencyCountry { Name = "British pound", CurrencyCode = "GBP", NasdaqCurrencyCode = "S", ImageSource = "/Data/Images/Flags/GBP.png", ImageRoundedSource = "/Data/Images/FlagsRounded/GBProunded.png"},
+            new CurrencyCountry { Name = "Euro", CurrencyCode = "EUR", NasdaqCurrencyCode = "ER", ImageSource = "/Data/Images/Flags/EUR.png", ImageRoundedSource = "/Data/Images/FlagsRounded/EURrounded.png"},
+            new CurrencyCountry { Name = "Australian dollar", CurrencyCode = "AUD", NasdaqCurrencyCode = "AD", ImageSource = "/Data/Images/Flags/AUD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/AUDrounded.png"},
+            new CurrencyCountry { Name = "Canadian dollar", CurrencyCode = "CAD", NasdaqCurrencyCode = "CD", ImageSource = "/Data/Images/Flags/CAD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/CADrounded.png"},
+            new CurrencyCountry { Name = "Danish krone", CurrencyCode = "DKK", NasdaqCurrencyCode = "DK", ImageSource = "/Data/Images/Flags/DKK.png", ImageRoundedSource = "/Data/Images/FlagsRounded/DKKrounded.png"},
+            new CurrencyCountry { Name = "Hong Kong dollar", CurrencyCode = "HKD", NasdaqCurrencyCode = "HD", ImageSource = "/Data/Images/Flags/HKD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/HKDrounded.png"},
+            new CurrencyCountry { Name = "Japanese yen", CurrencyCode = "JPY", NasdaqCurrencyCode = "JY", ImageSource = "/Data/Images/Flags/JPY.png", ImageRoundedSource = "/Data/Images/FlagsRounded/JPYrounded.png"},
+            new CurrencyCountry { Name = "New Zealand dollar", CurrencyCode = "NZD", NasdaqCurrencyCode = "ND", ImageSource = "/Data/Images/Flags/NZD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/NZDrounded.png"},
+            new CurrencyCountry { Name = "Norwegian krone", CurrencyCode = "NOK", NasdaqCurrencyCode = "NK", ImageSource = "/Data/Images/Flags/NOK.png", ImageRoundedSource = "/Data/Images/FlagsRounded/NOKrounded.png"},
+            new CurrencyCountry { Name = "Swiss franc", CurrencyCode = "CHF", NasdaqCurrencyCode = "SF", ImageSource = "/Data/Images/Flags/CHF.png", ImageRoundedSource = "/Data/Images/FlagsRounded/CHFrounded.png"},
+            new CurrencyCountry { Name = "Singapore dollar", CurrencyCode = "SGD", NasdaqCurrencyCode = "SG", ImageSource = "/Data/Images/Flags/SGD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/SGDrounded.png"},
+            new CurrencyCountry { Name = "Swedish krona", CurrencyCode = "SEK", NasdaqCurrencyCode = "SK", ImageSource = "/Data/Images/Flags/SEK.png", ImageRoundedSource = "/Data/Images/FlagsRounded/SEKrounded.png"},
+            new CurrencyCountry { Name = "Saudi rial", CurrencyCode = "SAR", NasdaqCurrencyCode = "SR", ImageSource = "/Data/Images/Flags/SAR.png", ImageRoundedSource = "/Data/Images/FlagsRounded/SARrounded.png"},
+            new CurrencyCountry { Name = "Taiwan dollar", CurrencyCode = "TWD", NasdaqCurrencyCode = "TW", ImageSource = "/Data/Images/Flags/TWD.png", ImageRoundedSource = "/Data/Images/FlagsRounded/TWDrounded.png"},
+            new CurrencyCountry { Name = "South African rand", CurrencyCode = "ZAR", NasdaqCurrencyCode = "ZR", ImageSource = "/Data/Images/Flags/ZAR.png", ImageRoundedSource = "/Data/Images/FlagsRounded/ZARrounded.png"},
+           /* new CurrencyCountry { Name = "Brazilian real", CurrencyCode = "BRL", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/BRL.png", ImageRoundedSource = "/Data/Images/FlagsRounded/BRLrounded.png"},
+            new CurrencyCountry { Name = "Chinese yuan", CurrencyCode = "CNY", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/CNY.png", ImageRoundedSource = "/Data/Images/FlagsRounded/CNYrounded.png"},
+            new CurrencyCountry { Name = "Czech koruna", CurrencyCode = "CZK", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/CZK.png", ImageRoundedSource = "/Data/Images/FlagsRounded/CZKrounded.png"},
+            new CurrencyCountry { Name = "Hungarian forint", CurrencyCode = "HUF", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/HUF.png", ImageRoundedSource = "/Data/Images/FlagsRounded/HUFrounded.png"},
+            new CurrencyCountry { Name = "Indian rupee", CurrencyCode = "INR", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/INR.png", ImageRoundedSource = "/Data/Images/FlagsRounded/INRrounded.png"},
+            new CurrencyCountry { Name = "Israeili shekel", CurrencyCode = "ILS", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/ILS.png", ImageRoundedSource = "/Data/Images/FlagsRounded/ILSrounded.png"},
+            new CurrencyCountry { Name = "Malaysian ringgit", CurrencyCode = "MYR", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/MYR.png", ImageRoundedSource = "/Data/Images/FlagsRounded/MYRrounded.png"},
+            new CurrencyCountry { Name = "Polish zloty", CurrencyCode = "PLN", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/PLN.png", ImageRoundedSource = "/Data/Images/FlagsRounded/PLNrounded.png"},
+            new CurrencyCountry { Name = "Russian rubble", CurrencyCode = "RUB", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/RUB.png", ImageRoundedSource = "/Data/Images/FlagsRounded/RUBrounded.png"},
+            new CurrencyCountry { Name = "South Korean won", CurrencyCode = "KRW", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/KRW.png", ImageRoundedSource = "/Data/Images/FlagsRounded/KRWrounded.png"},
+            new CurrencyCountry { Name = "Thai baht", CurrencyCode = "THB", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/THB.png", ImageRoundedSource = "/Data/Images/FlagsRounded/THBrounded.png"},
+            new CurrencyCountry { Name = "Turkish lira", CurrencyCode = "TRY", NasdaqCurrencyCode = "", ImageSource = "/Data/Images/Flags/TRY.png", ImageRoundedSource = "/Data/Images/FlagsRounded/TRYrounded.png"},*/
             };
 
             return countries;
@@ -96,9 +99,21 @@ namespace AssetsView.MVVM.View
     {
         private CurrencyCountry country1;
         private CurrencyCountry country2;
+
+        private double exchangeRate;
+        private double convertedAmount;
+
         public DashboardView()
         {
             InitializeComponent();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            ImageRounded1.DataContext = new CurrencyCountry { ImageRoundedSource = "/Data/Images/FlagsRounded/EURrounded.png" };
+            ImageRounded2.DataContext = new CurrencyCountry { CurrencyCode = "", ImageRoundedSource = "/Data/Images/FlagsRounded/USDrounded.png", ImageSource = "", NasdaqCurrencyCode = "" };
+            CurrencyButton1.DataContext = new CurrencyCountry { CurrencyCode = "EUR", ImageSource = "/Data/Images/Flags/EUR.png", NasdaqCurrencyCode = "ER" };
+            CurrencyButton2.DataContext = new CurrencyCountry { CurrencyCode = "USD", ImageSource = "/Data/Images/Flags/USD.png", NasdaqCurrencyCode = "D" };
         }
 
         public string CreateIndicator(string currency1, string currency2)
@@ -110,8 +125,12 @@ namespace AssetsView.MVVM.View
         {
             string indicator = CreateIndicator(currency1, currency2);
             string apiKey = "uqJe3DgGNgsPcFn3KRZW";
+            string url = $"https://data.nasdaq.com/api/v3/datasets/BOE/XUDL{indicator}.json?api_key={apiKey}";
 
-            return $"https://data.nasdaq.com/api/v3/datasets/BOE/XUDL{indicator}.json?api_key={apiKey}";
+            // Add query parameter to request latest data
+            url += "&order=desc&limit=1";
+
+            return url;
         }
 
         private void ButtonAddFavouriteRates_Click(object sender, RoutedEventArgs e)
@@ -157,11 +176,13 @@ namespace AssetsView.MVVM.View
             {
                 country1 = clickedCountry;
                 CurrencyButton1.DataContext = country1;
+                ImageRounded1.DataContext = country1;
             }
             else
             {
                 country2 = clickedCountry;
                 CurrencyButton2.DataContext = country2;
+                ImageRounded2.DataContext = country2;
             }
 
             if (country1 != null && country2 != null)
@@ -177,8 +198,18 @@ namespace AssetsView.MVVM.View
                     {
                         // Extract the exchange rate data from the response
                         string jsonResponse = await response.Content.ReadAsStringAsync();
-                        // Do something with the exchange rate data
-                        Console.Write(jsonResponse);
+                        JObject exchangeData = JObject.Parse(jsonResponse);
+                        exchangeRate = exchangeData["dataset"]["data"][0][1].Value<double>();
+                        double reverseExchangeRate = 1.0 / exchangeRate;
+
+                        // Update the exchange rate text with the selected currencies and exchange rate
+                        ExchangeRateTextBlock1.Text = $"1 {country1.CurrencyCode} = {reverseExchangeRate:F5} {country2.CurrencyCode}";
+                        ExchangeRateTextBlock2.Text = $"1 {country1.CurrencyCode} = {reverseExchangeRate:F5} {country2.CurrencyCode}";
+                        CurrencyConversionTextBlock.Text = $"{country1.CurrencyCode} to {country2.CurrencyCode}";
+
+                        // Update the exchange rate values in the two TextBox controls
+                        CurrencyTextBox1.Text = reverseExchangeRate.ToString();
+                        CurrencyTextBox2.Text = reverseExchangeRate.ToString();
                     }
                     else
                     {
@@ -191,6 +222,35 @@ namespace AssetsView.MVVM.View
             if (SearchPanel.IsVisible)
             {
                 ConvertPanel.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void CurrencyTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox changedTextBox = (TextBox)sender;
+            if (changedTextBox == CurrencyTextBox1)
+            {
+                if (double.TryParse(CurrencyTextBox1.Text, out double amount))
+                {
+                    convertedAmount = amount * (1.0 / exchangeRate);
+                    CurrencyTextBox2.Text = convertedAmount.ToString("0.##");
+                }
+                else
+                {
+                    CurrencyTextBox2.Text = "";
+                }
+            }
+            else if (changedTextBox == CurrencyTextBox2)
+            {
+                if (double.TryParse(CurrencyTextBox2.Text, out double amount))
+                {
+                    convertedAmount = amount * exchangeRate;
+                    CurrencyTextBox1.Text = convertedAmount.ToString("0.##");
+                }
+                else
+                {
+                    CurrencyTextBox1.Text = "";
+                }
             }
         }
 
@@ -215,6 +275,30 @@ namespace AssetsView.MVVM.View
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CurrencyTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!Char.IsDigit(c) && c != ',')
+                {
+                    e.Handled = true;
+                    break;
+                }
+            }
+        }
+
+        private void SearchTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!Char.IsLetter(c))
+                {
+                    e.Handled = true;
+                    break;
+                }
+            }
         }
     }
 }
