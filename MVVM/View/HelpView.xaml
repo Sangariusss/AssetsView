@@ -33,19 +33,47 @@
                     Style="{StaticResource TextBlockGrayStyle}"
                     Text="Answers to your possible questions" />
             </StackPanel>
-
             <!--  Content section  -->
             <ScrollViewer
                 Grid.Row="1"
                 Height="800"
-                HorizontalScrollBarVisibility="Disabled">
-                <StackPanel Margin="37,27,33,25">
+                Margin="0,10,0,0"
+                HorizontalScrollBarVisibility="Disabled"
+                Style="{DynamicResource ScrollViewerStyle1}"
+                VerticalScrollBarVisibility="Auto">
+                <StackPanel Margin="37,17,33,25">
                     <StackPanel
                         Margin="0,0,0,20"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch">
                         <Expander
                             Width="Auto"
+                            Background="#1B1B1B"
+                            BorderThickness="0"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Header="How to use the currency converter?"
+                            Style="{StaticResource ExpanderStyle}"
+                            Template="{DynamicResource ExpanderTemplate1}">
+                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Normal"
+                                    LineHeight="29"
+                                    Style="{StaticResource TextBlockStyle}"
+                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+
+                    <StackPanel
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <Expander
+                            Width="Auto"
+                            BorderThickness="0"
                             Background="#1B1B1B"
                             FontSize="18"
                             FontWeight="Medium"
@@ -70,6 +98,7 @@
                         VerticalAlignment="Stretch">
                         <Expander
                             Width="Auto"
+                            BorderThickness="0"
                             Background="#1B1B1B"
                             FontSize="18"
                             FontWeight="Medium"
@@ -94,6 +123,55 @@
                         VerticalAlignment="Stretch">
                         <Expander
                             Width="Auto"
+                            BorderThickness="0"
+                            Background="#1B1B1B"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Header="How to use the currency converter?"
+                            Style="{StaticResource ExpanderStyle}"
+                            Template="{DynamicResource ExpanderTemplate1}">
+                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Normal"
+                                    LineHeight="29"
+                                    Style="{StaticResource TextBlockStyle}"
+                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <Expander
+                            Width="Auto"
+                            BorderThickness="0"
+                            Background="#1B1B1B"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Header="How to use the currency converter?"
+                            Style="{StaticResource ExpanderStyle}"
+                            Template="{DynamicResource ExpanderTemplate1}">
+                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Normal"
+                                    LineHeight="29"
+                                    Style="{StaticResource TextBlockStyle}"
+                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <Expander
+                            Width="Auto"
+                            BorderThickness="0"
                             Background="#1B1B1B"
                             FontSize="18"
                             FontWeight="Medium"

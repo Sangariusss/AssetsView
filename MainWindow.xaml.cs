@@ -22,11 +22,6 @@ namespace AssetsView
             }
         }
 
-        private void ButtonAddFavouriteRates_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();

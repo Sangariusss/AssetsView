@@ -20,7 +20,7 @@ namespace AssetsView.MVVM.View
         {
             new LineSeries<double>
             {
-                Values = new double[] { 1.06, 1.1, 1.08 },
+                Values = new double[] { 1, 1.1, 0.9, 1.25, 0.95, 1 },
                 Fill = null,
                 Stroke = new SolidColorPaint(SKColors.LimeGreen, 3)
             }
@@ -35,9 +35,9 @@ namespace AssetsView.MVVM.View
             _currencyCountryManager = new CurrencyCountryManager();
         }
         // Returns a collection of CurrencyCountry objects
-        public IEnumerable<CurrencyCountry> CountrySeries
+        public static IEnumerable<CurrencyCountry> CountrySeries
         {
-            get { return _currencyCountryManager.GetCurrencyCountries(); }
+            get { return CurrencyCountryManager.GetCurrencyCountries(); }
         }
     }
 
@@ -54,7 +54,7 @@ namespace AssetsView.MVVM.View
     public class CurrencyCountryManager
     {
         // Returns an array of CurrencyCountry objects
-        public CurrencyCountry[] GetCurrencyCountries()
+        public static CurrencyCountry[] GetCurrencyCountries()
         {
             CurrencyCountry[] countries = new CurrencyCountry[]
             {
@@ -111,17 +111,17 @@ namespace AssetsView.MVVM.View
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             ImageRounded1.DataContext = new CurrencyCountry { ImageRoundedSource = "/Data/Images/FlagsRounded/EURrounded.png" };
-            ImageRounded2.DataContext = new CurrencyCountry { CurrencyCode = "", ImageRoundedSource = "/Data/Images/FlagsRounded/USDrounded.png", ImageSource = "", NasdaqCurrencyCode = "" };
+            ImageRounded2.DataContext = new CurrencyCountry { ImageRoundedSource = "/Data/Images/FlagsRounded/USDrounded.png" };
             CurrencyButton1.DataContext = new CurrencyCountry { CurrencyCode = "EUR", ImageSource = "/Data/Images/Flags/EUR.png", NasdaqCurrencyCode = "ER" };
             CurrencyButton2.DataContext = new CurrencyCountry { CurrencyCode = "USD", ImageSource = "/Data/Images/Flags/USD.png", NasdaqCurrencyCode = "D" };
         }
 
-        public string CreateIndicator(string currency1, string currency2)
+        public static string CreateIndicator(string currency1, string currency2)
         {
             return currency1 + currency2;
         }
 
-        public string GenerateRequestUrl(string currency1, string currency2)
+        public static string GenerateRequestUrl(string currency1, string currency2)
         {
             string indicator = CreateIndicator(currency1, currency2);
             string apiKey = "uqJe3DgGNgsPcFn3KRZW";
@@ -131,11 +131,6 @@ namespace AssetsView.MVVM.View
             url += "&order=desc&limit=1";
 
             return url;
-        }
-
-        private void ButtonAddFavouriteRates_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -191,31 +186,29 @@ namespace AssetsView.MVVM.View
                 string requestUrl = GenerateRequestUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode);
                 Console.Write(requestUrl);
                 // Use the request URL to fetch the exchange rate data
-                using (HttpClient client = new HttpClient())
+                using HttpClient client = new();
+                HttpResponseMessage response = await client.GetAsync(requestUrl);
+                if (response.IsSuccessStatusCode)
                 {
-                    HttpResponseMessage response = await client.GetAsync(requestUrl);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        // Extract the exchange rate data from the response
-                        string jsonResponse = await response.Content.ReadAsStringAsync();
-                        JObject exchangeData = JObject.Parse(jsonResponse);
-                        exchangeRate = exchangeData["dataset"]["data"][0][1].Value<double>();
-                        double reverseExchangeRate = 1.0 / exchangeRate;
+                    // Extract the exchange rate data from the response
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    JObject exchangeData = JObject.Parse(jsonResponse);
+                    exchangeRate = exchangeData["dataset"]["data"][0][1].Value<double>();
+                    double reverseExchangeRate = 1.0 / exchangeRate;
 
-                        // Update the exchange rate text with the selected currencies and exchange rate
-                        ExchangeRateTextBlock1.Text = $"1 {country1.CurrencyCode} = {reverseExchangeRate:F5} {country2.CurrencyCode}";
-                        ExchangeRateTextBlock2.Text = $"1 {country1.CurrencyCode} = {reverseExchangeRate:F5} {country2.CurrencyCode}";
-                        CurrencyConversionTextBlock.Text = $"{country1.CurrencyCode} to {country2.CurrencyCode}";
+                    // Update the exchange rate text with the selected currencies and exchange rate
+                    ExchangeRateTextBlock1.Text = $"1 {country1.CurrencyCode} = {reverseExchangeRate:F5} {country2.CurrencyCode}";
+                    ExchangeRateTextBlock2.Text = $"1 {country1.CurrencyCode} = {reverseExchangeRate:F5} {country2.CurrencyCode}";
+                    CurrencyConversionTextBlock.Text = $"{country1.CurrencyCode} to {country2.CurrencyCode}";
 
-                        // Update the exchange rate values in the two TextBox controls
-                        CurrencyTextBox1.Text = reverseExchangeRate.ToString();
-                        CurrencyTextBox2.Text = reverseExchangeRate.ToString();
-                    }
-                    else
-                    {
-                        // Handle the case when the API request fails
-                        Console.WriteLine("Error");
-                    }
+                    // Update the exchange rate values in the two TextBox controls
+                    CurrencyTextBox1.Text = reverseExchangeRate.ToString();
+                    CurrencyTextBox2.Text = reverseExchangeRate.ToString();
+                }
+                else
+                {
+                    // Handle the case when the API request fails
+                    Console.WriteLine("Error");
                 }
             }
 
@@ -270,11 +263,6 @@ namespace AssetsView.MVVM.View
                 SearchTextBox.Text = "Type a country / currency";
                 SearchTextBox.Foreground = Brushes.Gray;
             }
-        }
-
-        private void SearchTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void CurrencyTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)

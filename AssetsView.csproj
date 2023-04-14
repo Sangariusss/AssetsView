@@ -36,7 +36,9 @@
     <None Remove="arrow.png" />
     <None Remove="dashboard.png" />
     <None Remove="Data\Fonts\Mariupol-Regular.ttf" />
+    <None Remove="Data\Icons\accept-arrow.png" />
     <None Remove="Data\Icons\arrow.png" />
+    <None Remove="Data\Icons\Chart.png" />
     <None Remove="Data\Icons\dashboard.png" />
     <None Remove="Data\Icons\down-arrow.png" />
     <None Remove="Data\Icons\help.png" />
@@ -149,6 +151,12 @@
 
   <ItemGroup>
     <Content Include="Data\Fonts\Mariupol-Regular.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Icons\accept-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Icons\chart.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Icons\dashboard.png">

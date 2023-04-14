@@ -9,6 +9,8 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/fonts/mariupol-regular.ttf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/accept-arrow.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/chart.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/dashboard.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/down-arrow.png")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/icons/help.png")]

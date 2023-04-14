@@ -145,3 +145,5 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\searc
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\setting.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\switch.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\upper-arrow.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\Chart.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\accept-arrow.png

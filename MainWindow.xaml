@@ -3,8 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:AssetsView"
-    xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:AssetsView.MVVM.ViewModel"
     Title="AssetsView"
@@ -27,10 +25,11 @@
             ResizeBorderThickness="5" />
     </WindowChrome.WindowChrome>
 
-    <Grid Height="1024">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -49,6 +48,7 @@
         <!--  Vertical panel  -->
         <StackPanel
             x:Name="VerticalPanel"
+            VerticalAlignment="Stretch"
             Grid.RowSpan="2"
             Width="100"
             Background="#0E0E0E">
@@ -80,6 +80,16 @@
                         IsEnabled="False"
                         Style="{DynamicResource OpacityStyle}" />
                 </Grid>
+                <RadioButton.ToolTip>
+                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                        <TextBlock
+                            Margin="13,8,0,0"
+                            FontSize="13"
+                            FontWeight="Regular"
+                            Style="{StaticResource TextBlockGrayStyle}"
+                            Text="Dashboard" />
+                    </ToolTip>
+                </RadioButton.ToolTip>
             </RadioButton>
 
             <!--  Button 2  -->
@@ -104,6 +114,16 @@
                         IsEnabled="False"
                         Style="{DynamicResource OpacityStyle}" />
                 </Grid>
+                <RadioButton.ToolTip>
+                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                        <TextBlock
+                            Margin="19,8,0,0"
+                            FontSize="13"
+                            FontWeight="Regular"
+                            Style="{StaticResource TextBlockGrayStyle}"
+                            Text="Settings" />
+                    </ToolTip>
+                </RadioButton.ToolTip>
             </RadioButton>
 
             <!--  Button 3  -->
@@ -126,21 +146,44 @@
                         IsEnabled="False"
                         Style="{DynamicResource OpacityStyle}" />
                 </Grid>
+                <RadioButton.ToolTip>
+                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                        <TextBlock
+                            Margin="28,8,0,0"
+                            FontSize="13"
+                            FontWeight="Regular"
+                            Style="{StaticResource TextBlockGrayStyle}"
+                            Text="Help" />
+                    </ToolTip>
+                </RadioButton.ToolTip>
             </RadioButton>
             <!--  Logout button  -->
             <Button
                 x:Name="ExitButton"
                 Width="100"
                 Height="93"
+                Grid.Row="2"
                 Background="#0E0E0E"
                 BorderBrush="Transparent"
                 Click="ButtonExit_Click"
                 Cursor="Hand"
                 Style="{DynamicResource ButtonHoverStyle}">
-                <Image
-                    Width="25"
-                    Height="25"
-                    Source="/Data/Icons/logout.png" />
+                <Grid>
+                    <Image
+                        Width="25"
+                        Height="25"
+                        Source="/Data/Icons/logout.png" />
+                </Grid>
+                <Button.ToolTip>
+                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                        <TextBlock
+                            Margin="31,8,0,0"
+                            FontSize="13"
+                            FontWeight="Regular"
+                            Style="{StaticResource TextBlockGrayStyle}"
+                            Text="Exit" />
+                    </ToolTip>
+                </Button.ToolTip>
             </Button>
         </StackPanel>
         <ContentControl

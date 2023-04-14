@@ -117,3 +117,5 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\Data\Images\Fl
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\Data\Images\FlagsRounded\TWDrounded.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\Data\Images\FlagsRounded\USDrounded.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\Data\Images\FlagsRounded\ZARrounded.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\Data\Icons\accept-arrow.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Release\net6.0-windows\Data\Icons\Chart.png
