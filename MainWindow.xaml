@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:AssetsView.MVVM.ViewModel"
     Title="AssetsView"
-    MinWidth="1440"
+    MinWidth="811"
     MinHeight="1024"
     AllowsTransparency="True"
     Background="#000000"
@@ -28,8 +28,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="994" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -54,16 +53,16 @@
             Background="#0E0E0E">
             <Image
                 x:Name="LogoImage"
-                Width="45"
-                Height="26"
-                Margin="26,37,26,0"
+                Width="55"
+                Height="45"
+                Margin="22,37,23,0"
                 Source="/Data/Icons/logo.png" />
 
             <!--  Button 1  -->
             <RadioButton
                 x:Name="DashboardButton"
                 Height="93"
-                Margin="0,127,0,0"
+                Margin="0,108,0,0"
                 Background="#0E0E0E"
                 BorderBrush="Transparent"
                 Command="{Binding DashboardViewCommand}"
@@ -106,7 +105,7 @@
                     <Image
                         Width="25"
                         Height="25"
-                        Source="/Data/Icons/setting.png" />
+                        Source="/Data/Icons/settings.png" />
                     <Rectangle
                         x:Name="SettingRectangle"
                         Width="22"

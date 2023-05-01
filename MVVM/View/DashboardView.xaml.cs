@@ -1,15 +1,18 @@
 ﻿using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Drawing.Geometries;
 using LiveChartsCore.SkiaSharpView.Painting;
 using Newtonsoft.Json.Linq;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace AssetsView.MVVM.View
 {
@@ -18,13 +21,26 @@ namespace AssetsView.MVVM.View
         // Gets or sets the chart's series
         public ISeries[] Series { get; set; } = new ISeries[]
         {
-            new LineSeries<double>
+            new LineSeries<double, CircleGeometry>
             {
-                Values = new double[] { 1, 1.1, 0.9, 1.25, 0.95, 1 },
+                Values = new ObservableCollection<double> { 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+                GeometryStroke = null,
+                GeometryFill = null,
                 Fill = null,
-                Stroke = new SolidColorPaint(SKColors.LimeGreen, 3)
+                Stroke = new SolidColorPaint(SKColors.LimeGreen, 3),
+                TooltipLabelFormatter =
+                    (ChartPoint) => $"1 EUR = {ChartPoint.PrimaryValue:C5}USD{Environment.NewLine}2023 Today, 12:00"
             }
         };
+
+        public SolidColorPaint TooltipTextPaint { get; set; } =
+        new SolidColorPaint
+        {
+            Color = SKColors.LimeGreen,
+        };
+
+        public SolidColorPaint TooltipBackgroundPaint { get; set; } =
+        new SolidColorPaint(new SKColor(14, 14, 14));
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -53,6 +69,29 @@ namespace AssetsView.MVVM.View
 
     public class CurrencyCountryManager
     {
+        public string filterText;
+        public CurrencyCountry[] FilterCurrencyCountries()
+        {
+            string searchText = this.filterText.Replace(" ", "");
+            CurrencyCountry[] allCountries = GetCurrencyCountries();
+            List<CurrencyCountry> filteredCountries = new List<CurrencyCountry>();
+
+            if (filterText == "Type a country / currency")
+            {
+                return allCountries;
+            }
+
+            foreach (CurrencyCountry country in allCountries)
+            {
+                if (country.Name.ToLower().Contains(searchText.ToLower()) ||
+                    country.CurrencyCode.ToLower().Contains(searchText.ToLower()))
+                {
+                    filteredCountries.Add(country);
+                }
+            }
+
+            return filteredCountries.ToArray();
+        }
         // Returns an array of CurrencyCountry objects
         public static CurrencyCountry[] GetCurrencyCountries()
         {
@@ -121,7 +160,7 @@ namespace AssetsView.MVVM.View
             return currency1 + currency2;
         }
 
-        public static string GenerateRequestUrl(string currency1, string currency2)
+        public static string GenerateRequestCurrentExchangeRateUrl(string currency1, string currency2)
         {
             string indicator = CreateIndicator(currency1, currency2);
             string apiKey = "uqJe3DgGNgsPcFn3KRZW";
@@ -129,6 +168,21 @@ namespace AssetsView.MVVM.View
 
             // Add query parameter to request latest data
             url += "&order=desc&limit=1";
+
+            return url;
+        }
+
+        public static string GenerateRequestHistoryExchangeRateUrl(string currency1, string currency2, DateTime startDate, DateTime endDate)
+        {
+            string indicator = CreateIndicator(currency1, currency2);
+            string apiKey = "uqJe3DgGNgsPcFn3KRZW";
+            string url = $"https://data.nasdaq.com/api/v3/datasets/BOE/XUDL{indicator}.json?api_key={apiKey}";
+
+            // Add query parameters to request historical data
+            url += $"&start_date={startDate:yyyy-MM-dd}&end_date={endDate:yyyy-MM-dd}";
+
+            // Set the order to ascending to get data in chronological order
+            url += "&order=asc";
 
             return url;
         }
@@ -162,7 +216,7 @@ namespace AssetsView.MVVM.View
             }
         }
 
-        private async void CurrencyButton_Click(object sender, RoutedEventArgs e)
+        private void CurrencyButton_Click(object sender, RoutedEventArgs e)
         {
             Button clickedButton = (Button)sender;
             CurrencyCountry clickedCountry = (CurrencyCountry)clickedButton.DataContext;
@@ -180,10 +234,21 @@ namespace AssetsView.MVVM.View
                 ImageRounded2.DataContext = country2;
             }
 
+            UpdateCurrentExchangeRate();
+            UpdateHistoryExchangeRate();
+
+            if (SearchPanel.IsVisible)
+            {
+                ConvertPanel.Visibility = Visibility.Visible;
+            }
+        }
+
+        private async void UpdateCurrentExchangeRate()
+        {
             if (country1 != null && country2 != null)
             {
                 // Generate URL for making an API request
-                string requestUrl = GenerateRequestUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode);
+                string requestUrl = GenerateRequestCurrentExchangeRateUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode);
                 Console.Write(requestUrl);
                 // Use the request URL to fetch the exchange rate data
                 using HttpClient client = new();
@@ -211,11 +276,59 @@ namespace AssetsView.MVVM.View
                     Console.WriteLine("Error");
                 }
             }
+        }
 
-            if (SearchPanel.IsVisible)
+        private async void UpdateHistoryExchangeRate()
+        {
+            DateTime startDate = new DateTime(2022, 01, 01);
+            DateTime endDate = new DateTime(2022, 01, 31);
+            List<double> exchangeRates = new List<double>();
+
+            if (country1 != null && country2 != null)
             {
-                ConvertPanel.Visibility = Visibility.Visible;
+                // Generate URL for making an API request
+                string requestUrl = GenerateRequestHistoryExchangeRateUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode, startDate, endDate);
+                Console.Write(requestUrl);
+
+                // Use the request URL to fetch the exchange rate data
+                using HttpClient client = new();
+                HttpResponseMessage response = await client.GetAsync(requestUrl);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // Extract the exchange rate data from the response
+                    string jsonResponse = await response.Content.ReadAsStringAsync();
+                    JObject exchangeData = JObject.Parse(jsonResponse);
+
+                    // Extract the historical exchange rates from the response
+                    JArray historicalData = (JArray)exchangeData["dataset"]["data"];
+                    foreach (JArray dataPoint in historicalData)
+                    {
+                        double exchangeRate = dataPoint[1].Value<double>();
+                        double reverseExchangeRate = 1.0 / exchangeRate;
+                        exchangeRates.Add(reverseExchangeRate);
+                    }
+                }
+                else
+                {
+                    // Handle the case when the API request fails
+                    Console.WriteLine("Error");
+                }
             }
+            // Create a new LineSeries from the exchangeRates list
+            var lineSeries = new LineSeries<double, CircleGeometry>
+            {
+                Values = new ObservableCollection<double>(exchangeRates),
+                GeometryStroke = null,
+                GeometryFill = null,
+                Fill = null,
+                Stroke = new SolidColorPaint(SKColors.LimeGreen, 3),
+                TooltipLabelFormatter =
+                    (ChartPoint) => $"1 USD = {ChartPoint.PrimaryValue:C5}{Environment.NewLine}2023 Today, 12:00"
+            };
+
+            // Add the new LineSeries to the chart's Series collection
+            CurrencyChart.Series = new ISeries[] { lineSeries };
         }
 
         private void CurrencyTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -285,6 +398,81 @@ namespace AssetsView.MVVM.View
                 {
                     e.Handled = true;
                     break;
+                }
+            }
+        }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double windowWidth = e.NewSize.Width;
+            /*double oldWindowWidth = e.PreviousSize.Width;
+            Console.WriteLine("NEW: " + e.NewSize.Width);
+            Console.WriteLine("OLD: " + e.PreviousSize.Width);
+            if (windowWidth < 1330 && oldWindowWidth > 1330 && windowWidth < oldWindowWidth)
+            {
+                AnimateMainWindowWidth(811);
+            }
+            else if (windowWidth > 712 && oldWindowWidth < 712 && windowWidth > oldWindowWidth)
+            {
+                AnimateMainWindowWidth(1440);
+            }*/
+
+            if (windowWidth < 1330)
+            {
+                Grid.SetRow(FavouritePopularPanel, 1);
+                Grid.SetColumn(FavouritePopularPanel, 1);
+                FavouritePopularPanel.Margin = new Thickness(0, 11, 0, 0);
+            }
+            else if (windowWidth > 712)
+            {
+                Grid.SetRow(FavouritePopularPanel, 0);
+                Grid.SetColumn(FavouritePopularPanel, 3);
+                FavouritePopularPanel.Margin = new Thickness(0, 0, 0, 0);
+            }
+        }
+
+        private void AnimateMainWindowWidth(double width)
+        {
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            DoubleAnimation widthAnimation = new DoubleAnimation(width, TimeSpan.FromSeconds(0.4));
+            Storyboard.SetTarget(widthAnimation, mainWindow);
+            Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(Window.WidthProperty));
+
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(widthAnimation);
+            storyboard.Completed += (sender, e) =>
+            {
+                // Call the AnimateMainWindowWidth method again to repeat the animation
+                AnimateMainWindowWidth(width);
+            };
+
+            // Stop any running storyboard before starting a new one
+            mainWindow.BeginStoryboard(storyboard, HandoffBehavior.SnapshotAndReplace, true);
+        }
+
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (CountryListView != null)
+            {
+                CurrencyCountryManager currencyCountryManager = new CurrencyCountryManager();
+                currencyCountryManager.filterText = SearchTextBox.Text;
+
+                // Update the ListView's ItemSource with the filtered list of currency countries
+                CurrencyCountry[] filteredCurrencyCountriesArray = currencyCountryManager.FilterCurrencyCountries();
+                List<CurrencyCountry> filteredCurrencyCountriesList = new List<CurrencyCountry>(filteredCurrencyCountriesArray);
+                CountryListView.ItemsSource = filteredCurrencyCountriesList;
+
+                if (filteredCurrencyCountriesList.Count == 0)
+                {
+                    // No matches found - display the text block
+                    NoMatchesTextBlock.Visibility = Visibility.Visible;
+                    CountryListView.ItemsSource = null;
+                }
+                else
+                {
+                    // Matches found - hide the text block and update the ListView's ItemSource
+                    NoMatchesTextBlock.Visibility = Visibility.Collapsed;
+                    CountryListView.ItemsSource = filteredCurrencyCountriesList;
                 }
             }
         }

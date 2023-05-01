@@ -1,0 +1,75 @@
+[33mcommit fcf5b0dd5bcf8c76a081e3e83c5ced92fd4b7948[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: f7b52fe 16571da
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Mon Apr 24 21:59:41 2023 +0300
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit f7b52fe7f7a26886ba7b35476e44f61df7394546[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Mon Apr 24 18:36:38 2023 +0300
+
+    Committing local changes
+
+[33mcommit 16571dab64102c15b2c9d6219401d4ea63b9a7f4[m[33m ([m[1;31morigin/master[m[33m)[m
+Merge: 2fb3ec3 8767317
+Author: Sangariusss <95126885+Sangariusss@users.noreply.github.com>
+Date:   Mon Apr 24 18:16:39 2023 +0300
+
+    Merge pull request #1 from Sangariusss/countries-list-and-nasdaq-api
+    
+    Added CountriesList and NasdaqAPI
+
+[33mcommit 8767317702d43ce8b489212bb5663f3912161a71[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Fri Apr 14 10:19:48 2023 +0300
+
+    Latest updates
+
+[33mcommit 4af3af29793cbffabe4d6b635842d2228a25a5a8[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Sun Apr 9 23:54:49 2023 +0300
+
+    Set up HelpView and SettingsView
+
+[33mcommit e48bb65667d9a7ac652fd986795dfd2433fa885d[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Wed Apr 5 13:46:50 2023 +0300
+
+    Added activation of navigation buttons
+
+[33mcommit 5cdeb91422cf59717ad23c686681ee1787903e19[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Sat Apr 1 21:13:14 2023 +0300
+
+    Added multipage functionality
+
+[33mcommit 36c0115a3daa41e7d52faadbfd2c155c79c46555[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Thu Mar 30 12:21:19 2023 +0300
+
+    FileManagement, Renaming, Handle on currency click
+
+[33mcommit 253673fb32bb2798b80fe81e975c7067af807263[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Mon Mar 13 21:02:52 2023 +0200
+
+    Added CountriesList and NasdaqAPI
+
+[33mcommit 2fb3ec3be1b7d81e347241d928843d4cfab455ed[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Wed Mar 8 19:35:17 2023 +0200
+
+    Received the data from the api and wrote it in the console
+
+[33mcommit f9273a4640521729a439e22dac13b347165a3508[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Mon Mar 6 22:14:01 2023 +0200
+
+    LiveChart
+
+[33mcommit efcd4dde23c1dd90ab2ea32c87b19a2ac69ad77a[m
+Author: Sangariusss <c.boklakh.volodymyr@student.uzhnu.edu.ua>
+Date:   Sun Mar 5 18:47:17 2023 +0200
+
+    project initialization

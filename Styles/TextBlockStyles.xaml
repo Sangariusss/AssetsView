@@ -1,11 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="TextBlockStyle" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
-        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Foreground" Value="#F8F9FA" />
     </Style>
     <Style x:Key="ExpanderStyle" TargetType="Expander">
         <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
-        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Foreground" Value="#F8F9FA" />
     </Style>
     <Style x:Key="TextBlockGrayStyle" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />

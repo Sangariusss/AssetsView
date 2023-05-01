@@ -1,7 +1,7 @@
 ﻿AssetsView
 
 
-winexe
+exe
 C#
 .cs
 C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\
@@ -11,7 +11,7 @@ false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\E5-2670\Desktop\CW\AssetsView\App.xaml
 61371741837
-701634159130
+71-799433367
 111478819418
 205-117166577
 MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;

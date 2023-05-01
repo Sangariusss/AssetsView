@@ -142,8 +142,9 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\logo.
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\logout.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\plus.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\search.png
-C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\setting.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\switch.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\upper-arrow.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\Chart.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\accept-arrow.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\settings.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\decline.png

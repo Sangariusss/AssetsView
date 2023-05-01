@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\E5-2670\Desktop\CW\AssetsView\App.xaml
-61371741837
+7-1516560771
 70989702123
-111478819418
+121929324095
 205-117166577
-MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;
+MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\DashboardViewTEST.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;
 
 False
 
