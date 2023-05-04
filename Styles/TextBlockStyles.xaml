@@ -416,7 +416,7 @@
                             <DoubleAnimation
                                 Storyboard.TargetProperty="Height"
                                 From="50"
-                                To="135"
+                                To="130"
                                 Duration="0:00:0.25" />
                         </Storyboard>
                     </BeginStoryboard>
@@ -426,7 +426,7 @@
                         <Storyboard>
                             <DoubleAnimation
                                 Storyboard.TargetProperty="Height"
-                                From="135"
+                                From="130"
                                 To="50"
                                 Duration="0:00:00.25" />
                         </Storyboard>

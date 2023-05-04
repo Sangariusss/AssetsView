@@ -18,28 +18,28 @@
             Height="929"
             Margin="37,27,33,38"
             Background="#0E0E0E">
-            <StackPanel x:Name="Title" Margin="37,33,33,0">
+            <StackPanel x:Name="HotkeysSettings" Margin="37,35,33,0">
                 <TextBlock
                     FontSize="25"
                     FontWeight="Bold"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Settings" />
+                    Text="Hotkeys settings " />
                 <TextBlock
-                    Margin="0,11,0,0"
+                    Margin="0,20,0,0"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockGrayStyle}"
-                    Text="Hotkeys" />
+                    Text="Set hotkeys that are convenient for you " />
             </StackPanel>
 
-            <Grid Margin="32,41,32,0" Background="#141414">
+            <Grid Margin="32,33,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
@@ -65,18 +65,18 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Open the window of your favorite charts"
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -89,7 +89,7 @@
                         Height="Auto"
                         Background="#171717"
                         BorderThickness="0"
-                        Content="CTRL + S"
+                        Content="ALT + G"
                         FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
                         FontSize="18"
                         FontWeight="Medium"
@@ -98,18 +98,19 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Delete all your favorite charts 
+ "
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -122,7 +123,7 @@
                         Height="Auto"
                         Background="#171717"
                         BorderThickness="0"
-                        Content="CTRL + S"
+                        Content="CTRL + Z"
                         FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
                         FontSize="18"
                         FontWeight="Medium"
@@ -131,18 +132,18 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Swap currencies in the converter"
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -155,7 +156,7 @@
                         Height="Auto"
                         Background="#171717"
                         BorderThickness="0"
-                        Content="CTRL + S"
+                        Content="CTRL + W"
                         FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
                         FontSize="18"
                         FontWeight="Medium"
@@ -164,18 +165,18 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Open the settings window "
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -188,7 +189,7 @@
                         Height="Auto"
                         Background="#171717"
                         BorderThickness="0"
-                        Content="CTRL + S"
+                        Content="CTRL + E"
                         FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
                         FontSize="18"
                         FontWeight="Medium"
@@ -196,136 +197,145 @@
                         Style="{DynamicResource ButtonHoverStyle}" />
                 </StackPanel>
             </Grid>
+            
+            <StackPanel x:Name="OtherSettings" Margin="37,40,33,0">
+                <TextBlock
+                    FontSize="25"
+                    FontWeight="Bold"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Other settings"/>
+                <TextBlock
+                    Margin="0,20,0,0"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockGrayStyle}"
+                    Text="Choose the resolution, theme or language you prefer" />
+            </StackPanel>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,31,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    x:Name="ThemeTextBlock"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Choose the theme you like"
                     TextWrapping="Wrap" />
 
                 <StackPanel
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
-                    <Button
+                    <RadioButton
+                        IsChecked="True"
                         Grid.Column="1"
                         Width="136"
                         Height="Auto"
-                        Background="#171717"
-                        BorderThickness="0"
-                        Content="CTRL + S"
-                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        Content="Dark theme"
                         FontSize="18"
                         FontWeight="Medium"
-                        Foreground="#42FF00"
-                        Style="{DynamicResource ButtonHoverStyle}" />
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
+                    <RadioButton
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Content="Light theme"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,36,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    x:Name="LanguageTextBlock"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Choose the language you are comfortable with"
                     TextWrapping="Wrap" />
 
                 <StackPanel
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
-                    <Button
+                    <RadioButton
+                        IsChecked="True"
                         Grid.Column="1"
-                        Width="136"
+                        Width="96"
                         Height="Auto"
-                        Background="#171717"
-                        BorderThickness="0"
-                        Content="CTRL + S"
-                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        Content="EN"
                         FontSize="18"
                         FontWeight="Medium"
-                        Foreground="#42FF00"
-                        Style="{DynamicResource ButtonHoverStyle}" />
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
+                    <RadioButton
+                        Grid.Column="1"
+                        Width="96"
+                        Height="Auto"
+                        Content="UK"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414">
+            <Grid Margin="32,36,32,0" Background="#141414" Height="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
-                    Margin="22,17,0,15"
+                    x:Name="ResolutionTextBlock"
+                    Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Choose the screen resolution that suits you best"
                     TextWrapping="Wrap" />
 
                 <StackPanel
                     Grid.Column="1"
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
-                    <Button
+                    <RadioButton
                         Grid.Column="1"
-                        Width="136"
+                        Width="115"
                         Height="Auto"
-                        Background="#171717"
-                        BorderThickness="0"
-                        Content="CTRL + S"
-                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        Content="811x1024"
                         FontSize="18"
                         FontWeight="Medium"
-                        Foreground="#42FF00"
-                        Style="{DynamicResource ButtonHoverStyle}" />
-                </StackPanel>
-            </Grid>
-
-            <Grid Margin="32,36,32,0" Background="#141414">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <TextBlock
-                    Margin="22,17,0,15"
-                    FontSize="18"
-                    FontWeight="Medium"
-                    Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
-                    TextWrapping="Wrap" />
-
-                <StackPanel
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal">
-                    <Button
+                        Style="{DynamicResource SettingsRadioButtonStyle}" Checked="ResolutionRadioButton_Checked" />
+                    <RadioButton
+                        x:Name="ResolutionRadioButton2"
+                        IsChecked="True"
                         Grid.Column="1"
-                        Width="136"
+                        Width="115"
                         Height="Auto"
-                        Background="#171717"
-                        BorderThickness="0"
-                        Content="CTRL + S"
-                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        Content="1440x1024"
                         FontSize="18"
                         FontWeight="Medium"
-                        Foreground="#42FF00"
-                        Style="{DynamicResource ButtonHoverStyle}" />
+                        Style="{DynamicResource SettingsRadioButtonStyle}" Checked="ResolutionRadioButton_Checked" />
+                    <RadioButton
+                        x:Name="ResolutionRadioButton3"
+                        Grid.Column="1"
+                        Width="115"
+                        Height="Auto"
+                        Content="1650x1040"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Style="{DynamicResource SettingsRadioButtonStyle}" Checked="ResolutionRadioButton_Checked" />
                 </StackPanel>
             </Grid>
         </StackPanel>

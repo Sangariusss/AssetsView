@@ -12,7 +12,6 @@ using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 
 namespace AssetsView.MVVM.View
 {
@@ -83,8 +82,8 @@ namespace AssetsView.MVVM.View
 
             foreach (CurrencyCountry country in allCountries)
             {
-                if (country.Name.ToLower().Contains(searchText.ToLower()) ||
-                    country.CurrencyCode.ToLower().Contains(searchText.ToLower()))
+                if (country.Name.ToLower().Replace(" ", "").Contains(searchText.ToLower()) ||
+                    country.CurrencyCode.ToLower().Replace(" ", "").Contains(searchText.ToLower()))
                 {
                     filteredCountries.Add(country);
                 }
@@ -405,17 +404,6 @@ namespace AssetsView.MVVM.View
         private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double windowWidth = e.NewSize.Width;
-            /*double oldWindowWidth = e.PreviousSize.Width;
-            Console.WriteLine("NEW: " + e.NewSize.Width);
-            Console.WriteLine("OLD: " + e.PreviousSize.Width);
-            if (windowWidth < 1330 && oldWindowWidth > 1330 && windowWidth < oldWindowWidth)
-            {
-                AnimateMainWindowWidth(811);
-            }
-            else if (windowWidth > 712 && oldWindowWidth < 712 && windowWidth > oldWindowWidth)
-            {
-                AnimateMainWindowWidth(1440);
-            }*/
 
             if (windowWidth < 1330)
             {
@@ -429,25 +417,6 @@ namespace AssetsView.MVVM.View
                 Grid.SetColumn(FavouritePopularPanel, 3);
                 FavouritePopularPanel.Margin = new Thickness(0, 0, 0, 0);
             }
-        }
-
-        private void AnimateMainWindowWidth(double width)
-        {
-            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
-            DoubleAnimation widthAnimation = new DoubleAnimation(width, TimeSpan.FromSeconds(0.4));
-            Storyboard.SetTarget(widthAnimation, mainWindow);
-            Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(Window.WidthProperty));
-
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(widthAnimation);
-            storyboard.Completed += (sender, e) =>
-            {
-                // Call the AnimateMainWindowWidth method again to repeat the animation
-                AnimateMainWindowWidth(width);
-            };
-
-            // Stop any running storyboard before starting a new one
-            mainWindow.BeginStoryboard(storyboard, HandoffBehavior.SnapshotAndReplace, true);
         }
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -475,6 +444,11 @@ namespace AssetsView.MVVM.View
                     CountryListView.ItemsSource = filteredCurrencyCountriesList;
                 }
             }
+        }
+
+        private void SwitchButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

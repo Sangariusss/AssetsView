@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace AssetsView
@@ -25,6 +26,14 @@ namespace AssetsView
         private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
         }
     }
 }

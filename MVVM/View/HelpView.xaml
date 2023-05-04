@@ -77,7 +77,7 @@
                             Background="#1B1B1B"
                             FontSize="18"
                             FontWeight="Medium"
-                            Header="How to use the currency converter?"
+                            Header="How to use the favourite rates panel?"
                             Style="{StaticResource ExpanderStyle}"
                             Template="{DynamicResource ExpanderTemplate1}">
                             <StackPanel Height="Auto" Margin="22,13,22,13">
@@ -86,7 +86,7 @@
                                     FontWeight="Normal"
                                     LineHeight="29"
                                     Style="{StaticResource TextBlockStyle}"
-                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
+                                    Text="You need to click on the add button and add the chart you like to your list, after which you can turn it on and off in the chart panel."
                                     TextWrapping="Wrap" />
                             </StackPanel>
                         </Expander>

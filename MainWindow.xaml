@@ -8,27 +8,20 @@
     Title="AssetsView"
     MinWidth="811"
     MinHeight="1024"
+    ResizeMode="CanMinimize"
     AllowsTransparency="True"
     Background="#000000"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d">
+    mc:Ignorable="d" StateChanged="Window_StateChanged">
     <Window.DataContext>
         <viewModel:MainViewModel />
     </Window.DataContext>
 
-    <WindowChrome.WindowChrome>
-        <WindowChrome
-            CaptionHeight="30"
-            CornerRadius="0"
-            GlassFrameThickness="0"
-            ResizeBorderThickness="5" />
-    </WindowChrome.WindowChrome>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
-            <RowDefinition Height="994" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -46,148 +39,162 @@
             MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" />
         <!--  Vertical panel  -->
         <StackPanel
+            Grid.Column="0"
             x:Name="VerticalPanel"
             VerticalAlignment="Stretch"
             Grid.RowSpan="2"
             Width="100"
             Background="#0E0E0E">
-            <Image
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="97"/>
+                    <RowDefinition Height="373"/>
+                    <RowDefinition Height="*" MinHeight="461"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image
                 x:Name="LogoImage"
                 Width="55"
                 Height="45"
-                Margin="22,37,23,0"
+                Grid.Row="0"
+                Margin="22,52,23,0"
                 Source="/Data/Icons/logo.png" />
 
-            <!--  Button 1  -->
-            <RadioButton
+                <!--  Button 1  -->
+                <RadioButton
                 x:Name="DashboardButton"
                 Height="93"
-                Margin="0,108,0,0"
+                Margin="0,93,0,186"
+                Grid.Row="1"
                 Background="#0E0E0E"
                 BorderBrush="Transparent"
                 Command="{Binding DashboardViewCommand}"
                 Cursor="Hand"
                 IsChecked="True"
                 Style="{DynamicResource RadioButtonHoverStyle}">
-                <Grid>
-                    <Image
+                    <Grid>
+                        <Image
                         Width="25"
                         Height="25"
                         Source="/Data/Icons/dashboard.png" />
-                    <Rectangle
+                        <Rectangle
                         x:Name="DashboardRectangle"
                         IsEnabled="False"
                         Style="{DynamicResource OpacityStyle}" />
-                </Grid>
-                <RadioButton.ToolTip>
-                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
-                        <TextBlock
+                    </Grid>
+                    <RadioButton.ToolTip>
+                        <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                            <TextBlock
                             Margin="13,8,0,0"
                             FontSize="13"
                             FontWeight="Regular"
                             Style="{StaticResource TextBlockGrayStyle}"
                             Text="Dashboard" />
-                    </ToolTip>
-                </RadioButton.ToolTip>
-            </RadioButton>
+                        </ToolTip>
+                    </RadioButton.ToolTip>
+                </RadioButton>
 
-            <!--  Button 2  -->
-            <RadioButton
+                <!--  Button 2  -->
+                <RadioButton
                 x:Name="SettingButton"
                 Height="93"
-                Margin="0,0,0,0"
+                Margin="0,186,0,93"
+                Grid.Row="1"
                 Background="#0E0E0E"
                 BorderBrush="Transparent"
                 Command="{Binding SettingsViewCommand}"
                 Cursor="Hand"
                 Style="{DynamicResource RadioButtonHoverStyle}">
-                <Grid>
-                    <Image
+                    <Grid>
+                        <Image
                         Width="25"
                         Height="25"
                         Source="/Data/Icons/settings.png" />
-                    <Rectangle
+                        <Rectangle
                         x:Name="SettingRectangle"
                         Width="22"
                         Height="21"
                         IsEnabled="False"
                         Style="{DynamicResource OpacityStyle}" />
-                </Grid>
-                <RadioButton.ToolTip>
-                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
-                        <TextBlock
+                    </Grid>
+                    <RadioButton.ToolTip>
+                        <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                            <TextBlock
                             Margin="19,8,0,0"
                             FontSize="13"
                             FontWeight="Regular"
                             Style="{StaticResource TextBlockGrayStyle}"
                             Text="Settings" />
-                    </ToolTip>
-                </RadioButton.ToolTip>
-            </RadioButton>
-
-            <!--  Button 3  -->
-            <RadioButton
+                        </ToolTip>
+                    </RadioButton.ToolTip>
+                </RadioButton>
+                <!--  Button 3  -->
+                <RadioButton
                 x:Name="HelpButton"
                 Height="93"
-                Margin="0,0,0,462"
+                Margin="0,280,0,0"
+                Grid.Row="1"
                 Background="#0E0E0E"
                 BorderBrush="Transparent"
                 Command="{Binding HelpViewCommand}"
                 Cursor="Hand"
                 Style="{DynamicResource RadioButtonHoverStyle}">
-                <Grid>
-                    <Image
+                    <Grid>
+                        <Image
                         Width="25"
                         Height="25"
                         Source="/Data/Icons/help.png" />
-                    <Rectangle
+                        <Rectangle
                         x:Name="HelpRectangle"
                         IsEnabled="False"
                         Style="{DynamicResource OpacityStyle}" />
-                </Grid>
-                <RadioButton.ToolTip>
-                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
-                        <TextBlock
+                    </Grid>
+                    <RadioButton.ToolTip>
+                        <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                            <TextBlock
                             Margin="28,8,0,0"
                             FontSize="13"
                             FontWeight="Regular"
                             Style="{StaticResource TextBlockGrayStyle}"
                             Text="Help" />
-                    </ToolTip>
-                </RadioButton.ToolTip>
-            </RadioButton>
-            <!--  Logout button  -->
-            <Button
+                        </ToolTip>
+                    </RadioButton.ToolTip>
+                </RadioButton>
+                <!--  Exit button  -->
+                <Button
+                VerticalAlignment="Bottom"
                 x:Name="ExitButton"
                 Width="100"
                 Height="93"
-                Grid.Row="2"
+                Grid.Row="3"
                 Background="#0E0E0E"
                 BorderBrush="Transparent"
                 Click="ButtonExit_Click"
                 Cursor="Hand"
                 Style="{DynamicResource ButtonHoverStyle}">
-                <Grid>
-                    <Image
+                    <Grid>
+                        <Image
                         Width="25"
                         Height="25"
                         Source="/Data/Icons/logout.png" />
-                </Grid>
-                <Button.ToolTip>
-                    <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
-                        <TextBlock
+                    </Grid>
+                    <Button.ToolTip>
+                        <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
+                            <TextBlock
                             Margin="31,8,0,0"
                             FontSize="13"
                             FontWeight="Regular"
                             Style="{StaticResource TextBlockGrayStyle}"
                             Text="Exit" />
-                    </ToolTip>
-                </Button.ToolTip>
-            </Button>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Grid>
         </StackPanel>
         <ContentControl
             Grid.Row="1"
             Grid.Column="1"
+            Grid.RowSpan="2"
             Content="{Binding CurrentView}" />
     </Grid>
 </Window>
