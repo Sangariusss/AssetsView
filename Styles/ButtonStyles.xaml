@@ -286,7 +286,8 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="ButtonZoomStyle"
+    <Style
+        x:Key="ButtonZoomStyle"
         BasedOn="{StaticResource RoundedButtonStyle}"
         TargetType="{x:Type Button}">
         <Style.Triggers>

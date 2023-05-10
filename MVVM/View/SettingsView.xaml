@@ -32,7 +32,10 @@
                     Text="Set hotkeys that are convenient for you " />
             </StackPanel>
 
-            <Grid Margin="32,33,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,33,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -43,7 +46,7 @@
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window for selecting a currency"
+                    Text="Open Dashboard"
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -65,7 +68,10 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,30,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -76,7 +82,43 @@
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Open the window of your favorite charts"
+                    Text="Open Settings "
+                    TextWrapping="Wrap" />
+
+                <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                    <Button
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Background="#171717"
+                        BorderThickness="0"
+                        Content="CTRL + E"
+                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#42FF00"
+                        Style="{DynamicResource ButtonHoverStyle}" />
+                </StackPanel>
+            </Grid>
+            
+            <Grid
+                Height="50"
+                Margin="32,30,32,0"
+                Background="#141414">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock
+                    Margin="22,15,0,11"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Open Help"
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -98,7 +140,10 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,30,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -109,8 +154,7 @@
                     FontSize="18"
                     FontWeight="Medium"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Delete all your favorite charts 
- "
+                    Text="Delete all your favorite charts   "
                     TextWrapping="Wrap" />
 
                 <StackPanel
@@ -132,7 +176,10 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,30,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -165,45 +212,12 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,30,32,0" Background="#141414" Height="50">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <TextBlock
-                    Margin="22,15,0,11"
-                    FontSize="18"
-                    FontWeight="Medium"
-                    Style="{StaticResource TextBlockStyle}"
-                    Text="Open the settings window "
-                    TextWrapping="Wrap" />
-
-                <StackPanel
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"
-                    Orientation="Horizontal">
-                    <Button
-                        Grid.Column="1"
-                        Width="136"
-                        Height="Auto"
-                        Background="#171717"
-                        BorderThickness="0"
-                        Content="CTRL + E"
-                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
-                        FontSize="18"
-                        FontWeight="Medium"
-                        Foreground="#42FF00"
-                        Style="{DynamicResource ButtonHoverStyle}" />
-                </StackPanel>
-            </Grid>
-            
             <StackPanel x:Name="OtherSettings" Margin="37,40,33,0">
                 <TextBlock
                     FontSize="25"
                     FontWeight="Bold"
                     Style="{StaticResource TextBlockStyle}"
-                    Text="Other settings"/>
+                    Text="Other settings" />
                 <TextBlock
                     Margin="0,20,0,0"
                     FontSize="18"
@@ -212,7 +226,10 @@
                     Text="Choose the resolution, theme or language you prefer" />
             </StackPanel>
 
-            <Grid Margin="32,31,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,31,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -251,7 +268,10 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,36,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -271,13 +291,13 @@
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
                     <RadioButton
-                        IsChecked="True"
                         Grid.Column="1"
                         Width="96"
                         Height="Auto"
                         Content="EN"
                         FontSize="18"
                         FontWeight="Medium"
+                        IsChecked="True"
                         Style="{DynamicResource SettingsRadioButtonStyle}" />
                     <RadioButton
                         Grid.Column="1"
@@ -290,7 +310,10 @@
                 </StackPanel>
             </Grid>
 
-            <Grid Margin="32,36,32,0" Background="#141414" Height="50">
+            <Grid
+                Height="50"
+                Margin="32,36,32,0"
+                Background="#141414">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
@@ -313,29 +336,32 @@
                         Grid.Column="1"
                         Width="115"
                         Height="Auto"
+                        Checked="ResolutionRadioButton_Checked"
                         Content="811x1024"
                         FontSize="18"
                         FontWeight="Medium"
-                        Style="{DynamicResource SettingsRadioButtonStyle}" Checked="ResolutionRadioButton_Checked" />
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
                     <RadioButton
                         x:Name="ResolutionRadioButton2"
-                        IsChecked="True"
                         Grid.Column="1"
                         Width="115"
                         Height="Auto"
+                        Checked="ResolutionRadioButton_Checked"
                         Content="1440x1024"
                         FontSize="18"
                         FontWeight="Medium"
-                        Style="{DynamicResource SettingsRadioButtonStyle}" Checked="ResolutionRadioButton_Checked" />
+                        IsChecked="True"
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
                     <RadioButton
                         x:Name="ResolutionRadioButton3"
                         Grid.Column="1"
                         Width="115"
                         Height="Auto"
+                        Checked="ResolutionRadioButton_Checked"
                         Content="1650x1040"
                         FontSize="18"
                         FontWeight="Medium"
-                        Style="{DynamicResource SettingsRadioButtonStyle}" Checked="ResolutionRadioButton_Checked" />
+                        Style="{DynamicResource SettingsRadioButtonStyle}" />
                 </StackPanel>
             </Grid>
         </StackPanel>

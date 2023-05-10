@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AssetsView.MVVM.View"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
-             xmlns:SKCharts="clr-namespace:LiveChartsCore.SkiaSharpView.SKCharts;assembly=LiveChartsCore.SkiaSharpView" x:Class="AssetsView.MVVM.View.DashboardView"
+             x:Class="AssetsView.MVVM.View.DashboardView"
              mc:Ignorable="d" 
              d:DesignHeight="994" d:DesignWidth="1340" Loaded="UserControl_Loaded" SizeChanged="UserControl_SizeChanged">
     <UserControl.Resources>
@@ -17,6 +17,27 @@
                     <TextBlock Text="{Binding Name}" Margin="16,16,0,16" Foreground="#FF7E7E7E" FontFamily="Mariupol" FontSize="15" Width="128" Height="14" HorizontalAlignment="Right"/>
                 </StackPanel>
             </Button>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FavouriteListItem">
+            <StackPanel Width="550" Height="52" Margin="-6,0,0,0" Orientation="Horizontal">
+                <Grid Width="550" Height="52">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="132" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Image Source="{Binding ImageRoundedSource}" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
+                    <Image Source="{Binding ImageRoundedSource}" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
+                    <TextBlock Text="USD to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                    <TextBlock Text="1 USD = 0,830427 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                    <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
+                    <Button Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="3" Margin="27,0,0,0" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand">
+                        <Image Height="24" Width="24" Source="/Data/Icons/accept-arrow.png" />
+                    </Button>
+                </Grid>
+            </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
 
@@ -83,7 +104,7 @@
                         </Button>
                     </Grid>
                 </StackPanel>
-                <TextBlock x:Name="ExchangeRateTextBlock1" Text="1 EUR = 1,06770 USD" Width="180" Height="19" Margin="30,36,440,0" FontSize="18" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Medium" Foreground="#F8F9FA"/>
+                <TextBlock x:Name="ExchangeRateTextBlock1" Text="1 EUR = 1,06770 USD" Width="220" Height="19" Margin="30,36,390,0" FontSize="18" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Medium" Foreground="#F8F9FA"/>
                 <TextBlock x:Name="PercentageChangeTextBlock" Text="Up by 0,00% (0,000000 USD)" Width="190" Height="18" Margin="30,16,420,30" FontSize="15" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Regular" Foreground="#32CD32"/>
             </StackPanel>
             <StackPanel x:Name="ChartPanel" Width="640" Height="530" Margin="0,399,0,0" Background="#FF0E0E0E" Grid.Column="1">
@@ -100,12 +121,13 @@
                     </Grid>
                 </StackPanel>
                 <lvc:CartesianChart x:Name="CurrencyChart"
-                    Series="{Binding Series}" Width="504" Height="181"
+                    Series="{Binding Series}" Width="577" Height="313"
                     TooltipFindingStrategy="CompareOnlyX"
                     TooltipBackgroundPaint="{Binding TooltipBackgroundPaint}"
                     TooltipTextPaint="{Binding TooltipTextPaint}"
-                    TooltipTextSize="14">
-                </lvc:CartesianChart>
+                    TooltipTextSize="14"
+                    XAxes="{Binding XAxes}"
+                    YAxes="{Binding YAxes}"/>
             </StackPanel>
             <!-- Favourite&PopularPanel -->
             <WrapPanel x:Name="FavouritePopularPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="3" Grid.Row="0">
@@ -123,40 +145,70 @@
                     </Grid>
                 </StackPanel>
 
-                <StackPanel Width="546" Height="52" Margin="30,0,20,0" Orientation="Horizontal">
-                    <Grid Width="546" Height="52">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="64" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="132" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Image Source="/Data/Images/FlagsRounded/USDrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
-                        <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="USD to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock Text="1 USD = 0,830427 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
-                        <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
-                        <Button Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="3" Margin="29,0,0,0" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand">
-                            <Image Height="24" Width="24" Source="/Data/Icons/accept-arrow.png" />
-                        </Button>
-                    </Grid>
-                </StackPanel>
+                <ListView Width="550" Height="368" BorderThickness="0.1" Margin="32,0,0,0" Background="Transparent" ItemsSource="{Binding CountrySeries}" ItemTemplate="{StaticResource FavouriteListItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    
+                </ListView>
 
-                <StackPanel x:Name="PopularPanel" Width="601" Height="69" Margin="0,364,0,0">
+                <StackPanel x:Name="PopularPanel" Width="601" Height="69" Margin="0,35,0,0">
                     <TextBlock Text="Popular" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="25" Width="93" Height="30" Foreground="#F8F9FA" Margin="35,23,473,22" FontWeight="Bold"/>
                 </StackPanel>
 
-                <StackPanel Width="546" Height="52" Margin="30,25,20,0" Orientation="Horizontal">
+                <StackPanel Width="546" Height="52" Margin="30,27,20,0" Orientation="Horizontal">
                     <Grid Width="546" Height="52">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="64" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="132" />
                         </Grid.ColumnDefinitions>
-                        <Image Source="/Data/Images/FlagsRounded/USDrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
+                        <Image Source="/Data/Images/FlagsRounded/EURrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
+                        <Image Source="/Data/Images/FlagsRounded/USDrounded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
+                        <TextBlock Text="EUR to USD" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 EUR = 1,10144 USD" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Width="546" Height="52" Margin="30,27,20,0" Orientation="Horizontal">
+                    <Grid Width="546" Height="52">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="64" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="132" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Data/Images/FlagsRounded/EURrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="USD to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock Text="1 USD = 0,830427 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <TextBlock Text="EUR to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 EUR = 0,87237 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Width="546" Height="52" Margin="30,27,20,0" Orientation="Horizontal">
+                    <Grid Width="546" Height="52">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="64" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="132" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Data/Images/FlagsRounded/CADrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
+                        <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
+                        <TextBlock Text="CAD to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 CAD = 0,58952 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
+                    </Grid>
+                </StackPanel>
+
+                <StackPanel Width="546" Height="52" Margin="30,27,20,0" Orientation="Horizontal">
+                    <Grid Width="546" Height="52">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="64" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="132" />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="/Data/Images/FlagsRounded/CHFrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
+                        <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
+                        <TextBlock Text="CHF to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 CHF = 0,88771 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>

@@ -14,6 +14,12 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d" StateChanged="Window_StateChanged">
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Control" Command="{Binding DashboardViewCommand}" />
+        <KeyBinding Key="E" Modifiers="Control" Command="{Binding SettingsViewCommand}" />
+        <KeyBinding Key="G" Modifiers="Alt" Command="{Binding HelpViewCommand}" />
+    </Window.InputBindings>
+
     <Window.DataContext>
         <viewModel:MainViewModel />
     </Window.DataContext>

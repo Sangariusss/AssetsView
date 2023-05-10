@@ -25,12 +25,38 @@ namespace AssetsView.MVVM.View
                 Values = new ObservableCollection<double> { 1, 1, 1, 1, 1, 1, 1, 1, 1 },
                 GeometryStroke = null,
                 GeometryFill = null,
+                LineSmoothness = 0,
                 Fill = null,
                 Stroke = new SolidColorPaint(SKColors.LimeGreen, 3),
                 TooltipLabelFormatter =
                     (ChartPoint) => $"1 EUR = {ChartPoint.PrimaryValue:C5}USD{Environment.NewLine}2023 Today, 12:00"
             }
         };
+
+        public Axis[] XAxes { get; set; }
+            = new Axis[]
+            {
+                new Axis
+                {
+                    TextSize = 0,
+                }
+            };
+
+        public Axis[] YAxes { get; set; }
+            = new Axis[]
+            {
+                new Axis
+                {
+                    Position = LiveChartsCore.Measure.AxisPosition.End,
+                    LabelsPaint = new SolidColorPaint(SKColors.DimGray),
+                    TextSize = 18,
+
+                    SeparatorsPaint = new SolidColorPaint(SKColors.DimGray)
+                    {
+                        StrokeThickness = 2,
+                    }
+                }
+            };
 
         public SolidColorPaint TooltipTextPaint { get; set; } =
         new SolidColorPaint
@@ -58,17 +84,17 @@ namespace AssetsView.MVVM.View
 
     public class CurrencyCountry
     {
-        public string Name { get; set; }
-        public string CurrencyCode { get; set; }
-        public string NasdaqCurrencyCode { get; set; }
-        public string ImageSource { get; set; }
-        public string ImageRoundedSource { get; set; }
+        public string? Name { get; set; }
+        public string? CurrencyCode { get; set; }
+        public string? NasdaqCurrencyCode { get; set; }
+        public string? ImageSource { get; set; }
+        public string? ImageRoundedSource { get; set; }
 
     }
 
     public class CurrencyCountryManager
     {
-        public string filterText;
+        public string? filterText;
         public CurrencyCountry[] FilterCurrencyCountries()
         {
             string searchText = this.filterText.Replace(" ", "");
@@ -148,10 +174,14 @@ namespace AssetsView.MVVM.View
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            UpdateHistoryExchangeRate();
+            UpdateCurrentExchangeRate();
             ImageRounded1.DataContext = new CurrencyCountry { ImageRoundedSource = "/Data/Images/FlagsRounded/EURrounded.png" };
             ImageRounded2.DataContext = new CurrencyCountry { ImageRoundedSource = "/Data/Images/FlagsRounded/USDrounded.png" };
-            CurrencyButton1.DataContext = new CurrencyCountry { CurrencyCode = "EUR", ImageSource = "/Data/Images/Flags/EUR.png", NasdaqCurrencyCode = "ER" };
-            CurrencyButton2.DataContext = new CurrencyCountry { CurrencyCode = "USD", ImageSource = "/Data/Images/Flags/USD.png", NasdaqCurrencyCode = "D" };
+            CurrencyButton1.DataContext = new CurrencyCountry { CurrencyCode = "EUR", ImageSource = "/Data/Images/Flags/EUR.png" };
+            CurrencyButton2.DataContext = new CurrencyCountry { CurrencyCode = "USD", ImageSource = "/Data/Images/Flags/USD.png" };
+            country1 = new CurrencyCountry { CurrencyCode = "EUR", NasdaqCurrencyCode = "ER" };
+            country2 = new CurrencyCountry { CurrencyCode = "USD", NasdaqCurrencyCode = "D" };
         }
 
         public static string CreateIndicator(string currency1, string currency2)
@@ -272,7 +302,7 @@ namespace AssetsView.MVVM.View
                 else
                 {
                     // Handle the case when the API request fails
-                    Console.WriteLine("Error");
+                    Console.WriteLine("Errorrr");
                 }
             }
         }
@@ -318,6 +348,7 @@ namespace AssetsView.MVVM.View
             var lineSeries = new LineSeries<double, CircleGeometry>
             {
                 Values = new ObservableCollection<double>(exchangeRates),
+                LineSmoothness = 0,
                 GeometryStroke = null,
                 GeometryFill = null,
                 Fill = null,

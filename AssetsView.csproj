@@ -370,6 +370,7 @@
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-beta.701" />
     <PackageReference Include="NEST" Version="7.17.5" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="ServiceStack.Text" Version="6.8.0" />
   </ItemGroup>
 
   <ItemGroup>

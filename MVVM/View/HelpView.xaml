@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:AssetsView.MVVM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="994"
     d:DesignWidth="1340"
@@ -55,7 +54,7 @@
                             Header="How to use the currency converter?"
                             Style="{StaticResource ExpanderStyle}"
                             Template="{DynamicResource ExpanderTemplate1}">
-                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                            <StackPanel Margin="22,13,22,13">
                                 <TextBlock
                                     FontSize="18"
                                     FontWeight="Normal"
@@ -72,6 +71,7 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch">
                         <Expander
+                            x:Name="ReferenceExpander"
                             Width="Auto"
                             BorderThickness="0"
                             Background="#1B1B1B"
@@ -102,6 +102,81 @@
                             Background="#1B1B1B"
                             FontSize="18"
                             FontWeight="Medium"
+                            Header="How to use the chart panel? What is it?"
+                            Style="{StaticResource ExpanderStyle}"
+                            Template="{DynamicResource ExpanderTemplate1}">
+                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Normal"
+                                    LineHeight="29"
+                                    Style="{StaticResource TextBlockStyle}"
+                                    Text='A chart is a specific type of data displayed in the chart panel. The existing data type in the AssetsView chart is the current currency. It is very easy to use the chart, you just need to select your favorite chart in the "Favorite rates" panel and enable it to show the exchange rate in the "Chart" panel under the "Convert" panel.'
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+
+                    <StackPanel
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <Expander
+                            Width="Auto"
+                            BorderThickness="0"
+                            Background="#1B1B1B"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Header="How do hotkeys work and how to use them? "
+                            Style="{StaticResource ExpanderStyle}"
+                            Template="{DynamicResource ExpanderTemplate1}">
+                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Normal"
+                                    LineHeight="29"
+                                    Style="{StaticResource TextBlockStyle}"
+                                    Text='Hotkeys work in such a way that by pressing, for example, the "CTRL + S" key, you can instantly move to the currency selection. To use hotkeys, you need to go to the "Settings" section and enable them by specifying the key shortcuts that are convenient for you.'
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                    
+                    <StackPanel
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <Expander
+                            Width="Auto"
+                            BorderThickness="0"
+                            Background="#1B1B1B"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Header="What is AssetsView?"
+                            Style="{StaticResource ExpanderStyle}"
+                            Template="{DynamicResource ExpanderTemplate1}">
+                            <StackPanel Height="Auto" Margin="22,13,22,13">
+                                <TextBlock
+                                    FontSize="18"
+                                    FontWeight="Normal"
+                                    LineHeight="29"
+                                    Style="{StaticResource TextBlockStyle}"
+                                    Text="AssetsView is a program for conveniently tracking exchange rates, business news, and quick currency exchange. We use exchange rate information from the Bank of England."
+                                    TextWrapping="Wrap" />
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
+                    
+                    <StackPanel
+                        Margin="0,0,0,20"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+                        <Expander
+                            Width="Auto"
+                            BorderThickness="0"
+                            Background="#1B1B1B"
+                            FontSize="18"
+                            FontWeight="Medium"
                             Header="How to use the currency converter?"
                             Style="{StaticResource ExpanderStyle}"
                             Template="{DynamicResource ExpanderTemplate1}">
@@ -127,7 +202,7 @@
                             Background="#1B1B1B"
                             FontSize="18"
                             FontWeight="Medium"
-                            Header="How to use the currency converter?"
+                            Header="Is it possible to become our partner?"
                             Style="{StaticResource ExpanderStyle}"
                             Template="{DynamicResource ExpanderTemplate1}">
                             <StackPanel Height="Auto" Margin="22,13,22,13">
@@ -136,55 +211,7 @@
                                     FontWeight="Normal"
                                     LineHeight="29"
                                     Style="{StaticResource TextBlockStyle}"
-                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
-                                    TextWrapping="Wrap" />
-                            </StackPanel>
-                        </Expander>
-                    </StackPanel>
-                    <StackPanel
-                        Margin="0,0,0,20"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch">
-                        <Expander
-                            Width="Auto"
-                            BorderThickness="0"
-                            Background="#1B1B1B"
-                            FontSize="18"
-                            FontWeight="Medium"
-                            Header="How to use the currency converter?"
-                            Style="{StaticResource ExpanderStyle}"
-                            Template="{DynamicResource ExpanderTemplate1}">
-                            <StackPanel Height="Auto" Margin="22,13,22,13">
-                                <TextBlock
-                                    FontSize="18"
-                                    FontWeight="Normal"
-                                    LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
-                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
-                                    TextWrapping="Wrap" />
-                            </StackPanel>
-                        </Expander>
-                    </StackPanel>
-                    <StackPanel
-                        Margin="0,0,0,20"
-                        HorizontalAlignment="Stretch"
-                        VerticalAlignment="Stretch">
-                        <Expander
-                            Width="Auto"
-                            BorderThickness="0"
-                            Background="#1B1B1B"
-                            FontSize="18"
-                            FontWeight="Medium"
-                            Header="How to use the currency converter?"
-                            Style="{StaticResource ExpanderStyle}"
-                            Template="{DynamicResource ExpanderTemplate1}">
-                            <StackPanel Height="Auto" Margin="22,13,22,13">
-                                <TextBlock
-                                    FontSize="18"
-                                    FontWeight="Normal"
-                                    LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
-                                    Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
+                                    Text="We are open for partnership. For more information, please contact us by this email example@mybusiness.org."
                                     TextWrapping="Wrap" />
                             </StackPanel>
                         </Expander>

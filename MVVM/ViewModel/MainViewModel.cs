@@ -12,7 +12,6 @@ namespace AssetsView.MVVM.ViewModel
         public HelpViewModel HelpVM { get; set; }
 
         private object _currentView;
-
         public object CurrentView
         {
             get { return _currentView; }
@@ -25,6 +24,7 @@ namespace AssetsView.MVVM.ViewModel
 
         public MainViewModel()
         {
+
             DashboardVM = new DashboardViewModel();
             SettingsVM = new SettingsViewModel();
             HelpVM = new HelpViewModel();

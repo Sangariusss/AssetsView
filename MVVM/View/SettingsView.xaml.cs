@@ -47,20 +47,22 @@ namespace AssetsView.MVVM.View
         private void AnimateMainWindowSize(double width, double height)
         {
             MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            if (mainWindow != null)
+            {
+                DoubleAnimation widthAnimation = new DoubleAnimation(width, TimeSpan.FromSeconds(0.35));
+                Storyboard.SetTarget(widthAnimation, mainWindow);
+                Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(Window.WidthProperty));
 
-            DoubleAnimation widthAnimation = new DoubleAnimation(width, TimeSpan.FromSeconds(0.35));
-            Storyboard.SetTarget(widthAnimation, mainWindow);
-            Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(Window.WidthProperty));
+                DoubleAnimation heightAnimation = new DoubleAnimation(height, TimeSpan.FromSeconds(0.001));
+                Storyboard.SetTarget(heightAnimation, mainWindow);
+                Storyboard.SetTargetProperty(heightAnimation, new PropertyPath(Window.HeightProperty));
 
-            DoubleAnimation heightAnimation = new DoubleAnimation(height, TimeSpan.FromSeconds(0.001));
-            Storyboard.SetTarget(heightAnimation, mainWindow);
-            Storyboard.SetTargetProperty(heightAnimation, new PropertyPath(Window.HeightProperty));
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(heightAnimation);
+                storyboard.Children.Add(widthAnimation);
 
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(heightAnimation);
-            storyboard.Children.Add(widthAnimation);
-
-            mainWindow.BeginStoryboard(storyboard, HandoffBehavior.SnapshotAndReplace, true);
+                mainWindow.BeginStoryboard(storyboard, HandoffBehavior.SnapshotAndReplace, true);
+            }
         }
     }
 }
