@@ -22,7 +22,7 @@ namespace AssetsView.MVVM.View
         {
             new LineSeries<double, CircleGeometry>
             {
-                Values = new ObservableCollection<double> { 1, 1, 1, 1, 1, 1, 1, 1, 1 },
+                Values = new ObservableCollection<double> { 1, 1, 1, 1, 1, 1, 1 },
                 GeometryStroke = null,
                 GeometryFill = null,
                 LineSmoothness = 0,
@@ -302,7 +302,7 @@ namespace AssetsView.MVVM.View
                 else
                 {
                     // Handle the case when the API request fails
-                    Console.WriteLine("Errorrr");
+                    Console.WriteLine("Error");
                 }
             }
         }

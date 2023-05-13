@@ -30,10 +30,10 @@
                     </Grid.ColumnDefinitions>
                     <Image Source="{Binding ImageRoundedSource}" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                     <Image Source="{Binding ImageRoundedSource}" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                    <TextBlock Text="USD to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                    <TextBlock Text="1 USD = 0,830427 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                    <TextBlock Text="USD to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                    <TextBlock Text="1 USD = 0,830427 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                     <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
-                    <Button Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="3" Margin="27,0,0,0" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand">
+                    <Button Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="3" Margin="53,0,0,0" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand">
                         <Image Height="24" Width="24" Source="/Data/Icons/accept-arrow.png" />
                     </Button>
                 </Grid>
@@ -128,6 +128,15 @@
                     TooltipTextSize="14"
                     XAxes="{Binding XAxes}"
                     YAxes="{Binding YAxes}"/>
+                
+                <StackPanel Orientation="Horizontal" Width="577">
+                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="1M" Margin="10,0,0,0"/>
+                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="3M" Margin="59,0,0,0"/>
+                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="6M" Margin="59,0,0,0"/>
+                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="1Y" Margin="59,0,0,0"/>
+                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="5Y" Margin="59,0,0,0"/>
+                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="10Y" Margin="59,0,0,0"/>
+                </StackPanel>
             </StackPanel>
             <!-- Favourite&PopularPanel -->
             <WrapPanel x:Name="FavouritePopularPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="3" Grid.Row="0">
@@ -162,8 +171,8 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/EURrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/USDrounded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="EUR to USD" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock Text="1 EUR = 1,10144 USD" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <TextBlock Text="EUR to USD" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 EUR = 1,10144 USD" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>
@@ -177,8 +186,8 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/EURrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="EUR to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock Text="1 EUR = 0,87237 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <TextBlock Text="EUR to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 EUR = 0,87237 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>
@@ -192,8 +201,8 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/CADrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="CAD to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock Text="1 CAD = 0,58952 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <TextBlock Text="CAD to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 CAD = 0,58952 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>
@@ -207,8 +216,8 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/CHFrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="CHF to GBP" Width="100" Height="19" Margin="0,5,180,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                        <TextBlock Text="1 CHF = 0,88771 GBP" Width="155" Height="18" Margin="0,30,125,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <TextBlock Text="CHF to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="1 CHF = 0,88771 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>
