@@ -1,4 +1,5 @@
 ﻿using LiveChartsCore;
+using LiveChartsCore.Kernel;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Drawing.Geometries;
 using LiveChartsCore.SkiaSharpView.Painting;
@@ -8,10 +9,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace AssetsView.MVVM.View
 {
@@ -167,6 +170,10 @@ namespace AssetsView.MVVM.View
         private double exchangeRate;
         private double convertedAmount;
 
+        public bool IsRadioButtonChecked1 { get; set; }
+        public bool IsRadioButtonChecked2 { get; set; }
+        public bool IsRadioButtonChecked3 { get; set; }
+
         public DashboardView()
         {
             InitializeComponent();
@@ -309,12 +316,48 @@ namespace AssetsView.MVVM.View
 
         private async void UpdateHistoryExchangeRate()
         {
-            DateTime startDate = new DateTime(2022, 01, 01);
-            DateTime endDate = new DateTime(2022, 01, 31);
-            List<double> exchangeRates = new List<double>();
+            DateTime startDate;
+            DateTime endDate;
 
             if (country1 != null && country2 != null)
             {
+                // Determine the selected time period based on the selected RadioButton
+                if (RadioButton1M.IsChecked == true)
+                {
+                    startDate = DateTime.Today.AddMonths(-1);
+                    endDate = DateTime.Today;
+                }
+                else if (RadioButton3M.IsChecked == true)
+                {
+                    startDate = DateTime.Today.AddMonths(-3);
+                    endDate = DateTime.Today;
+                }
+                else if (RadioButton6M.IsChecked == true)
+                {
+                    startDate = DateTime.Today.AddMonths(-6);
+                    endDate = DateTime.Today;
+                }
+                else if (RadioButton1Y.IsChecked == true)
+                {
+                    startDate = DateTime.Today.AddYears(-1);
+                    endDate = DateTime.Today;
+                }
+                else if (RadioButton5Y.IsChecked == true)
+                {
+                    startDate = DateTime.Today.AddYears(-5);
+                    endDate = DateTime.Today;
+                }
+                else if (RadioButton10Y.IsChecked == true)
+                {
+                    startDate = DateTime.Today.AddYears(-10);
+                    endDate = DateTime.Today;
+                }
+                else
+                {
+                    // No RadioButton selected, handle this case if necessary
+                    return;
+                }
+
                 // Generate URL for making an API request
                 string requestUrl = GenerateRequestHistoryExchangeRateUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode, startDate, endDate);
                 Console.Write(requestUrl);
@@ -331,12 +374,41 @@ namespace AssetsView.MVVM.View
 
                     // Extract the historical exchange rates from the response
                     JArray historicalData = (JArray)exchangeData["dataset"]["data"];
+                    // Create a dictionary to store the corresponding dates for each exchange rate
+
+                    List<double> exchangeRates = new List<double>(); // Create a list to store exchange rates
+                    List<DateTime> dates = new List<DateTime>(); // Create a list to store dates
+
                     foreach (JArray dataPoint in historicalData)
                     {
+                        DateTime date = DateTime.Parse(dataPoint[0].Value<string>()); // Parse the date from the data
                         double exchangeRate = dataPoint[1].Value<double>();
                         double reverseExchangeRate = 1.0 / exchangeRate;
                         exchangeRates.Add(reverseExchangeRate);
+                        dates.Add(date); // Add the date to the list
                     }
+
+                    // Create a new LineSeries from the exchangeRates list
+                    var lineSeries = new LineSeries<double, CircleGeometry>
+                    {
+                        Values = new ObservableCollection<double>(exchangeRates),
+                        LineSmoothness = 0,
+                        GeometryStroke = null,
+                        GeometryFill = null,
+                        Fill = null,
+                        Stroke = new SolidColorPaint(SKColors.LimeGreen, 3),
+                        TooltipLabelFormatter = (chartPoint) =>
+                        {
+                            string currency1 = country1.CurrencyCode;
+                            string currency2 = country2.CurrencyCode;
+                            int index = exchangeRates.IndexOf(chartPoint.PrimaryValue);
+                            DateTime date = dates[index]; // Get the corresponding date from the list
+                            string formattedDate = date.ToString("yyyy-MM-dd"); // Format the date as desired
+                            return $"1 {currency1} = {chartPoint.PrimaryValue:F5} {currency2}{Environment.NewLine}{formattedDate}";
+                        },
+                    };
+                    // Add the new LineSeries to the chart's Series collection
+                    CurrencyChart.Series = new ISeries[] { lineSeries };
                 }
                 else
                 {
@@ -344,21 +416,13 @@ namespace AssetsView.MVVM.View
                     Console.WriteLine("Error");
                 }
             }
-            // Create a new LineSeries from the exchangeRates list
-            var lineSeries = new LineSeries<double, CircleGeometry>
-            {
-                Values = new ObservableCollection<double>(exchangeRates),
-                LineSmoothness = 0,
-                GeometryStroke = null,
-                GeometryFill = null,
-                Fill = null,
-                Stroke = new SolidColorPaint(SKColors.LimeGreen, 3),
-                TooltipLabelFormatter =
-                    (ChartPoint) => $"1 USD = {ChartPoint.PrimaryValue:C5}{Environment.NewLine}2023 Today, 12:00"
-            };
+        }
 
-            // Add the new LineSeries to the chart's Series collection
-            CurrencyChart.Series = new ISeries[] { lineSeries };
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            // Call the UpdateHistoryExchangeRate method when a RadioButton is checked
+            UpdateHistoryExchangeRate();
         }
 
         private void CurrencyTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -436,17 +500,33 @@ namespace AssetsView.MVVM.View
         {
             double windowWidth = e.NewSize.Width;
 
-            if (windowWidth < 1330)
+            if (windowWidth == 711)
             {
                 Grid.SetRow(FavouritePopularPanel, 1);
-                Grid.SetColumn(FavouritePopularPanel, 1);
-                FavouritePopularPanel.Margin = new Thickness(0, 11, 0, 0);
+                Grid.SetColumn(FavouritePopularPanel, 0);
+                ExtendedPanel.Visibility = Visibility.Collapsed;
+                ConvertPanel.Margin = new Thickness(37, 0, 34, 541);
+                SearchPanel.Margin = new Thickness(37, 0, 34, 541);
+                ChartPanel.Margin = new Thickness(37, 399, 34, 0);
+                FavouritePopularPanel.Margin = new Thickness(0, 14, 33, 0);
             }
-            else if (windowWidth > 712)
+            else if (windowWidth == 1340)
             {
                 Grid.SetRow(FavouritePopularPanel, 0);
-                Grid.SetColumn(FavouritePopularPanel, 3);
-                FavouritePopularPanel.Margin = new Thickness(0, 0, 0, 0);
+                Grid.SetColumn(FavouritePopularPanel, 1);
+                ExtendedPanel.Visibility = Visibility.Collapsed;
+                ConvertPanel.Margin = new Thickness(37, 0, 34, 541);
+                SearchPanel.Margin = new Thickness(37, 0, 34, 541);
+                ChartPanel.Margin = new Thickness(37, 399, 34, 0);
+                FavouritePopularPanel.Margin = new Thickness(0, 0, 33, 0);
+            }
+            else if (windowWidth == 1820)
+            {
+                ExtendedPanel.Visibility = Visibility.Visible;
+                ConvertPanel.Margin = new Thickness(37, 0, 14, 541);
+                SearchPanel.Margin = new Thickness(37, 0, 14, 541);
+                ChartPanel.Margin = new Thickness(37, 399, 14, 0);
+                FavouritePopularPanel.Margin = new Thickness(0, 0, 14, 0);
             }
         }
 
@@ -480,6 +560,151 @@ namespace AssetsView.MVVM.View
         private void SwitchButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        ObservableCollection<FavouriteListItem> favouriteList = new ObservableCollection<FavouriteListItem>();
+        public class FavouriteListItem
+        {
+            public ImageSource ImageRoundedSource1 { get; set; }
+            public ImageSource ImageRoundedSource2 { get; set; }
+            public string CurrencyConversionText { get; set; }
+            public string ExchangeRateText { get; set; }
+        }
+
+        private void StarToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            FavouriteListView.ItemsSource = favouriteList;
+            ImageSource imageRoundedSource1 = ImageRounded1.Source;
+            ImageSource imageRoundedSource2 = ImageRounded2.Source;
+            string currencyConversionText = CurrencyConversionTextBlock.Text;
+            string exchangeRateText = ExchangeRateTextBlock2.Text;
+
+            FavouriteListItem item = new FavouriteListItem();
+            item.ImageRoundedSource1 = imageRoundedSource1;
+            item.ImageRoundedSource2 = imageRoundedSource2;
+            item.CurrencyConversionText = CurrencyConversionTextBlock.Text;
+            item.ExchangeRateText = ExchangeRateTextBlock2.Text;
+
+            favouriteList.Add(item);
+            UpdateNotFoundFavouritesVisibility();
+        }
+
+        private void StarToggleButton_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ImageSource imageRoundedSource1 = ImageRounded1.Source;
+            ImageSource imageRoundedSource2 = ImageRounded2.Source;
+
+            // Find the item with matching ImageRoundedSource1 and ImageRoundedSource2
+            FavouriteListItem itemToRemove = favouriteList.FirstOrDefault(item =>
+                item.ImageRoundedSource1 == imageRoundedSource1 && item.ImageRoundedSource2 == imageRoundedSource2);
+
+            if (itemToRemove != null)
+            {
+                favouriteList.Remove(itemToRemove);
+            }
+
+            UpdateNotFoundFavouritesVisibility();
+        }
+
+        private void UpdateNotFoundFavouritesVisibility()
+        {
+            if (FavouriteListView.Items.Count == 0)
+            {
+                NoFoundFavouritesTextBlock.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                NoFoundFavouritesTextBlock.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ImageRounded1_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateToggleButtonCheckedState();
+        }
+
+        private void ImageRounded2_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateToggleButtonCheckedState();
+        }
+
+        private void UpdateToggleButtonCheckedState()
+        {
+            ImageSource imageRoundedSource1 = ImageRounded1.Source;
+            ImageSource imageRoundedSource2 = ImageRounded2.Source;
+
+            bool isCurrencyPairInFavourites = favouriteList.Any(item =>
+                item.ImageRoundedSource1 == imageRoundedSource1 && item.ImageRoundedSource2 == imageRoundedSource2);
+
+            StarToggleButton.IsChecked = isCurrencyPairInFavourites;
+        }
+
+        private void SelectButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            RadioButton radioButton = (RadioButton)sender;
+            if (radioButton != null && radioButton.Content != null)
+            {
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
+                {
+                    switch (radioButton.Content.ToString())
+                    {
+                        case "811x1024":
+                            AnimateMainWindowSize(811, 1024);
+                            mainWindow.ExitButton.Margin = new Thickness(0);
+                            IsRadioButtonChecked1 = true;
+                            IsRadioButtonChecked2 = false;
+                            IsRadioButtonChecked3 = false;
+                            break;
+                        case "1440x1024":
+                            AnimateMainWindowSize(1440, 1024);
+                            ConvertPanel.Margin = new Thickness(37, 0, 34, 541);
+                            SearchPanel.Margin = new Thickness(37, 0, 34, 541);
+                            ChartPanel.Margin = new Thickness(37, 399, 34, 0);
+                            FavouritePopularPanel.Margin = new Thickness(0, 14, 33, 0);
+                            mainWindow.ExitButton.Margin = new Thickness(0);
+                            IsRadioButtonChecked1 = false;
+                            IsRadioButtonChecked2 = true;
+                            IsRadioButtonChecked3 = false;
+                            break;
+                        case "1920x1040":
+                            AnimateMainWindowSize(1920, 1040);
+                            mainWindow.Left = 0;
+                            mainWindow.Top = 0;
+                            mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
+                            IsRadioButtonChecked1 = false;
+                            IsRadioButtonChecked2 = false;
+                            IsRadioButtonChecked3 = true;
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void AnimateMainWindowSize(double width, double height)
+        {
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            if (mainWindow != null)
+            {
+                DoubleAnimation widthAnimation = new DoubleAnimation(width, TimeSpan.FromSeconds(0.35));
+                Storyboard.SetTarget(widthAnimation, mainWindow);
+                Storyboard.SetTargetProperty(widthAnimation, new PropertyPath(Window.WidthProperty));
+
+                DoubleAnimation heightAnimation = new DoubleAnimation(height, TimeSpan.FromSeconds(0.001));
+                Storyboard.SetTarget(heightAnimation, mainWindow);
+                Storyboard.SetTargetProperty(heightAnimation, new PropertyPath(Window.HeightProperty));
+
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(heightAnimation);
+                storyboard.Children.Add(widthAnimation);
+
+                mainWindow.BeginStoryboard(storyboard, HandoffBehavior.SnapshotAndReplace, true);
+            }
         }
     }
 }

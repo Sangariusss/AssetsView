@@ -333,9 +333,11 @@
                     HorizontalAlignment="Right"
                     Orientation="Horizontal">
                     <RadioButton
+                        x:Name="ResolutionRadioButton1"
                         Grid.Column="1"
                         Width="115"
                         Height="Auto"
+                        IsChecked="{Binding IsRadioButtonChecked1}"
                         Checked="ResolutionRadioButton_Checked"
                         Content="811x1024"
                         FontSize="18"
@@ -346,19 +348,20 @@
                         Grid.Column="1"
                         Width="115"
                         Height="Auto"
+                        IsChecked="{Binding IsRadioButtonChecked2}"
                         Checked="ResolutionRadioButton_Checked"
                         Content="1440x1024"
                         FontSize="18"
                         FontWeight="Medium"
-                        IsChecked="True"
                         Style="{DynamicResource SettingsRadioButtonStyle}" />
                     <RadioButton
                         x:Name="ResolutionRadioButton3"
                         Grid.Column="1"
                         Width="115"
                         Height="Auto"
+                        IsChecked="{Binding IsRadioButtonChecked3}"
                         Checked="ResolutionRadioButton_Checked"
-                        Content="1650x1040"
+                        Content="1920x1040"
                         FontSize="18"
                         FontWeight="Medium"
                         Style="{DynamicResource SettingsRadioButtonStyle}" />

@@ -24,7 +24,6 @@ namespace AssetsView.MVVM.ViewModel
 
         public MainViewModel()
         {
-
             DashboardVM = new DashboardViewModel();
             SettingsVM = new SettingsViewModel();
             HelpVM = new HelpViewModel();

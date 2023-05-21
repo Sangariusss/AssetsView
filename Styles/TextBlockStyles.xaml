@@ -3,6 +3,10 @@
         <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
         <Setter Property="Foreground" Value="#F8F9FA" />
     </Style>
+    <Style x:Key="HelpTextBlockStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
+        <Setter Property="Foreground" Value="#C0C0C0" />
+    </Style>
     <Style x:Key="ExpanderStyle" TargetType="Expander">
         <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
         <Setter Property="Foreground" Value="#F8F9FA" />

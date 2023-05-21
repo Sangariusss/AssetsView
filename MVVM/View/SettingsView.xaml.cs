@@ -10,6 +10,10 @@ namespace AssetsView.MVVM.View
     /// </summary>
     public partial class SettingsView : UserControl
     {
+        public bool IsRadioButtonChecked1 { get; set; }
+        public bool IsRadioButtonChecked2 { get; set; }
+        public bool IsRadioButtonChecked3 { get; set; }
+
         public SettingsView()
         {
             InitializeComponent();
@@ -20,26 +24,44 @@ namespace AssetsView.MVVM.View
             RadioButton radioButton = (RadioButton)sender;
             if (radioButton != null && radioButton.Content != null)
             {
-                switch (radioButton.Content.ToString())
+                MainWindow mainWindow = Window.GetWindow(this) as MainWindow;
+                if (mainWindow != null)
                 {
-                    case "811x1024":
-                        AnimateMainWindowSize(811, 1024);
-                        ThemeTextBlock.Text = "Choose the theme";
-                        LanguageTextBlock.Text = "Choose the language";
-                        ResolutionTextBlock.Text = "Choose the resolution";
-                        break;
-                    case "1440x1024":
-                        AnimateMainWindowSize(1440, 1024);
-                        ThemeTextBlock.Text = "Choose the theme you like";
-                        LanguageTextBlock.Text = "Choose the language you are comfortable with";
-                        ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
-                        break;
-                    case "1650x1040":
-                        AnimateMainWindowSize(1650, 1040);
-                        ThemeTextBlock.Text = "Choose the theme you like";
-                        LanguageTextBlock.Text = "Choose the language you are comfortable with";
-                        ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
-                        break;
+                    switch (radioButton.Content.ToString())
+                    {
+                        case "811x1024":
+                            AnimateMainWindowSize(811, 1024);
+                            ThemeTextBlock.Text = "Choose the theme";
+                            LanguageTextBlock.Text = "Choose the language";
+                            ResolutionTextBlock.Text = "Choose the resolution";
+                            mainWindow.ExitButton.Margin = new Thickness(0);
+                            IsRadioButtonChecked1 = true;
+                            IsRadioButtonChecked2 = false;
+                            IsRadioButtonChecked3 = false;
+                            break;
+                        case "1440x1024":
+                            AnimateMainWindowSize(1440, 1024);
+                            ThemeTextBlock.Text = "Choose the theme you like";
+                            LanguageTextBlock.Text = "Choose the language you are comfortable with";
+                            ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
+                            mainWindow.ExitButton.Margin = new Thickness(0);
+                            IsRadioButtonChecked1 = false;
+                            IsRadioButtonChecked2 = true;
+                            IsRadioButtonChecked3 = false;
+                            break;
+                        case "1920x1040":
+                            AnimateMainWindowSize(1920, 1040);
+                            mainWindow.Left = 0;
+                            mainWindow.Top = 0;
+                            mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
+                            ThemeTextBlock.Text = "Choose the theme you like";
+                            LanguageTextBlock.Text = "Choose the language you are comfortable with";
+                            ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
+                            IsRadioButtonChecked1 = false;
+                            IsRadioButtonChecked2 = false;
+                            IsRadioButtonChecked3 = true;
+                            break;
+                    }
                 }
             }
         }

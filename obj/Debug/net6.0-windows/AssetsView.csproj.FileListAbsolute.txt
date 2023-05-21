@@ -147,7 +147,8 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\upper
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\Chart.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\accept-arrow.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\settings.png
-C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\decline.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Elasticsearch.Net.dll
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Nest.dll
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\ServiceStack.Text.dll
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\starOn.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\starOff.png

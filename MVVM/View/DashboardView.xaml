@@ -5,9 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AssetsView.MVVM.View"
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             xmlns:lvcore="clr-namespace:LiveChartsCore;assembly=LiveChartsCore"
              x:Class="AssetsView.MVVM.View.DashboardView"
              mc:Ignorable="d" 
-             d:DesignHeight="994" d:DesignWidth="1340" Loaded="UserControl_Loaded" SizeChanged="UserControl_SizeChanged">
+             d:DesignHeight="994" d:DesignWidth="1920" Loaded="UserControl_Loaded" SizeChanged="UserControl_SizeChanged">
     <UserControl.Resources>
         <DataTemplate x:Key="CurrencyListItem">
             <Button Width="584" Style="{DynamicResource ButtonHoverStyle}" Click="CurrencyButton_Click" Height="46" Background="#0E0E0E" BorderThickness="0" Cursor="Hand" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -20,7 +21,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="FavouriteListItem">
-            <StackPanel Width="550" Height="52" Margin="-6,0,0,0" Orientation="Horizontal">
+            <StackPanel Width="550" Height="52" Margin="0,0,0,0" Orientation="Horizontal">
                 <Grid Width="550" Height="52">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="64" />
@@ -28,17 +29,27 @@
                         <ColumnDefinition Width="132" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Image Source="{Binding ImageRoundedSource}" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
-                    <Image Source="{Binding ImageRoundedSource}" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                    <TextBlock Text="USD to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
-                    <TextBlock Text="1 USD = 0,830427 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                    <Image x:Name="FavouriteImage1" Source="{Binding ImageRoundedSource1}" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
+                    <Image x:Name="FavouriteImage2" Source="{Binding ImageRoundedSource2}" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
+                    <TextBlock Text="{Binding CurrencyConversionText}" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                    <TextBlock Text="{Binding ExchangeRateText}" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                     <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
-                    <Button Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="3" Margin="53,0,0,0" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand">
+                    <Button x:Name="SelectButton" Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="3" Margin="53,0,0,0" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand" Click="SelectButton_Click">
                         <Image Height="24" Width="24" Source="/Data/Icons/accept-arrow.png" />
                     </Button>
                 </Grid>
             </StackPanel>
         </DataTemplate>
+
+        <Style TargetType="ListViewItem" x:Key="ListViewItemStyle">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <ContentPresenter />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
 
     <UserControl.DataContext>
@@ -52,14 +63,13 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="37"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="34"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="33"/>
             </Grid.ColumnDefinitions>
             <!-- SearchPanel -->
-            <StackPanel x:Name="SearchPanel" Width="640" Height="388" Margin="0,0,0,541" Background="#0E0E0E" Grid.Row="0" Grid.Column="1" Visibility="Visible">
+            <StackPanel x:Name="SearchPanel" Width="640" Height="388" Margin="37,0,34,541" Background="#0E0E0E" Grid.Row="0" Grid.Column="0" Visibility="Visible">
                 <Grid>
                     <TextBox x:Name="SearchTextBox" Width="584" Height="46" Margin="26,38,30,0" Background="#171717" BorderThickness="0" FontFamily="Mariupol" Foreground="Gray" Text="Type a country / currency" FontSize="15" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" VerticalAlignment="Stretch" VerticalContentAlignment="Center" Padding="60,15,80,15" FontWeight="Regular" BorderBrush="White" PreviewTextInput="SearchTextBox_PreviewTextInput" TextChanged="SearchTextBox_TextChanged"/>
                     <Image Source="/Data/Icons/search.png" Width="25" Height="25" Margin="38,48,576,11"/>
@@ -72,9 +82,9 @@
             </StackPanel>
 
             <!-- ConvertPanel -->
-            <StackPanel x:Name="ConvertPanel" Width="640" Height="388" Margin="0,0,0,541" Background="#FF0E0E0E" Grid.Row="0" Grid.Column="1" Visibility="Visible">
+            <StackPanel x:Name="ConvertPanel" Width="640" Height="388" Margin="37,0,34,541" Background="#FF0E0E0E" Grid.Row="0" Grid.Column="0" Visibility="Visible">
                 <StackPanel>
-                    <TextBlock x:Name="Title" Text="Convert" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="25" Width="95" Foreground="#F8F9FA" Height="24" Margin="30,35,515,0" FontWeight="Bold"/>
+                    <TextBlock x:Name="Title" Style="{StaticResource TextBlockStyle}" Text="Convert" FontSize="25" Width="95" Height="24" Margin="30,35,515,0" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Width="581" Height="50" Margin="29,30,30,0">
                     <Grid Height="50">
@@ -104,25 +114,25 @@
                         </Button>
                     </Grid>
                 </StackPanel>
-                <TextBlock x:Name="ExchangeRateTextBlock1" Text="1 EUR = 1,06770 USD" Width="220" Height="19" Margin="30,36,390,0" FontSize="18" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Medium" Foreground="#F8F9FA"/>
+                <TextBlock x:Name="ExchangeRateTextBlock1" Style="{StaticResource TextBlockStyle}" Text="1 EUR = 1,06770 USD" Width="220" Height="19" Margin="30,36,390,0" FontSize="18" FontWeight="Medium"/>
                 <TextBlock x:Name="PercentageChangeTextBlock" Text="Up by 0,00% (0,000000 USD)" Width="190" Height="18" Margin="30,16,420,30" FontSize="15" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Regular" Foreground="#32CD32"/>
             </StackPanel>
-            <StackPanel x:Name="ChartPanel" Width="640" Height="530" Margin="0,399,0,0" Background="#FF0E0E0E" Grid.Column="1">
+            <StackPanel x:Name="ChartPanel" Width="640" Height="530" Margin="37,399,34,0" Background="#FF0E0E0E" Grid.Column="0">
                 <StackPanel Width="640" Height="120">
                     <Grid Width="640" Height="120">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="94" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <Image x:Name="ImageRounded1" Source="{Binding ImageRoundedSource}" Loaded="UserControl_Loaded" Width="30" Height="30" Margin="30,40,34,50" Grid.Column="0"/>
-                        <Image x:Name="ImageRounded2" Source="{Binding ImageRoundedSource}" Loaded="UserControl_Loaded" Width="30" Height="30" Margin="41,52,23,38" Grid.Column="0"/>
-                        <TextBlock x:Name="CurrencyConversionTextBlock" Text="EUR to USD" Width="100" Height="19" Margin="0,40,446,61" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <Image x:Name="ImageRounded1" Source="{Binding ImageRoundedSource}" Loaded="UserControl_Loaded" Width="30" Height="30" Margin="30,40,34,50" Grid.Column="0" DataContextChanged="ImageRounded1_DataContextChanged"/>
+                        <Image x:Name="ImageRounded2" Source="{Binding ImageRoundedSource}" Loaded="UserControl_Loaded" Width="30" Height="30" Margin="41,52,23,38" Grid.Column="0" DataContextChanged="ImageRounded2_DataContextChanged"/>
+                        <TextBlock x:Name="CurrencyConversionTextBlock" Style="{StaticResource TextBlockStyle}" Text="EUR to USD" Width="100" Height="19" Margin="0,40,446,61" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
                         <TextBlock x:Name="ExchangeRateTextBlock2" Text="1 EUR = 1,06770 USD" Width="155" Height="18" Margin="0,69,391,33" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
+                        <ToggleButton x:Name="StarToggleButton" Style="{DynamicResource StarToggleButtonStyle}" Grid.Column="1" Margin="444,0,0,0" Checked="StarToggleButton_Checked" IsChecked="{Binding IsFavourite, Mode=TwoWay}" Unchecked="StarToggleButton_Unchecked"/>
                     </Grid>
                 </StackPanel>
                 <lvc:CartesianChart x:Name="CurrencyChart"
                     Series="{Binding Series}" Width="577" Height="313"
-                    TooltipFindingStrategy="CompareOnlyX"
                     TooltipBackgroundPaint="{Binding TooltipBackgroundPaint}"
                     TooltipTextPaint="{Binding TooltipTextPaint}"
                     TooltipTextSize="14"
@@ -130,16 +140,16 @@
                     YAxes="{Binding YAxes}"/>
                 
                 <StackPanel Orientation="Horizontal" Width="577">
-                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="1M" Margin="10,0,0,0"/>
-                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="3M" Margin="59,0,0,0"/>
-                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="6M" Margin="59,0,0,0"/>
-                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="1Y" Margin="59,0,0,0"/>
-                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="5Y" Margin="59,0,0,0"/>
-                    <RadioButton Style="{DynamicResource ChartRadioButtonStyle}" Content="10Y" Margin="59,0,0,0"/>
+                    <RadioButton x:Name="RadioButton1M" Style="{DynamicResource ChartRadioButtonStyle}" Content="1M" Margin="10,0,0,0" IsChecked="True" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="RadioButton3M" Style="{DynamicResource ChartRadioButtonStyle}" Content="3M" Margin="59,0,0,0" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="RadioButton6M" Style="{DynamicResource ChartRadioButtonStyle}" Content="6M" Margin="59,0,0,0" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="RadioButton1Y" Style="{DynamicResource ChartRadioButtonStyle}" Content="1Y" Margin="59,0,0,0" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="RadioButton5Y" Style="{DynamicResource ChartRadioButtonStyle}" Content="5Y" Margin="59,0,0,0" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="RadioButton10Y" Style="{DynamicResource ChartRadioButtonStyle}" Content="10Y" Margin="59,0,0,0" Checked="RadioButton_Checked"/>
                 </StackPanel>
             </StackPanel>
             <!-- Favourite&PopularPanel -->
-            <WrapPanel x:Name="FavouritePopularPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="3" Grid.Row="0">
+            <WrapPanel x:Name="FavouritePopularPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="1" Grid.Row="0">
                 <StackPanel x:Name="FavouriteRatesPanel" Height="88">
                     <Grid Height="88">
                         <Grid.ColumnDefinitions>
@@ -147,19 +157,18 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Favourite rates" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="25" Width="180" Height="24" Foreground="#F8F9FA" FontWeight="Bold" Margin="31,35,324,29" Grid.RowSpan="1"/>
+                        <TextBlock Text="Favourite rates" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="180" Height="24" FontWeight="Bold" Margin="31,35,324,29" Grid.RowSpan="1"/>
                         <Button x:Name="buttonAddFavouriteRates" Style="{DynamicResource ButtonZoomStyle}" Width="40" Height="40" Grid.Column="1" Margin="0,27,26,21" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand">
                             <Image Height="24" Width="24" Source="/Data/Icons/plus.png"/>
                         </Button>
                     </Grid>
                 </StackPanel>
 
-                <ListView Width="550" Height="368" BorderThickness="0.1" Margin="32,0,0,0" Background="Transparent" ItemsSource="{Binding CountrySeries}" ItemTemplate="{StaticResource FavouriteListItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled">
-                    
-                </ListView>
+                <ListView x:Name="FavouriteListView" Width="550" Height="368" BorderThickness="0" Margin="32,0,0,0" Background="Transparent" ItemContainerStyle="{StaticResource ListViewItemStyle}" ItemTemplate="{StaticResource FavouriteListItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                <TextBlock x:Name="NoFoundFavouritesTextBlock" Text="You haven't added any favourite rates yet" Foreground="#525252" FontSize="18" FontFamily="Mariupol" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="120,-392,120,0" />
 
                 <StackPanel x:Name="PopularPanel" Width="601" Height="69" Margin="0,35,0,0">
-                    <TextBlock Text="Popular" FontFamily="/Data/Fonts/Mariupol-Regular.ttf" FontSize="25" Width="93" Height="30" Foreground="#F8F9FA" Margin="35,23,473,22" FontWeight="Bold"/>
+                    <TextBlock Text="Popular" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="93" Height="30" Margin="35,23,473,22" FontWeight="Bold"/>
                 </StackPanel>
 
                 <StackPanel Width="546" Height="52" Margin="30,27,20,0" Orientation="Horizontal">
@@ -171,7 +180,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/EURrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/USDrounded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="EUR to USD" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="EUR to USD" Width="100" Height="19" Style="{StaticResource TextBlockStyle}" Margin="0,5,154,28" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
                         <TextBlock Text="1 EUR = 1,10144 USD" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
@@ -186,7 +195,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/EURrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="EUR to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="EUR to GBP" Style="{StaticResource TextBlockStyle}" Width="100" Height="19" Margin="0,5,154,28" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
                         <TextBlock Text="1 EUR = 0,87237 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
@@ -201,7 +210,7 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/CADrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="CAD to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="CAD to GBP" Style="{StaticResource TextBlockStyle}" Width="100" Height="19" Margin="0,5,154,28" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
                         <TextBlock Text="1 CAD = 0,58952 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
@@ -216,12 +225,292 @@
                         </Grid.ColumnDefinitions>
                         <Image Source="/Data/Images/FlagsRounded/CHFrounded.png" Width="30" Height="30" Margin="0,5,34,17" Grid.Column="0"/>
                         <Image Source="/Data/Images/FlagsRounded/GBProunded.png" Width="30" Height="30" Margin="11,17,23,5" Grid.Column="0"/>
-                        <TextBlock Text="CHF to GBP" Width="100" Height="19" Margin="0,5,154,28" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#F8F9FA" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
+                        <TextBlock Text="CHF to GBP" Style="{StaticResource TextBlockStyle}" Width="100" Height="19" Margin="0,5,154,28" FontSize="18" FontWeight="Medium" Grid.Column="1"/>
                         <TextBlock Text="1 CHF = 0,88771 GBP" Width="155" Height="18" Margin="0,30,97,4" FontFamily="Data/Fonts/Mariupol-Regular.ttf" Foreground="#32CD32" FontSize="15" FontWeight="Regular" Grid.Column="1"/>
                         <Image Source="/Data/Icons/chart.png" Grid.Column="2"/>
                     </Grid>
                 </StackPanel>
             </WrapPanel>
+
+            <StackPanel x:Name="ExtendedPanel" Width="486" Height="929" Grid.Column="2" Background="#FF0E0E0E" Visibility="Visible">
+                <TextBlock Text="Quick settings and hotkeys" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="323" Height="30" Margin="30,32,133,0" FontWeight="Bold"/>
+                <TextBlock Text="Set hotkeys that are convenient for you" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="323" Height="21" Margin="30,17,133,0" FontWeight="Medium"/>
+                
+                <Grid
+                Height="50"
+                Margin="30,28,26,0"
+                Background="#141414">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                    Margin="22,15,0,11"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Open Dashboard"
+                    TextWrapping="Wrap" />
+
+                    <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                        <Button
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Background="#171717"
+                        BorderThickness="0"
+                        Content="CTRL + S"
+                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#42FF00"
+                        Style="{DynamicResource ButtonHoverStyle}" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid
+                Height="50"
+                Margin="30,32,26,0"
+                Background="#141414">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                    Margin="22,15,0,11"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Open Settings "
+                    TextWrapping="Wrap" />
+
+                    <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                        <Button
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Background="#171717"
+                        BorderThickness="0"
+                        Content="CTRL + E"
+                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#42FF00"
+                        Style="{DynamicResource ButtonHoverStyle}" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid
+                Height="50"
+                Margin="30,32,26,0"
+                Background="#141414">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                    Margin="22,15,0,11"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Open Help"
+                    TextWrapping="Wrap" />
+
+                    <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                        <Button
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Background="#171717"
+                        BorderThickness="0"
+                        Content="ALT + G"
+                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#42FF00"
+                        Style="{DynamicResource ButtonHoverStyle}" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid
+                Height="50"
+                Margin="30,32,26,0"
+                Background="#141414">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                    Margin="22,15,0,11"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Delete all your favorite charts   "
+                    TextWrapping="Wrap" />
+
+                    <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                        <Button
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Background="#171717"
+                        BorderThickness="0"
+                        Content="CTRL + Z"
+                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#42FF00"
+                        Style="{DynamicResource ButtonHoverStyle}" />
+                    </StackPanel>
+                </Grid>
+
+                <Grid
+                Height="50"
+                Margin="30,32,26,0"
+                Background="#141414">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                    Margin="22,15,0,11"
+                    FontSize="18"
+                    FontWeight="Medium"
+                    Style="{StaticResource TextBlockStyle}"
+                    Text="Swap currencies in the converter"
+                    TextWrapping="Wrap" />
+
+                    <StackPanel
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal">
+                        <Button
+                        Grid.Column="1"
+                        Width="136"
+                        Height="Auto"
+                        Background="#171717"
+                        BorderThickness="0"
+                        Content="CTRL + W"
+                        FontFamily="/Data/Fonts/Mariupol-Regular.ttf"
+                        FontSize="18"
+                        FontWeight="Medium"
+                        Foreground="#42FF00"
+                        Style="{DynamicResource ButtonHoverStyle}" />
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Text="Choose the theme you like" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,42,232,0" FontWeight="Medium"/>
+                <Grid
+                    Height="50"
+                    Margin="30,26,26,0"
+                    Background="#141414">
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <RadioButton
+                            IsChecked="True"
+                            Width="215"
+                            Height="Auto"
+                            Content="Dark theme"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                        <RadioButton
+                            Width="215"
+                            Height="Auto"
+                            Content="Light theme"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                    </StackPanel>
+                </Grid>
+                
+                <TextBlock Text="Choose the language" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,26,232,0" FontWeight="Medium"/>
+                <Grid
+                    Height="50"
+                    Margin="30,26,26,0"
+                    Background="#141414">
+                    <StackPanel
+                        Orientation="Horizontal">
+                        <RadioButton
+                            IsChecked="True"
+                            Width="215"
+                            Height="Auto"
+                            Content="English"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                        <RadioButton
+                            Width="215"
+                            Height="Auto"
+                            Content="Ukrainian"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                    </StackPanel>
+                </Grid>
+                
+                <TextBlock Text="Choose the language" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,26,232,0" FontWeight="Medium"/>
+                <Grid
+                    Height="50"
+                    Margin="30,36,26,0"
+                    Background="#141414">
+                    <StackPanel
+                        Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        Orientation="Horizontal">
+                        <RadioButton
+                            x:Name="ResolutionRadioButton1"
+                            Grid.Column="1"
+                            Width="143.33"
+                            Height="Auto"
+                            IsChecked="{Binding IsRadioButtonChecked1}"
+                            Checked="ResolutionRadioButton_Checked"
+                            Content="811x1024"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                        <RadioButton
+                            x:Name="ResolutionRadioButton2"
+                            Grid.Column="1"
+                            Width="143.33"
+                            Height="Auto"
+                            IsChecked="{Binding IsRadioButtonChecked2}"
+                            Checked="ResolutionRadioButton_Checked"
+                            Content="1440x1024"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                        <RadioButton
+                            x:Name="ResolutionRadioButton3"
+                            Grid.Column="1"
+                            Width="143.33"
+                            Height="Auto"
+                            IsChecked="{Binding IsRadioButtonChecked3}"
+                            Checked="ResolutionRadioButton_Checked"
+                            Content="1920x1040"
+                            FontSize="18"
+                            FontWeight="Medium"
+                            Style="{DynamicResource SettingsRadioButtonStyle}" />
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
         </Grid>
     </ScrollViewer>
 </UserControl>

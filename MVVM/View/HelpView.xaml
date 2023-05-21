@@ -59,7 +59,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
                                     TextWrapping="Wrap" />
                             </StackPanel>
@@ -85,7 +85,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text="You need to click on the add button and add the chart you like to your list, after which you can turn it on and off in the chart panel."
                                     TextWrapping="Wrap" />
                             </StackPanel>
@@ -110,7 +110,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text='A chart is a specific type of data displayed in the chart panel. The existing data type in the AssetsView chart is the current currency. It is very easy to use the chart, you just need to select your favorite chart in the "Favorite rates" panel and enable it to show the exchange rate in the "Chart" panel under the "Convert" panel.'
                                     TextWrapping="Wrap" />
                             </StackPanel>
@@ -135,7 +135,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text='Hotkeys work in such a way that by pressing, for example, the "CTRL + S" key, you can instantly move to the currency selection. To use hotkeys, you need to go to the "Settings" section and enable them by specifying the key shortcuts that are convenient for you.'
                                     TextWrapping="Wrap" />
                             </StackPanel>
@@ -160,7 +160,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text="AssetsView is a program for conveniently tracking exchange rates, business news, and quick currency exchange. We use exchange rate information from the Bank of England."
                                     TextWrapping="Wrap" />
                             </StackPanel>
@@ -185,7 +185,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text="The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England."
                                     TextWrapping="Wrap" />
                             </StackPanel>
@@ -210,7 +210,7 @@
                                     FontSize="18"
                                     FontWeight="Normal"
                                     LineHeight="29"
-                                    Style="{StaticResource TextBlockStyle}"
+                                    Style="{StaticResource HelpTextBlockStyle}"
                                     Text="We are open for partnership. For more information, please contact us by this email example@mybusiness.org."
                                     TextWrapping="Wrap" />
                             </StackPanel>
