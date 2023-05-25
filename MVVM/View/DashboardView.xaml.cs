@@ -104,7 +104,7 @@ namespace AssetsView.MVVM.View
             CurrencyCountry[] allCountries = GetCurrencyCountries();
             List<CurrencyCountry> filteredCountries = new List<CurrencyCountry>();
 
-            if (filterText == "Type a country / currency")
+            if (filterText == "Type a country / currency" || filterText == "Select the first currency" || filterText == "Select the second currency")
             {
                 return allCountries;
             }
@@ -120,6 +120,7 @@ namespace AssetsView.MVVM.View
 
             return filteredCountries.ToArray();
         }
+
         // Returns an array of CurrencyCountry objects
         public static CurrencyCountry[] GetCurrencyCountries()
         {
@@ -169,10 +170,6 @@ namespace AssetsView.MVVM.View
 
         private double exchangeRate;
         private double convertedAmount;
-
-        public bool IsRadioButtonChecked1 { get; set; }
-        public bool IsRadioButtonChecked2 { get; set; }
-        public bool IsRadioButtonChecked3 { get; set; }
 
         public DashboardView()
         {
@@ -456,10 +453,21 @@ namespace AssetsView.MVVM.View
 
         private void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (SearchTextBox.Foreground == Brushes.Gray)
+            if (SearchTextBox.IsFocused == true)
             {
                 SearchTextBox.Text = "";
                 SearchTextBox.Foreground = Brushes.White;
+            }
+
+            if (SelectCurrencyTextBox1.IsFocused == true)
+            {
+                SelectCurrencyTextBox1.Text = "";
+                SelectCurrencyTextBox1.Foreground = Brushes.White;
+            }
+            if (SelectCurrencyTextBox2.IsFocused == true)
+            {
+                SelectCurrencyTextBox2.Text = "";
+                SelectCurrencyTextBox2.Foreground = Brushes.White;
             }
         }
 
@@ -469,6 +477,28 @@ namespace AssetsView.MVVM.View
             {
                 SearchTextBox.Text = "Type a country / currency";
                 SearchTextBox.Foreground = Brushes.Gray;
+                SelectCurrencyTextBox1.Text = "Select the first currency";
+                SelectCurrencyTextBox1.Foreground = Brushes.Gray;
+                SelectCurrencyTextBox2.Text = "Select the second currency";
+                SelectCurrencyTextBox2.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void SelectCurrencyTextBox1_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SelectCurrencyTextBox1.Text))
+            {
+                SelectCurrencyTextBox1.Text = "Select the first currency";
+                SelectCurrencyTextBox1.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void SelectCurrencyTextBox2_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(SelectCurrencyTextBox2.Text))
+            {
+                SelectCurrencyTextBox2.Text = "Select the second currency";
+                SelectCurrencyTextBox2.Foreground = Brushes.Gray;
             }
         }
 
@@ -504,21 +534,27 @@ namespace AssetsView.MVVM.View
             {
                 Grid.SetRow(FavouritePopularPanel, 1);
                 Grid.SetColumn(FavouritePopularPanel, 0);
+                Grid.SetRow(AddFavouriteRatesPanel, 1);
+                Grid.SetColumn(AddFavouriteRatesPanel, 0);
                 ExtendedPanel.Visibility = Visibility.Collapsed;
                 ConvertPanel.Margin = new Thickness(37, 0, 34, 541);
                 SearchPanel.Margin = new Thickness(37, 0, 34, 541);
                 ChartPanel.Margin = new Thickness(37, 399, 34, 0);
                 FavouritePopularPanel.Margin = new Thickness(0, 14, 33, 0);
+                AddFavouriteRatesPanel.Margin = new Thickness(0, 14, 33, 0);
             }
             else if (windowWidth == 1340)
             {
                 Grid.SetRow(FavouritePopularPanel, 0);
                 Grid.SetColumn(FavouritePopularPanel, 1);
+                Grid.SetRow(AddFavouriteRatesPanel, 0);
+                Grid.SetColumn(AddFavouriteRatesPanel, 1);
                 ExtendedPanel.Visibility = Visibility.Collapsed;
                 ConvertPanel.Margin = new Thickness(37, 0, 34, 541);
                 SearchPanel.Margin = new Thickness(37, 0, 34, 541);
                 ChartPanel.Margin = new Thickness(37, 399, 34, 0);
                 FavouritePopularPanel.Margin = new Thickness(0, 0, 33, 0);
+                AddFavouriteRatesPanel.Margin = new Thickness(0, 0, 33, 0);
             }
             else if (windowWidth == 1820)
             {
@@ -527,6 +563,7 @@ namespace AssetsView.MVVM.View
                 SearchPanel.Margin = new Thickness(37, 0, 14, 541);
                 ChartPanel.Margin = new Thickness(37, 399, 14, 0);
                 FavouritePopularPanel.Margin = new Thickness(0, 0, 14, 0);
+                AddFavouriteRatesPanel.Margin = new Thickness(0, 0, 14, 0);
             }
         }
 
@@ -560,6 +597,24 @@ namespace AssetsView.MVVM.View
         private void SwitchButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private bool isDataContextSwapped = false;
+        private void FavouriteSwitchButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Toggle the DataContext values of SelectCurrencyTextBox1 and SelectCurrencyTextBox2
+            if (isDataContextSwapped)
+            {
+                SelectCurrencyTextBox1.DataContext = SelectedCurrencyTextBlock1.DataContext;
+                SelectCurrencyTextBox2.DataContext = SelectedCurrencyTextBlock2.DataContext;
+            }
+            else
+            {
+                SelectCurrencyTextBox1.DataContext = SelectedCurrencyTextBlock2.DataContext;
+                SelectCurrencyTextBox2.DataContext = SelectedCurrencyTextBlock1.DataContext;
+            }
+
+            isDataContextSwapped = !isDataContextSwapped;
         }
 
         ObservableCollection<FavouriteListItem> favouriteList = new ObservableCollection<FavouriteListItem>();
@@ -641,7 +696,24 @@ namespace AssetsView.MVVM.View
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            FavouriteListItem selectedItem = button.DataContext as FavouriteListItem;
 
+            if (selectedItem != null)
+            {
+                // Перевірка, якщо значення ImageRoundedSource вже встановлені
+                if (!(ImageRounded1.DataContext?.Equals(new { ImageRoundedSource = selectedItem.ImageRoundedSource1 }) ?? true) && !(ImageRounded2.DataContext?.Equals(new { ImageRoundedSource = selectedItem.ImageRoundedSource2 }) ?? true))
+                {
+                    ImageRounded1.DataContext = new { ImageRoundedSource = selectedItem.ImageRoundedSource1 };
+                    ImageRounded2.DataContext = new { ImageRoundedSource = selectedItem.ImageRoundedSource2 };
+                    StarToggleButton.IsChecked = true;
+                }
+
+                if (!CurrencyConversionTextBlock.Text.Equals(selectedItem.CurrencyConversionText))
+                {
+                    CurrencyConversionTextBlock.Text = selectedItem.CurrencyConversionText;
+                }
+            }
         }
 
         private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
@@ -657,9 +729,6 @@ namespace AssetsView.MVVM.View
                         case "811x1024":
                             AnimateMainWindowSize(811, 1024);
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            IsRadioButtonChecked1 = true;
-                            IsRadioButtonChecked2 = false;
-                            IsRadioButtonChecked3 = false;
                             break;
                         case "1440x1024":
                             AnimateMainWindowSize(1440, 1024);
@@ -668,18 +737,12 @@ namespace AssetsView.MVVM.View
                             ChartPanel.Margin = new Thickness(37, 399, 34, 0);
                             FavouritePopularPanel.Margin = new Thickness(0, 14, 33, 0);
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            IsRadioButtonChecked1 = false;
-                            IsRadioButtonChecked2 = true;
-                            IsRadioButtonChecked3 = false;
                             break;
                         case "1920x1040":
                             AnimateMainWindowSize(1920, 1040);
                             mainWindow.Left = 0;
                             mainWindow.Top = 0;
                             mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
-                            IsRadioButtonChecked1 = false;
-                            IsRadioButtonChecked2 = false;
-                            IsRadioButtonChecked3 = true;
                             break;
                     }
                 }
@@ -704,6 +767,158 @@ namespace AssetsView.MVVM.View
                 storyboard.Children.Add(widthAnimation);
 
                 mainWindow.BeginStoryboard(storyboard, HandoffBehavior.SnapshotAndReplace, true);
+            }
+        }
+
+        private void AddFavouriteRatesButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddFavouriteRatesPanel.Visibility = Visibility.Visible;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddFavouriteRatesPanel.Visibility = Visibility.Collapsed;
+        }
+
+        private void SelectCurrencyTextBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (FavouriteRatesListView != null)
+            {
+                CurrencyCountryManager currencyCountryManager = new CurrencyCountryManager();
+                currencyCountryManager.filterText = SelectCurrencyTextBox1.Text;
+
+                // Update the ListView's ItemSource with the filtered list of currency countries
+                CurrencyCountry[] filteredCurrencyCountriesArray = currencyCountryManager.FilterCurrencyCountries();
+                List<CurrencyCountry> filteredCurrencyCountriesList = new List<CurrencyCountry>(filteredCurrencyCountriesArray);
+                FavouriteRatesListView.ItemsSource = filteredCurrencyCountriesList;
+
+                if (filteredCurrencyCountriesList.Count == 0)
+                {
+                    FavouriteRatesListView.ItemsSource = null;
+                }
+                else
+                {
+                    FavouriteRatesListView.ItemsSource = filteredCurrencyCountriesList;
+                }
+            }
+        }
+
+        private void SelectCurrencyTextBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (FavouriteRatesListView != null)
+            {
+                CurrencyCountryManager currencyCountryManager = new CurrencyCountryManager();
+                currencyCountryManager.filterText = SelectCurrencyTextBox2.Text;
+
+                // Update the ListView's ItemSource with the filtered list of currency countries
+                CurrencyCountry[] filteredCurrencyCountriesArray = currencyCountryManager.FilterCurrencyCountries();
+                List<CurrencyCountry> filteredCurrencyCountriesList = new List<CurrencyCountry>(filteredCurrencyCountriesArray);
+                FavouriteRatesListView.ItemsSource = filteredCurrencyCountriesList;
+
+                if (filteredCurrencyCountriesList.Count == 0)
+                {
+                    FavouriteRatesListView.ItemsSource = null;
+                }
+                else
+                {
+                    FavouriteRatesListView.ItemsSource = filteredCurrencyCountriesList;
+                }
+            }
+        }
+
+        private bool isFirstImageSelected = false;
+        private bool isSecondImageSelected = false;
+        private void FavouriteCurrencyButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            CurrencyCountry selectedCurrency = (CurrencyCountry)button.DataContext;
+
+            if (!isFirstImageSelected)
+            {
+                SelectedCurrencyImage1.DataContext = new { SelectedCurrency = selectedCurrency };
+                SelectedCurrencyTextBlock1.DataContext = new { SelectedCurrency = selectedCurrency };
+                SelectedCurrencyNameTextBlock1.DataContext = new { SelectedCurrency = selectedCurrency };
+                DeleteSelectedCurrencyButton1.Visibility = Visibility.Visible;
+                SelectCurrencyTextBox1.IsEnabled = false;
+                SelectCurrencyTextBox1.Text = "";
+                isFirstImageSelected = true;
+            }
+            else if (!isSecondImageSelected)
+            {
+                SelectedCurrencyImage2.DataContext = new { SelectedCurrency = selectedCurrency };
+                SelectedCurrencyTextBlock2.DataContext = new { SelectedCurrency = selectedCurrency };
+                SelectedCurrencyNameTextBlock2.DataContext = new { SelectedCurrency = selectedCurrency };
+                DeleteSelectedCurrencyButton2.Visibility = Visibility.Visible;
+                SelectCurrencyTextBox2.IsEnabled = false;
+                SelectCurrencyTextBox2.Text = "";
+                isSecondImageSelected = true;
+            }
+
+            if (isFirstImageSelected && isSecondImageSelected)
+            {
+                AddFavouriteRatesPanel.Visibility = Visibility.Collapsed;
+
+                FavouriteListView.ItemsSource = favouriteList;
+                ImageSource imageRoundedSource1 = SelectedCurrencyImage1.Source;
+                ImageSource imageRoundedSource2 = SelectedCurrencyImage2.Source;
+                string currencyConversionText = $"{SelectedCurrencyTextBlock1.Text} to {SelectedCurrencyTextBlock2.Text}";
+                string exchangeRateText = null;
+
+                FavouriteListItem item = new FavouriteListItem();
+                item.ImageRoundedSource1 = imageRoundedSource1;
+                item.ImageRoundedSource2 = imageRoundedSource2;
+                item.CurrencyConversionText = currencyConversionText;
+                item.ExchangeRateText = exchangeRateText;
+
+                favouriteList.Add(item);
+                UpdateNotFoundFavouritesVisibility();
+
+                isFirstImageSelected = false;
+                isSecondImageSelected = false;
+
+                DeleteSelectedCurrencyButton1.Visibility = Visibility.Collapsed;
+                DeleteSelectedCurrencyButton2.Visibility = Visibility.Collapsed;
+
+                SelectCurrencyTextBox1.IsEnabled = true;
+                SelectCurrencyTextBox2.IsEnabled = true;
+
+                SelectedCurrencyImage1.DataContext = null;
+                SelectedCurrencyTextBlock1.DataContext = null;
+                SelectedCurrencyNameTextBlock1.DataContext = null;
+                SelectCurrencyTextBox1.Text = "Select the first currency";
+
+                SelectedCurrencyImage2.DataContext = null;
+                SelectedCurrencyTextBlock2.DataContext = null;
+                SelectedCurrencyNameTextBlock2.DataContext = null;
+                SelectCurrencyTextBox2.Text = "Select the second currency";
+            }
+        }
+
+        private void DeleteSelectedCurrencyButton1_Click(object sender, RoutedEventArgs e)
+        {
+            if (isFirstImageSelected)
+            {
+                DeleteSelectedCurrencyButton1.Visibility = Visibility.Collapsed;
+                SelectedCurrencyImage1.DataContext = null;
+                SelectedCurrencyTextBlock1.DataContext = null;
+                SelectedCurrencyNameTextBlock1.DataContext = null;
+                isFirstImageSelected = false;
+                SelectCurrencyTextBox1.IsEnabled = true;
+                SelectCurrencyTextBox1.Text = "Select the first currency";
+            }
+        }
+
+        private void DeleteSelectedCurrencyButton2_Click(object sender, RoutedEventArgs e)
+        {
+            if (isSecondImageSelected)
+            {
+                DeleteSelectedCurrencyButton2.Visibility = Visibility.Collapsed;
+                SelectedCurrencyImage2.DataContext = null;
+                SelectedCurrencyTextBlock2.DataContext = null;
+                SelectedCurrencyNameTextBlock2.DataContext = null;
+                isSecondImageSelected = false;
+                SelectCurrencyTextBox2.IsEnabled = true;
+                SelectCurrencyTextBox2.Text = "Select the second currency";
             }
         }
     }

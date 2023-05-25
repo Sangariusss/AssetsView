@@ -10,13 +10,27 @@ namespace AssetsView.MVVM.View
     /// </summary>
     public partial class SettingsView : UserControl
     {
-        public bool IsRadioButtonChecked1 { get; set; }
-        public bool IsRadioButtonChecked2 { get; set; }
-        public bool IsRadioButtonChecked3 { get; set; }
-
+        private AppSettings settings;
         public SettingsView()
         {
             InitializeComponent();
+            settings = ConfigManager.LoadSettings();
+            DataContext = settings;
+        }
+
+        private void SaveSettings()
+        {
+            ConfigManager.SaveSettings(settings);
+        }
+
+        private void ThemeRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            SaveSettings();
+        }
+
+        private void LanguageRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            SaveSettings();
         }
 
         private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
@@ -35,9 +49,7 @@ namespace AssetsView.MVVM.View
                             LanguageTextBlock.Text = "Choose the language";
                             ResolutionTextBlock.Text = "Choose the resolution";
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            IsRadioButtonChecked1 = true;
-                            IsRadioButtonChecked2 = false;
-                            IsRadioButtonChecked3 = false;
+                            SaveSettings();
                             break;
                         case "1440x1024":
                             AnimateMainWindowSize(1440, 1024);
@@ -45,9 +57,7 @@ namespace AssetsView.MVVM.View
                             LanguageTextBlock.Text = "Choose the language you are comfortable with";
                             ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            IsRadioButtonChecked1 = false;
-                            IsRadioButtonChecked2 = true;
-                            IsRadioButtonChecked3 = false;
+                            SaveSettings();
                             break;
                         case "1920x1040":
                             AnimateMainWindowSize(1920, 1040);
@@ -57,9 +67,7 @@ namespace AssetsView.MVVM.View
                             ThemeTextBlock.Text = "Choose the theme you like";
                             LanguageTextBlock.Text = "Choose the language you are comfortable with";
                             ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
-                            IsRadioButtonChecked1 = false;
-                            IsRadioButtonChecked2 = false;
-                            IsRadioButtonChecked3 = true;
+                            SaveSettings();
                             break;
                     }
                 }

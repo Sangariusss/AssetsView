@@ -39,6 +39,9 @@
     <None Remove="Data\Icons\accept-arrow.png" />
     <None Remove="Data\Icons\arrow.png" />
     <None Remove="Data\Icons\Chart.png" />
+    <None Remove="Data\Icons\circle.png" />
+    <None Remove="Data\Icons\cross.png" />
+    <None Remove="Data\Icons\crossRed.png" />
     <None Remove="Data\Icons\dashboard.png" />
     <None Remove="Data\Icons\decline.png" />
     <None Remove="Data\Icons\down-arrow.png" />
@@ -161,6 +164,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Icons\chart.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Icons\circle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Icons\cross.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\Icons\crossRed.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Icons\dashboard.png">

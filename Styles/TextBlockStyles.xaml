@@ -436,4 +436,17 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
+    <Style x:Key="SelectCurrencyTextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="Width" Value="540" />
+        <Setter Property="Height" Value="45" />
+        <Setter Property="Background" Value="#171717" />
+        <Setter Property="Foreground" Value="Gray" />
+        <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontWeight" Value="Regular" />
+        <Setter Property="Padding" Value="50,15,30,15" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
 </ResourceDictionary>

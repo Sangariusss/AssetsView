@@ -7,6 +7,7 @@ namespace AssetsView.MVVM.ViewModel
         public RelayCommand DashboardViewCommand { get; set; }
         public RelayCommand SettingsViewCommand { get; set; }
         public RelayCommand HelpViewCommand { get; set; }
+        public RelayCommand DeleteFavouriteRates { get; set; }
         public DashboardViewModel DashboardVM { get; set; }
         public SettingsViewModel SettingsVM { get; set; }
         public HelpViewModel HelpVM { get; set; }
@@ -29,7 +30,6 @@ namespace AssetsView.MVVM.ViewModel
             HelpVM = new HelpViewModel();
 
             CurrentView = DashboardVM;
-
             DashboardViewCommand = new RelayCommand(o =>
             {
                 CurrentView = DashboardVM;
