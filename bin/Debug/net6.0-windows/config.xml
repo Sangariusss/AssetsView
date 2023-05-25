@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<AppSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:nil="true" />
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <IsThemeRadioButtonChecked1>true</IsThemeRadioButtonChecked1>
+  <IsThemeRadioButtonChecked2>false</IsThemeRadioButtonChecked2>
+  <IsLanguageRadioButtonChecked1>true</IsLanguageRadioButtonChecked1>
+  <IsLanguageRadioButtonChecked2>false</IsLanguageRadioButtonChecked2>
+  <IsResolutionRadioButtonChecked1>false</IsResolutionRadioButtonChecked1>
+  <IsResolutionRadioButtonChecked2>true</IsResolutionRadioButtonChecked2>
+  <IsResolutionRadioButtonChecked3>false</IsResolutionRadioButtonChecked3>
+</ConfigModel>

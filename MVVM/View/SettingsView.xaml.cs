@@ -10,31 +10,44 @@ namespace AssetsView.MVVM.View
     /// </summary>
     public partial class SettingsView : UserControl
     {
-        private AppSettings settings;
+
+        private ConfigModel _config;
         public SettingsView()
         {
             InitializeComponent();
-            settings = ConfigManager.LoadSettings();
-            DataContext = settings;
-        }
+            _config = ConfigManager.LoadConfig("config.xml");
+            DataContext = _config;
 
-        private void SaveSettings()
-        {
-            ConfigManager.SaveSettings(settings);
+            ThemeRadioButton1.IsChecked = _config.IsThemeRadioButtonChecked1;
+            ThemeRadioButton2.IsChecked = _config.IsThemeRadioButtonChecked2;
+
+            LanguageRadioButton1.IsChecked = _config.IsLanguageRadioButtonChecked1;
+            LanguageRadioButton2.IsChecked = _config.IsLanguageRadioButtonChecked2;
+
+            ResolutionRadioButton1.IsChecked = _config.IsResolutionRadioButtonChecked1;
+            ResolutionRadioButton2.IsChecked = _config.IsResolutionRadioButtonChecked2;
+            ResolutionRadioButton3.IsChecked = _config.IsResolutionRadioButtonChecked3;
         }
 
         private void ThemeRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            SaveSettings();
+            _config.IsThemeRadioButtonChecked1 = ThemeRadioButton1.IsChecked ?? false;
+            _config.IsThemeRadioButtonChecked2 = ThemeRadioButton2.IsChecked ?? false;
+
+            ConfigManager.SaveConfig(_config, "config.xml");
         }
 
         private void LanguageRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            SaveSettings();
+            _config.IsLanguageRadioButtonChecked1 = LanguageRadioButton1.IsChecked ?? false;
+            _config.IsLanguageRadioButtonChecked2 = LanguageRadioButton2.IsChecked ?? false;
+
+            ConfigManager.SaveConfig(_config, "config.xml");
         }
 
         private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
         {
+
             RadioButton radioButton = (RadioButton)sender;
             if (radioButton != null && radioButton.Content != null)
             {
@@ -49,7 +62,12 @@ namespace AssetsView.MVVM.View
                             LanguageTextBlock.Text = "Choose the language";
                             ResolutionTextBlock.Text = "Choose the resolution";
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            SaveSettings();
+
+                            _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked3 = ResolutionRadioButton3.IsChecked ?? false;
+
+                            ConfigManager.SaveConfig(_config, "config.xml");
                             break;
                         case "1440x1024":
                             AnimateMainWindowSize(1440, 1024);
@@ -57,7 +75,12 @@ namespace AssetsView.MVVM.View
                             LanguageTextBlock.Text = "Choose the language you are comfortable with";
                             ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            SaveSettings();
+
+                            _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked3 = ResolutionRadioButton3.IsChecked ?? false;
+
+                            ConfigManager.SaveConfig(_config, "config.xml");
                             break;
                         case "1920x1040":
                             AnimateMainWindowSize(1920, 1040);
@@ -67,7 +90,12 @@ namespace AssetsView.MVVM.View
                             ThemeTextBlock.Text = "Choose the theme you like";
                             LanguageTextBlock.Text = "Choose the language you are comfortable with";
                             ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
-                            SaveSettings();
+
+                            _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked3 = ResolutionRadioButton3.IsChecked ?? false;
+
+                            ConfigManager.SaveConfig(_config, "config.xml");
                             break;
                     }
                 }

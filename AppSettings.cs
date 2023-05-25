@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace AssetsView
 {
-    public class AppSettings
+    public class ConfigModel
     {
         public bool IsThemeRadioButtonChecked1 { get; set; }
         public bool IsThemeRadioButtonChecked2 { get; set; }
@@ -16,30 +16,21 @@ namespace AssetsView
 
     public static class ConfigManager
     {
-        private static readonly string ConfigFilePath = "config.xml";
-
-        public static void SaveSettings(AppSettings settings)
+        public static void SaveConfig(ConfigModel config, string filePath)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-            using (TextWriter writer = new StreamWriter(ConfigFilePath))
+            XmlSerializer serializer = new XmlSerializer(typeof(ConfigModel));
+            using (TextWriter writer = new StreamWriter(filePath))
             {
-                serializer.Serialize(writer, settings);
+                serializer.Serialize(writer, config);
             }
         }
 
-        public static AppSettings LoadSettings()
+        public static ConfigModel LoadConfig(string filePath)
         {
-            if (File.Exists(ConfigFilePath))
+            XmlSerializer serializer = new XmlSerializer(typeof(ConfigModel));
+            using (TextReader reader = new StreamReader(filePath))
             {
-                XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-                using (TextReader reader = new StreamReader(ConfigFilePath))
-                {
-                    return (AppSettings)serializer.Deserialize(reader);
-                }
-            }
-            else
-            {
-                return new AppSettings();
+                return (ConfigModel)serializer.Deserialize(reader);
             }
         }
     }

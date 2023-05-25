@@ -171,6 +171,10 @@ namespace AssetsView.MVVM.View
         private double exchangeRate;
         private double convertedAmount;
 
+        public bool IsRadioButtonChecked1 { get; set; }
+        public bool IsRadioButtonChecked2 { get; set; }
+        public bool IsRadioButtonChecked3 { get; set; }
+
         public DashboardView()
         {
             InitializeComponent();
@@ -729,6 +733,9 @@ namespace AssetsView.MVVM.View
                         case "811x1024":
                             AnimateMainWindowSize(811, 1024);
                             mainWindow.ExitButton.Margin = new Thickness(0);
+                            IsRadioButtonChecked1 = true;
+                            IsRadioButtonChecked2 = false;
+                            IsRadioButtonChecked3 = false;
                             break;
                         case "1440x1024":
                             AnimateMainWindowSize(1440, 1024);
@@ -737,12 +744,18 @@ namespace AssetsView.MVVM.View
                             ChartPanel.Margin = new Thickness(37, 399, 34, 0);
                             FavouritePopularPanel.Margin = new Thickness(0, 14, 33, 0);
                             mainWindow.ExitButton.Margin = new Thickness(0);
+                            IsRadioButtonChecked1 = false;
+                            IsRadioButtonChecked2 = true;
+                            IsRadioButtonChecked3 = false;
                             break;
                         case "1920x1040":
                             AnimateMainWindowSize(1920, 1040);
                             mainWindow.Left = 0;
                             mainWindow.Top = 0;
                             mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
+                            IsRadioButtonChecked1 = false;
+                            IsRadioButtonChecked2 = false;
+                            IsRadioButtonChecked3 = true;
                             break;
                     }
                 }
