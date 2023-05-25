@@ -464,19 +464,24 @@
                     <StackPanel
                         Orientation="Horizontal">
                         <RadioButton
-                            IsChecked="True"
+                            x:Name="ThemeRadioButton1"
                             Width="215"
                             Height="Auto"
+                            Checked="ThemeRadioButton_Checked"
                             Content="Dark theme"
                             FontSize="18"
                             FontWeight="Medium"
+                            IsChecked="{Binding IsThemeRadioButtonChecked1, Mode=TwoWay}"
                             Style="{DynamicResource SettingsRadioButtonStyle}" />
                         <RadioButton
+                            x:Name="ThemeRadioButton2"
                             Width="215"
                             Height="Auto"
+                            Checked="ThemeRadioButton_Checked"
                             Content="Light theme"
                             FontSize="18"
                             FontWeight="Medium"
+                            IsChecked="{Binding IsThemeRadioButtonChecked2, Mode=TwoWay}"
                             Style="{DynamicResource SettingsRadioButtonStyle}" />
                     </StackPanel>
                 </Grid>
@@ -489,19 +494,24 @@
                     <StackPanel
                         Orientation="Horizontal">
                         <RadioButton
-                            IsChecked="True"
+                            x:Name="LanguageRadioButton1"
                             Width="215"
                             Height="Auto"
+                            Checked="LanguageRadioButton_Checked"
                             Content="English"
                             FontSize="18"
                             FontWeight="Medium"
+                            IsChecked="{Binding IsLanguageRadioButtonChecked1, Mode=TwoWay}"
                             Style="{DynamicResource SettingsRadioButtonStyle}" />
                         <RadioButton
+                            x:Name="LanguageRadioButton2"
                             Width="215"
                             Height="Auto"
+                            Checked="LanguageRadioButton_Checked"
                             Content="Ukrainian"
                             FontSize="18"
                             FontWeight="Medium"
+                            IsChecked="{Binding IsLanguageRadioButtonChecked2, Mode=TwoWay}"
                             Style="{DynamicResource SettingsRadioButtonStyle}" />
                     </StackPanel>
                 </Grid>

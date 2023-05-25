@@ -1,7 +1,0 @@
-<configuration>
-	<appSettings>
-		<add key="Theme" value=""/>
-		<add key="Language" value=""/>
-		<add key="Resolution" value=""/>
-	</appSettings>
-</configuration>

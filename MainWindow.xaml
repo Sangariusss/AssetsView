@@ -8,16 +8,26 @@
     Title="AssetsView"
     MinWidth="811"
     MinHeight="1024"
-    ResizeMode="CanMinimize"
     AllowsTransparency="True"
     Background="#000000"
+    ResizeMode="CanMinimize"
+    StateChanged="Window_StateChanged"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d" StateChanged="Window_StateChanged">
+    mc:Ignorable="d">
     <Window.InputBindings>
-        <KeyBinding Key="S" Modifiers="Control" Command="{Binding DashboardViewCommand}" />
-        <KeyBinding Key="E" Modifiers="Control" Command="{Binding SettingsViewCommand}" />
-        <KeyBinding Key="G" Modifiers="Alt" Command="{Binding HelpViewCommand}" />
+        <KeyBinding
+            Key="S"
+            Command="{Binding DashboardViewCommand}"
+            Modifiers="Control" />
+        <KeyBinding
+            Key="E"
+            Command="{Binding SettingsViewCommand}"
+            Modifiers="Control" />
+        <KeyBinding
+            Key="G"
+            Command="{Binding HelpViewCommand}"
+            Modifiers="Alt" />
     </Window.InputBindings>
 
     <Window.DataContext>
@@ -45,153 +55,153 @@
             MouseLeftButtonDown="TitleBar_MouseLeftButtonDown" />
         <!--  Vertical panel  -->
         <StackPanel
-            Grid.Column="0"
             x:Name="VerticalPanel"
-            VerticalAlignment="Stretch"
             Grid.RowSpan="2"
+            Grid.Column="0"
             Width="100"
+            VerticalAlignment="Stretch"
             Background="#0E0E0E">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="97"/>
-                    <RowDefinition Height="373"/>
-                    <RowDefinition Height="*" MinHeight="461"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="97" />
+                    <RowDefinition Height="373" />
+                    <RowDefinition Height="*" MinHeight="461" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Image
-                x:Name="LogoImage"
-                Width="55"
-                Height="45"
-                Grid.Row="0"
-                Margin="22,52,23,0"
-                Source="/Data/Icons/logo.png" />
+                    x:Name="LogoImage"
+                    Grid.Row="0"
+                    Width="55"
+                    Height="45"
+                    Margin="22,52,23,0"
+                    Source="/Data/Icons/logo.png" />
 
                 <!--  Button 1  -->
                 <RadioButton
-                x:Name="DashboardButton"
-                Height="93"
-                Margin="0,93,0,186"
-                Grid.Row="1"
-                Background="#0E0E0E"
-                BorderBrush="Transparent"
-                Command="{Binding DashboardViewCommand}"
-                Cursor="Hand"
-                IsChecked="True"
-                Style="{DynamicResource RadioButtonHoverStyle}">
+                    x:Name="DashboardButton"
+                    Grid.Row="1"
+                    Height="93"
+                    Margin="0,93,0,186"
+                    Background="#0E0E0E"
+                    BorderBrush="Transparent"
+                    Command="{Binding DashboardViewCommand}"
+                    Cursor="Hand"
+                    IsChecked="True"
+                    Style="{DynamicResource RadioButtonHoverStyle}">
                     <Grid>
                         <Image
-                        Width="25"
-                        Height="25"
-                        Source="/Data/Icons/dashboard.png" />
+                            Width="25"
+                            Height="25"
+                            Source="/Data/Icons/dashboard.png" />
                         <Rectangle
-                        x:Name="DashboardRectangle"
-                        IsEnabled="False"
-                        Style="{DynamicResource OpacityStyle}" />
+                            x:Name="DashboardRectangle"
+                            IsEnabled="False"
+                            Style="{DynamicResource OpacityStyle}" />
                     </Grid>
                     <RadioButton.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
-                            Margin="13,8,0,0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Style="{StaticResource TextBlockGrayStyle}"
-                            Text="Dashboard" />
+                                Margin="13,8,0,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Style="{StaticResource TextBlockGrayStyle}"
+                                Text="Dashboard" />
                         </ToolTip>
                     </RadioButton.ToolTip>
                 </RadioButton>
 
                 <!--  Button 2  -->
                 <RadioButton
-                x:Name="SettingButton"
-                Height="93"
-                Margin="0,186,0,93"
-                Grid.Row="1"
-                Background="#0E0E0E"
-                BorderBrush="Transparent"
-                Command="{Binding SettingsViewCommand}"
-                Cursor="Hand"
-                Style="{DynamicResource RadioButtonHoverStyle}">
+                    x:Name="SettingButton"
+                    Grid.Row="1"
+                    Height="93"
+                    Margin="0,186,0,93"
+                    Background="#0E0E0E"
+                    BorderBrush="Transparent"
+                    Command="{Binding SettingsViewCommand}"
+                    Cursor="Hand"
+                    Style="{DynamicResource RadioButtonHoverStyle}">
                     <Grid>
                         <Image
-                        Width="25"
-                        Height="25"
-                        Source="/Data/Icons/settings.png" />
+                            Width="25"
+                            Height="25"
+                            Source="/Data/Icons/settings.png" />
                         <Rectangle
-                        x:Name="SettingRectangle"
-                        Width="22"
-                        Height="21"
-                        IsEnabled="False"
-                        Style="{DynamicResource OpacityStyle}" />
+                            x:Name="SettingRectangle"
+                            Width="22"
+                            Height="21"
+                            IsEnabled="False"
+                            Style="{DynamicResource OpacityStyle}" />
                     </Grid>
                     <RadioButton.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
-                            Margin="19,8,0,0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Style="{StaticResource TextBlockGrayStyle}"
-                            Text="Settings" />
+                                Margin="19,8,0,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Style="{StaticResource TextBlockGrayStyle}"
+                                Text="Settings" />
                         </ToolTip>
                     </RadioButton.ToolTip>
                 </RadioButton>
                 <!--  Button 3  -->
                 <RadioButton
-                x:Name="HelpButton"
-                Height="93"
-                Margin="0,280,0,0"
-                Grid.Row="1"
-                Background="#0E0E0E"
-                BorderBrush="Transparent"
-                Command="{Binding HelpViewCommand}"
-                Cursor="Hand"
-                Style="{DynamicResource RadioButtonHoverStyle}">
+                    x:Name="HelpButton"
+                    Grid.Row="1"
+                    Height="93"
+                    Margin="0,280,0,0"
+                    Background="#0E0E0E"
+                    BorderBrush="Transparent"
+                    Command="{Binding HelpViewCommand}"
+                    Cursor="Hand"
+                    Style="{DynamicResource RadioButtonHoverStyle}">
                     <Grid>
                         <Image
-                        Width="25"
-                        Height="25"
-                        Source="/Data/Icons/help.png" />
+                            Width="25"
+                            Height="25"
+                            Source="/Data/Icons/help.png" />
                         <Rectangle
-                        x:Name="HelpRectangle"
-                        IsEnabled="False"
-                        Style="{DynamicResource OpacityStyle}" />
+                            x:Name="HelpRectangle"
+                            IsEnabled="False"
+                            Style="{DynamicResource OpacityStyle}" />
                     </Grid>
                     <RadioButton.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
-                            Margin="28,8,0,0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Style="{StaticResource TextBlockGrayStyle}"
-                            Text="Help" />
+                                Margin="28,8,0,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Style="{StaticResource TextBlockGrayStyle}"
+                                Text="Help" />
                         </ToolTip>
                     </RadioButton.ToolTip>
                 </RadioButton>
                 <!--  Exit button  -->
                 <Button
-                VerticalAlignment="Bottom"
-                x:Name="ExitButton"
-                Width="100"
-                Height="93"
-                Grid.Row="3"
-                Background="#0E0E0E"
-                BorderBrush="Transparent"
-                Click="ButtonExit_Click"
-                Cursor="Hand"
-                Style="{DynamicResource ButtonHoverStyle}">
+                    x:Name="ExitButton"
+                    Grid.Row="3"
+                    Width="100"
+                    Height="93"
+                    VerticalAlignment="Bottom"
+                    Background="#0E0E0E"
+                    BorderBrush="Transparent"
+                    Click="ButtonExit_Click"
+                    Cursor="Hand"
+                    Style="{DynamicResource ButtonHoverStyle}">
                     <Grid>
                         <Image
-                        Width="25"
-                        Height="25"
-                        Source="/Data/Icons/logout.png" />
+                            Width="25"
+                            Height="25"
+                            Source="/Data/Icons/logout.png" />
                     </Grid>
                     <Button.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
-                            Margin="31,8,0,0"
-                            FontSize="13"
-                            FontWeight="Regular"
-                            Style="{StaticResource TextBlockGrayStyle}"
-                            Text="Exit" />
+                                Margin="31,8,0,0"
+                                FontSize="13"
+                                FontWeight="Regular"
+                                Style="{StaticResource TextBlockGrayStyle}"
+                                Text="Exit" />
                         </ToolTip>
                     </Button.ToolTip>
                 </Button>
@@ -199,8 +209,8 @@
         </StackPanel>
         <ContentControl
             Grid.Row="1"
-            Grid.Column="1"
             Grid.RowSpan="2"
+            Grid.Column="1"
             Content="{Binding CurrentView}" />
     </Grid>
 </Window>

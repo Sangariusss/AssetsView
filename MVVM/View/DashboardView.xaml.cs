@@ -171,13 +171,22 @@ namespace AssetsView.MVVM.View
         private double exchangeRate;
         private double convertedAmount;
 
-        public bool IsRadioButtonChecked1 { get; set; }
-        public bool IsRadioButtonChecked2 { get; set; }
-        public bool IsRadioButtonChecked3 { get; set; }
-
+        private ConfigModel _config;
         public DashboardView()
         {
             InitializeComponent();
+
+            _config = ConfigManager.LoadConfig("config.xml");
+
+            ThemeRadioButton1.IsChecked = _config.IsThemeRadioButtonChecked1;
+            ThemeRadioButton2.IsChecked = _config.IsThemeRadioButtonChecked2;
+
+            LanguageRadioButton1.IsChecked = _config.IsLanguageRadioButtonChecked1;
+            LanguageRadioButton2.IsChecked = _config.IsLanguageRadioButtonChecked2;
+
+            ResolutionRadioButton1.IsChecked = _config.IsResolutionRadioButtonChecked1;
+            ResolutionRadioButton2.IsChecked = _config.IsResolutionRadioButtonChecked2;
+            ResolutionRadioButton3.IsChecked = _config.IsResolutionRadioButtonChecked3;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -720,6 +729,22 @@ namespace AssetsView.MVVM.View
             }
         }
 
+        private void ThemeRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            _config.IsThemeRadioButtonChecked1 = ThemeRadioButton1.IsChecked ?? false;
+            _config.IsThemeRadioButtonChecked2 = ThemeRadioButton2.IsChecked ?? false;
+
+            ConfigManager.SaveConfig(_config, "config.xml");
+        }
+
+        private void LanguageRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            _config.IsLanguageRadioButtonChecked1 = LanguageRadioButton1.IsChecked ?? false;
+            _config.IsLanguageRadioButtonChecked2 = LanguageRadioButton2.IsChecked ?? false;
+
+            ConfigManager.SaveConfig(_config, "config.xml");
+        }
+
         private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton radioButton = (RadioButton)sender;
@@ -733,9 +758,11 @@ namespace AssetsView.MVVM.View
                         case "811x1024":
                             AnimateMainWindowSize(811, 1024);
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            IsRadioButtonChecked1 = true;
-                            IsRadioButtonChecked2 = false;
-                            IsRadioButtonChecked3 = false;
+
+                            _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;
+
+                            ConfigManager.SaveConfig(_config, "config.xml");
                             break;
                         case "1440x1024":
                             AnimateMainWindowSize(1440, 1024);
@@ -744,18 +771,22 @@ namespace AssetsView.MVVM.View
                             ChartPanel.Margin = new Thickness(37, 399, 34, 0);
                             FavouritePopularPanel.Margin = new Thickness(0, 14, 33, 0);
                             mainWindow.ExitButton.Margin = new Thickness(0);
-                            IsRadioButtonChecked1 = false;
-                            IsRadioButtonChecked2 = true;
-                            IsRadioButtonChecked3 = false;
+
+                            _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;
+
+                            ConfigManager.SaveConfig(_config, "config.xml");
                             break;
                         case "1920x1040":
                             AnimateMainWindowSize(1920, 1040);
                             mainWindow.Left = 0;
                             mainWindow.Top = 0;
                             mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
-                            IsRadioButtonChecked1 = false;
-                            IsRadioButtonChecked2 = false;
-                            IsRadioButtonChecked3 = true;
+
+                            _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
+                            _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;
+
+                            ConfigManager.SaveConfig(_config, "config.xml");
                             break;
                     }
                 }

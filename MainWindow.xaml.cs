@@ -9,9 +9,38 @@ namespace AssetsView
     /// </summary>
     public partial class MainWindow : Window
     {
+        private ConfigModel _config;
         public MainWindow()
         {
             InitializeComponent();
+
+            string configFilePath = "config.xml";
+            _config = ConfigManager.LoadConfig(configFilePath);
+            SetWindowSize(_config);
+        }
+
+        private void SetWindowSize(ConfigModel settings)
+        {
+            MainWindow mainWindow = (MainWindow)Window.GetWindow(this);
+            if (settings != null)
+            {
+                if (settings.IsResolutionRadioButtonChecked1)
+                {
+                    Width = 811;
+                    Height = 1024;
+                }
+                else if (settings.IsResolutionRadioButtonChecked2)
+                {
+                    Width = 1440;
+                    Height = 1024;
+                }
+                else if (settings.IsResolutionRadioButtonChecked3)
+                {
+                    Width = 1920;
+                    Height = 1040;
+                    mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
+                }
+            }
         }
 
         private void TitleBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
