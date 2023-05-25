@@ -20,11 +20,13 @@
             Background="#0E0E0E">
             <StackPanel x:Name="HotkeysSettings" Margin="37,35,33,0">
                 <TextBlock
+                    x:Name="HotkeysTitleTextBlock"
                     FontSize="25"
                     FontWeight="Bold"
                     Style="{StaticResource TextBlockStyle}"
                     Text="Hotkeys settings " />
                 <TextBlock
+                    x:Name="SubTitleTextBlock"
                     Margin="0,20,0,0"
                     FontSize="18"
                     FontWeight="Medium"

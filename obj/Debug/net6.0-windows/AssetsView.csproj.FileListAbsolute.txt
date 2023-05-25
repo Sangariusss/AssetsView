@@ -155,3 +155,8 @@ C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\starO
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\cross.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\circle.png
 C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\Data\Icons\crossRed.png
+C:\Users\E5-2670\Desktop\CW\AssetsView\bin\Debug\net6.0-windows\uk\AssetsView.resources.dll
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\AssetsView.csproj.GenerateResource.cache
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\uk\AssetsView.resources.dll
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\AssetsView.Data.Languages.Strings.uk.resources
+C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\AssetsView.Data.Languages.Strings.resources

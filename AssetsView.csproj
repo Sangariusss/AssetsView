@@ -397,6 +397,11 @@
     <Compile Update="Core\RelayCommand.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
+    <Compile Update="Data\Languages\Strings.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Update="MVVM\ViewModel\DashboardViewModel.cs">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Compile>
@@ -412,6 +417,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Data\Languages\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Data\Languages\Strings.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <Page Update="MVVM\View\DashboardView.xaml">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Page>
@@ -422,5 +437,4 @@
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Page>
   </ItemGroup>
-
 </Project>

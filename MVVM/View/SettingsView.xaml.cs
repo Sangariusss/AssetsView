@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AssetsView.Data.Languages;
+using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -43,6 +46,23 @@ namespace AssetsView.MVVM.View
             _config.IsLanguageRadioButtonChecked2 = LanguageRadioButton2.IsChecked ?? false;
 
             ConfigManager.SaveConfig(_config, "config.xml");
+
+            RadioButton radioButton = sender as RadioButton;
+            if (radioButton != null && radioButton.IsChecked == true)
+            {
+                string selectedLanguage = radioButton.Content.ToString();
+
+                if (selectedLanguage == "EN")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                }
+                else if (selectedLanguage == "UK")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk");
+                }
+            }
+            HotkeysTitleTextBlock.Text = Strings.HotkeysTitle;
+            SubTitleTextBlock.Text = Strings.SubTitle;
         }
 
         private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
