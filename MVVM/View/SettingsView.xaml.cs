@@ -61,8 +61,63 @@ namespace AssetsView.MVVM.View
                     Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk");
                 }
             }
-            HotkeysTitleTextBlock.Text = Strings.HotkeysTitle;
-            SubTitleTextBlock.Text = Strings.SubTitle;
+            HotkeysTitleTextBlock.Text = Strings.HotkeysTitleText;
+            HotkeysSubTitleTextBlock.Text = Strings.SubTitleText;
+            DashboardTextBlock.Text = Strings.DashboardText;
+            SettingsTextBlock.Text = Strings.SettingsText;
+            HelpTextBlock.Text = Strings.HelpText;
+            DeleteFavouriteRatesTextBlock.Text = Strings.DeleteFavouriteRatesText;
+            SwapCurrenciesTextBlock.Text = Strings.SwapCurrenciesText;
+            OtherSettingsTextBlock.Text = Strings.OtherSettingsText;
+            OtherSettingsSubTitleTextBlock.Text = Strings.OtherSettingsSubTitleText;
+            ThemeRadioButton1.Content = Strings.ThemeRadioButtonContent1;
+            ThemeRadioButton2.Content = Strings.ThemeRadioButtonContent2;
+
+            if (Application.Current.MainWindow is Window mainWindow)
+            {
+                if (mainWindow.ActualWidth == 1920)
+                {
+                    ThemeTextBlock.Text = Strings.ThemeText;
+                    LanguageTextBlock.Text = Strings.LanguageText;
+                    ResolutionTextBlock.Text = Strings.ResolutionText;
+                }
+                else if (mainWindow.ActualWidth == 1440)
+                {
+                    ThemeTextBlock.Text = Strings.ThemeText;
+                    LanguageTextBlock.Text = Strings.LanguageText;
+                    ResolutionTextBlock.Text = Strings.ResolutionText;
+                }
+                else if (mainWindow.ActualWidth == 811)
+                {
+                    ThemeTextBlock.Text = Strings.ThemeShortText;
+                    LanguageTextBlock.Text = Strings.LanguageShortText;
+                    ResolutionTextBlock.Text = Strings.ResolutionShortText;
+                }
+            }
+        }
+
+        private void UserControl_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double windowWidth = e.NewSize.Width;
+
+            if (windowWidth == 711)
+            {
+                ThemeTextBlock.Text = Strings.ThemeShortText;
+                LanguageTextBlock.Text = Strings.LanguageShortText;
+                ResolutionTextBlock.Text = Strings.ResolutionShortText;
+            }
+            else if (windowWidth == 1340)
+            {
+                ThemeTextBlock.Text = Strings.ThemeText;
+                LanguageTextBlock.Text = Strings.LanguageText;
+                ResolutionTextBlock.Text = Strings.ResolutionText;
+            }
+            else if (windowWidth == 1820)
+            {
+                ThemeTextBlock.Text = Strings.ThemeText;
+                LanguageTextBlock.Text = Strings.LanguageText;
+                ResolutionTextBlock.Text = Strings.ResolutionText;
+            }
         }
 
         private void ResolutionRadioButton_Checked(object sender, RoutedEventArgs e)
@@ -78,9 +133,6 @@ namespace AssetsView.MVVM.View
                     {
                         case "811x1024":
                             AnimateMainWindowSize(811, 1024);
-                            ThemeTextBlock.Text = "Choose the theme";
-                            LanguageTextBlock.Text = "Choose the language";
-                            ResolutionTextBlock.Text = "Choose the resolution";
                             mainWindow.ExitButton.Margin = new Thickness(0);
 
                             _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
@@ -91,9 +143,6 @@ namespace AssetsView.MVVM.View
                             break;
                         case "1440x1024":
                             AnimateMainWindowSize(1440, 1024);
-                            ThemeTextBlock.Text = "Choose the theme you like";
-                            LanguageTextBlock.Text = "Choose the language you are comfortable with";
-                            ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
                             mainWindow.ExitButton.Margin = new Thickness(0);
 
                             _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
@@ -107,9 +156,6 @@ namespace AssetsView.MVVM.View
                             mainWindow.Left = 0;
                             mainWindow.Top = 0;
                             mainWindow.ExitButton.Margin = new Thickness(0, 16, 0, 0);
-                            ThemeTextBlock.Text = "Choose the theme you like";
-                            LanguageTextBlock.Text = "Choose the language you are comfortable with";
-                            ResolutionTextBlock.Text = "Choose the screen resolution that suits you best";
 
                             _config.IsResolutionRadioButtonChecked1 = ResolutionRadioButton1.IsChecked ?? false;
                             _config.IsResolutionRadioButtonChecked2 = ResolutionRadioButton2.IsChecked ?? false;

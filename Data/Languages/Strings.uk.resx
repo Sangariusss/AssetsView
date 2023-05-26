@@ -117,10 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HotkeysTitle" xml:space="preserve">
+  <data name="DashboardText" xml:space="preserve">
+    <value>Відкрийте інформаційну панель</value>
+  </data>
+  <data name="DeleteFavouriteRatesText" xml:space="preserve">
+    <value>Видалити всі улюблені графіки</value>
+  </data>
+  <data name="HelpText" xml:space="preserve">
+    <value>Відкрийте довідку</value>
+  </data>
+  <data name="HotkeysTitleText" xml:space="preserve">
     <value>Гарячі клавіші</value>
   </data>
-  <data name="SubTitle" xml:space="preserve">
+  <data name="LanguageShortText" xml:space="preserve">
+    <value>Виберіть мову</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Виберіть мову, якою вам зручно користуватися</value>
+  </data>
+  <data name="OtherSettingsSubTitleText" xml:space="preserve">
+    <value>Виберіть роздільну здатність, тему або мову, якій ви віддаєте перевагу</value>
+  </data>
+  <data name="OtherSettingsText" xml:space="preserve">
+    <value>Інші налаштування</value>
+  </data>
+  <data name="ResolutionShortText" xml:space="preserve">
+    <value>Розмір екрану</value>
+  </data>
+  <data name="ResolutionText" xml:space="preserve">
+    <value>Виберіть роздільну здатність екрана, яка вам найбільше підходить</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Відкрийте вікно налаштувань</value>
+  </data>
+  <data name="SubTitleText" xml:space="preserve">
     <value>Налаштуйте зручні для вас гарячі клавіші</value>
+  </data>
+  <data name="SwapCurrenciesText" xml:space="preserve">
+    <value>Змінити місцями валюти у конвертері</value>
+  </data>
+  <data name="ThemeRadioButtonContent1" xml:space="preserve">
+    <value>Темна тема</value>
+  </data>
+  <data name="ThemeRadioButtonContent2" xml:space="preserve">
+    <value>Світла тема</value>
+  </data>
+  <data name="ThemeShortText" xml:space="preserve">
+    <value>Виберіть тему</value>
+  </data>
+  <data name="ThemeText" xml:space="preserve">
+    <value>Виберіть тему, яка вам подобається</value>
   </data>
 </root>

@@ -117,10 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HotkeysTitle" xml:space="preserve">
+  <data name="DashboardText" xml:space="preserve">
+    <value>Open Dashboard</value>
+  </data>
+  <data name="DeleteFavouriteRatesText" xml:space="preserve">
+    <value>Delete all your favorite charts</value>
+  </data>
+  <data name="HelpText" xml:space="preserve">
+    <value>Open Help</value>
+  </data>
+  <data name="HotkeysTitleText" xml:space="preserve">
     <value>Hotkeys settings</value>
   </data>
-  <data name="SubTitle" xml:space="preserve">
+  <data name="LanguageShortText" xml:space="preserve">
+    <value>Choose the language</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Choose the language you are comfortable with</value>
+  </data>
+  <data name="OtherSettingsSubTitleText" xml:space="preserve">
+    <value>Choose the resolution, theme or language you prefer</value>
+  </data>
+  <data name="OtherSettingsText" xml:space="preserve">
+    <value>Other settings</value>
+  </data>
+  <data name="ResolutionShortText" xml:space="preserve">
+    <value>Choose the resolution</value>
+  </data>
+  <data name="ResolutionText" xml:space="preserve">
+    <value>Choose the screen resolution that suits you best</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Open Settings</value>
+  </data>
+  <data name="SubTitleText" xml:space="preserve">
     <value>Set hotkeys that are convenient for you</value>
+  </data>
+  <data name="SwapCurrenciesText" xml:space="preserve">
+    <value>Swap currencies in the converter</value>
+  </data>
+  <data name="ThemeRadioButtonContent1" xml:space="preserve">
+    <value>Dark theme</value>
+  </data>
+  <data name="ThemeRadioButtonContent2" xml:space="preserve">
+    <value>Light theme</value>
+  </data>
+  <data name="ThemeShortText" xml:space="preserve">
+    <value>Choose the theme</value>
+  </data>
+  <data name="ThemeText" xml:space="preserve">
+    <value>Choose the theme you like</value>
   </data>
 </root>

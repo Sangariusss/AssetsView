@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="994"
     d:DesignWidth="1340"
-    mc:Ignorable="d">
+    mc:Ignorable="d" SizeChanged="UserControl_SizeChanged">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -26,7 +26,7 @@
                     Style="{StaticResource TextBlockStyle}"
                     Text="Hotkeys settings " />
                 <TextBlock
-                    x:Name="SubTitleTextBlock"
+                    x:Name="HotkeysSubTitleTextBlock"
                     Margin="0,20,0,0"
                     FontSize="18"
                     FontWeight="Medium"
@@ -44,6 +44,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
+                    x:Name="DashboardTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -80,6 +81,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
+                    x:Name="SettingsTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -116,6 +118,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
+                    x:Name="HelpTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -152,6 +155,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
+                    x:Name="DeleteFavouriteRatesTextBlock" 
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -188,6 +192,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock
+                    x:Name="SwapCurrenciesTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -216,11 +221,13 @@
 
             <StackPanel x:Name="OtherSettings" Margin="37,40,33,0">
                 <TextBlock
+                    x:Name="OtherSettingsTextBlock"
                     FontSize="25"
                     FontWeight="Bold"
                     Style="{StaticResource TextBlockStyle}"
                     Text="Other settings" />
                 <TextBlock
+                    x:Name="OtherSettingsSubTitleTextBlock"
                     Margin="0,20,0,0"
                     FontSize="18"
                     FontWeight="Medium"

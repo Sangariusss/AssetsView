@@ -61,20 +61,155 @@ namespace AssetsView.Data.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Open Dashboard.
+        /// </summary>
+        public static string DashboardText {
+            get {
+                return ResourceManager.GetString("DashboardText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete all your favorite charts.
+        /// </summary>
+        public static string DeleteFavouriteRatesText {
+            get {
+                return ResourceManager.GetString("DeleteFavouriteRatesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Help.
+        /// </summary>
+        public static string HelpText {
+            get {
+                return ResourceManager.GetString("HelpText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hotkeys settings.
         /// </summary>
-        public static string HotkeysTitle {
+        public static string HotkeysTitleText {
             get {
-                return ResourceManager.GetString("HotkeysTitle", resourceCulture);
+                return ResourceManager.GetString("HotkeysTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the language.
+        /// </summary>
+        public static string LanguageShortText {
+            get {
+                return ResourceManager.GetString("LanguageShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the language you are comfortable with.
+        /// </summary>
+        public static string LanguageText {
+            get {
+                return ResourceManager.GetString("LanguageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the resolution, theme or language you prefer.
+        /// </summary>
+        public static string OtherSettingsSubTitleText {
+            get {
+                return ResourceManager.GetString("OtherSettingsSubTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Other settings.
+        /// </summary>
+        public static string OtherSettingsText {
+            get {
+                return ResourceManager.GetString("OtherSettingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the resolution.
+        /// </summary>
+        public static string ResolutionShortText {
+            get {
+                return ResourceManager.GetString("ResolutionShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the screen resolution that suits you best.
+        /// </summary>
+        public static string ResolutionText {
+            get {
+                return ResourceManager.GetString("ResolutionText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Settings.
+        /// </summary>
+        public static string SettingsText {
+            get {
+                return ResourceManager.GetString("SettingsText", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Set hotkeys that are convenient for you.
         /// </summary>
-        public static string SubTitle {
+        public static string SubTitleText {
             get {
-                return ResourceManager.GetString("SubTitle", resourceCulture);
+                return ResourceManager.GetString("SubTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swap currencies in the converter.
+        /// </summary>
+        public static string SwapCurrenciesText {
+            get {
+                return ResourceManager.GetString("SwapCurrenciesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark theme.
+        /// </summary>
+        public static string ThemeRadioButtonContent1 {
+            get {
+                return ResourceManager.GetString("ThemeRadioButtonContent1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light theme.
+        /// </summary>
+        public static string ThemeRadioButtonContent2 {
+            get {
+                return ResourceManager.GetString("ThemeRadioButtonContent2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the theme.
+        /// </summary>
+        public static string ThemeShortText {
+            get {
+                return ResourceManager.GetString("ThemeShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose the theme you like.
+        /// </summary>
+        public static string ThemeText {
+            get {
+                return ResourceManager.GetString("ThemeText", resourceCulture);
             }
         }
     }
