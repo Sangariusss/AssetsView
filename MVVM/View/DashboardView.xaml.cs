@@ -1,4 +1,5 @@
-﻿using LiveChartsCore;
+﻿using AssetsView.Data.Languages;
+using LiveChartsCore;
 using LiveChartsCore.Kernel;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Drawing.Geometries;
@@ -9,8 +10,10 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -488,7 +491,7 @@ namespace AssetsView.MVVM.View
         {
             if (string.IsNullOrWhiteSpace(SearchTextBox.Text))
             {
-                SearchTextBox.Text = "Type a country / currency";
+                SearchTextBox.Text = Strings.SearchTextBoxText;
                 SearchTextBox.Foreground = Brushes.Gray;
                 SelectCurrencyTextBox1.Text = "Select the first currency";
                 SelectCurrencyTextBox1.Foreground = Brushes.Gray;
@@ -501,7 +504,7 @@ namespace AssetsView.MVVM.View
         {
             if (string.IsNullOrWhiteSpace(SelectCurrencyTextBox1.Text))
             {
-                SelectCurrencyTextBox1.Text = "Select the first currency";
+                SelectCurrencyTextBox1.Text = Strings.SelectCurrencyText1;
                 SelectCurrencyTextBox1.Foreground = Brushes.Gray;
             }
         }
@@ -510,7 +513,7 @@ namespace AssetsView.MVVM.View
         {
             if (string.IsNullOrWhiteSpace(SelectCurrencyTextBox2.Text))
             {
-                SelectCurrencyTextBox2.Text = "Select the second currency";
+                SelectCurrencyTextBox2.Text = Strings.SelectCurrencyText2;
                 SelectCurrencyTextBox2.Foreground = Brushes.Gray;
             }
         }
@@ -582,7 +585,7 @@ namespace AssetsView.MVVM.View
 
         private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (CountryListView != null)
+            if (CountryListView != null && SearchTextBox.Text != Strings.SearchTextBoxText)
             {
                 CurrencyCountryManager currencyCountryManager = new CurrencyCountryManager();
                 currencyCountryManager.filterText = SearchTextBox.Text;
@@ -742,6 +745,58 @@ namespace AssetsView.MVVM.View
             _config.IsLanguageRadioButtonChecked1 = LanguageRadioButton1.IsChecked ?? false;
             _config.IsLanguageRadioButtonChecked2 = LanguageRadioButton2.IsChecked ?? false;
 
+            RadioButton radioButton = sender as RadioButton;
+            if (radioButton != null && radioButton.IsChecked == true)
+            {
+                string selectedLanguage = radioButton.Content.ToString();
+
+                if (selectedLanguage == "English" || selectedLanguage == "Англійська")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                    NoFoundFavouritesTextBlock.Margin = new Thickness(120, -392, 20, 0);
+                    NoMatchesTextBlock.Margin = new Thickness(127, -227, 89, 0);
+                    NoMatchesFavouriteTextBlock.Margin = new Thickness(106, -617, 0, 0);
+                    CloseButton.Margin = new Thickness(252, 27, 0, 0);
+                }
+                else if (selectedLanguage == "Ukrainian" || selectedLanguage == "Українська")
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("uk");
+                    NoFoundFavouritesTextBlock.Margin = new Thickness(75, -392, 20, 0);
+                    NoMatchesTextBlock.Margin = new Thickness(109, -227, 109, 0);
+                    NoMatchesFavouriteTextBlock.Margin = new Thickness(88, -617, 0, 0);
+                    CloseButton.Margin = new Thickness(119, 27, 0, 0);
+                }
+            }
+
+            ConvertTitle.Text = Strings.ConvertTitle;
+            FavouriteRatesTitle.Text = Strings.FavouriteRatesTitleText;
+            PopularTitle.Text = Strings.PopularTitle;
+            NoFoundFavouritesTextBlock.Text = Strings.NoFoundFavouritesText;
+            NoMatchesTextBlock.Text = Strings.NoMatchesText;
+            SearchTextBox.Text = Strings.SearchTextBoxText;
+            PercentageChangeTextBlock.Text = Strings.PercentageChangeText;
+            SelectFavouriteRatesTitle.Text = Strings.SelectFavouriteRatesTitleText;
+            RadioButton1Y.Content = Strings.RadioButton1Y;
+            RadioButton5Y.Content = Strings.RadioButton5Y;
+            RadioButton10Y.Content = Strings.RadioButton10Y;
+            SelectCurrencyTextBox1.Text = Strings.SelectCurrencyText1;
+            SelectCurrencyTextBox2.Text = Strings.SelectCurrencyText2;
+            NoMatchesFavouriteTextBlock.Text = Strings.NoMatchesText;
+            QuickSettingsTextBlock.Text = Strings.QuickSettingsText;
+            SetHotkeysTextBlock.Text = Strings.SetHotkeysText;
+            DashboardTextBlock.Text = Strings.DashboardShortText;
+            SettingsTextBlock.Text = Strings.SettingsText;
+            HelpTextBlock.Text = Strings.HelpText;
+            DeleteFavouriteRatesTextBlock.Text = Strings.DeleteFavouriteRatesText;
+            SwapCurrenciesTextBlock.Text = Strings.SwapCurrenciesShortText;
+            ThemeTextBlock.Text = Strings.ThemeShortText;
+            LanguageTextBlock.Text = Strings.LanguageShortText;
+            ResolutionTextBlock.Text = Strings.ResolutionShortText;
+            ThemeRadioButton1.Content = Strings.ThemeRadioButtonContent1;
+            ThemeRadioButton2.Content = Strings.ThemeRadioButtonContent2;
+            LanguageRadioButton1.Content = Strings.LanguageRadioButtonContent1;
+            LanguageRadioButton2.Content = Strings.LanguageRadioButtonContent2;
+
             ConfigManager.SaveConfig(_config, "config.xml");
         }
 
@@ -826,7 +881,7 @@ namespace AssetsView.MVVM.View
 
         private void SelectCurrencyTextBox1_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (FavouriteRatesListView != null)
+            if (FavouriteRatesListView != null && SelectCurrencyTextBox1.Text != Strings.SelectCurrencyText1)
             {
                 CurrencyCountryManager currencyCountryManager = new CurrencyCountryManager();
                 currencyCountryManager.filterText = SelectCurrencyTextBox1.Text;
@@ -839,17 +894,19 @@ namespace AssetsView.MVVM.View
                 if (filteredCurrencyCountriesList.Count == 0)
                 {
                     FavouriteRatesListView.ItemsSource = null;
+                    NoMatchesFavouriteTextBlock.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     FavouriteRatesListView.ItemsSource = filteredCurrencyCountriesList;
+                    NoMatchesFavouriteTextBlock.Visibility = Visibility.Collapsed;
                 }
             }
         }
 
         private void SelectCurrencyTextBox2_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (FavouriteRatesListView != null)
+            if (FavouriteRatesListView != null && SelectCurrencyTextBox2.Text != Strings.SelectCurrencyText2)
             {
                 CurrencyCountryManager currencyCountryManager = new CurrencyCountryManager();
                 currencyCountryManager.filterText = SelectCurrencyTextBox2.Text;
@@ -862,10 +919,12 @@ namespace AssetsView.MVVM.View
                 if (filteredCurrencyCountriesList.Count == 0)
                 {
                     FavouriteRatesListView.ItemsSource = null;
+                    NoMatchesFavouriteTextBlock.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     FavouriteRatesListView.ItemsSource = filteredCurrencyCountriesList;
+                    NoMatchesFavouriteTextBlock.Visibility = Visibility.Collapsed;
                 }
             }
         }
@@ -929,12 +988,12 @@ namespace AssetsView.MVVM.View
                 SelectedCurrencyImage1.DataContext = null;
                 SelectedCurrencyTextBlock1.DataContext = null;
                 SelectedCurrencyNameTextBlock1.DataContext = null;
-                SelectCurrencyTextBox1.Text = "Select the first currency";
+                SelectCurrencyTextBox1.Text = Strings.SelectCurrencyText1;
 
                 SelectedCurrencyImage2.DataContext = null;
                 SelectedCurrencyTextBlock2.DataContext = null;
                 SelectedCurrencyNameTextBlock2.DataContext = null;
-                SelectCurrencyTextBox2.Text = "Select the second currency";
+                SelectCurrencyTextBox2.Text = Strings.SelectCurrencyText2;
             }
         }
 
@@ -948,7 +1007,7 @@ namespace AssetsView.MVVM.View
                 SelectedCurrencyNameTextBlock1.DataContext = null;
                 isFirstImageSelected = false;
                 SelectCurrencyTextBox1.IsEnabled = true;
-                SelectCurrencyTextBox1.Text = "Select the first currency";
+                SelectCurrencyTextBox1.Text = Strings.SelectCurrencyText1;
             }
         }
 
@@ -962,7 +1021,7 @@ namespace AssetsView.MVVM.View
                 SelectedCurrencyNameTextBlock2.DataContext = null;
                 isSecondImageSelected = false;
                 SelectCurrencyTextBox2.IsEnabled = true;
-                SelectCurrencyTextBox2.Text = "Select the second currency";
+                SelectCurrencyTextBox2.Text = Strings.SelectCurrencyText2;
             }
         }
     }

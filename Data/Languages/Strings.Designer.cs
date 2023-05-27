@@ -61,6 +61,87 @@ namespace AssetsView.Data.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to What is AssetsView?.
+        /// </summary>
+        public static string AssetsViewExpanderHeader {
+            get {
+                return ResourceManager.GetString("AssetsViewExpanderHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AssetsView is an app for easy currency tracking. We use exchange rate information from the Bank of England..
+        /// </summary>
+        public static string AssetsViewExpanderText {
+            get {
+                return ResourceManager.GetString("AssetsViewExpanderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How to use the chart panel? What is it?.
+        /// </summary>
+        public static string ChartExpanderHeader {
+            get {
+                return ResourceManager.GetString("ChartExpanderHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A chart is a specific type of data displayed in the chart panel. The existing data type in the AssetsView chart is the current currency. It is very easy to use the chart, you just need to select your favorite currency pair in the &quot;Favorite rates&quot; panel and enable it to show the exchange rate in the &quot;Chart&quot; panel under the &quot;Convert&quot; panel..
+        /// </summary>
+        public static string ChartExpanderText {
+            get {
+                return ResourceManager.GetString("ChartExpanderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Convert.
+        /// </summary>
+        public static string ConvertTitle {
+            get {
+                return ResourceManager.GetString("ConvertTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What capabilities does the currency converter offer in the AssetsView?.
+        /// </summary>
+        public static string CurrencyConverterExpanderHeader {
+            get {
+                return ResourceManager.GetString("CurrencyConverterExpanderHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England..
+        /// </summary>
+        public static string CurrencyConverterExpanderText {
+            get {
+                return ResourceManager.GetString("CurrencyConverterExpanderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dashboard.
+        /// </summary>
+        public static string DashboardRadioButtonToolTipText {
+            get {
+                return ResourceManager.GetString("DashboardRadioButtonToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Dashboard.
+        /// </summary>
+        public static string DashboardShortText {
+            get {
+                return ResourceManager.GetString("DashboardShortText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Dashboard.
         /// </summary>
         public static string DashboardText {
@@ -79,6 +160,42 @@ namespace AssetsView.Data.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How to use the favourite rates panel?.
+        /// </summary>
+        public static string FavouriteRatesExpanderHeader {
+            get {
+                return ResourceManager.GetString("FavouriteRatesExpanderHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to click on the add button and add the currency pair you like to your list, after which you can turn it on and off in the chart panel..
+        /// </summary>
+        public static string FavouriteRatesExpanderText {
+            get {
+                return ResourceManager.GetString("FavouriteRatesExpanderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favourite rates.
+        /// </summary>
+        public static string FavouriteRatesTitleText {
+            get {
+                return ResourceManager.GetString("FavouriteRatesTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help.
+        /// </summary>
+        public static string HelpRadioButtonToolTipText {
+            get {
+                return ResourceManager.GetString("HelpRadioButtonToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Help.
         /// </summary>
         public static string HelpText {
@@ -88,11 +205,47 @@ namespace AssetsView.Data.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to How do hotkeys work and how to use them?.
+        /// </summary>
+        public static string HotkeysExpanderHeader {
+            get {
+                return ResourceManager.GetString("HotkeysExpanderHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hotkeys work in such a way that by pressing, for example, &quot;CTRL + E&quot;, you can instantly go to the settings. To use hotkeys, you need to go to the Settings section and enable them by specifying the keyboard shortcuts that are convenient for you..
+        /// </summary>
+        public static string HotkeysExpanderText {
+            get {
+                return ResourceManager.GetString("HotkeysExpanderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hotkeys settings.
         /// </summary>
         public static string HotkeysTitleText {
             get {
                 return ResourceManager.GetString("HotkeysTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string LanguageRadioButtonContent1 {
+            get {
+                return ResourceManager.GetString("LanguageRadioButtonContent1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukrainian.
+        /// </summary>
+        public static string LanguageRadioButtonContent2 {
+            get {
+                return ResourceManager.GetString("LanguageRadioButtonContent2", resourceCulture);
             }
         }
         
@@ -115,6 +268,24 @@ namespace AssetsView.Data.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You haven&apos;t added any favourite rates yet.
+        /// </summary>
+        public static string NoFoundFavouritesText {
+            get {
+                return ResourceManager.GetString("NoFoundFavouritesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nothing was found for your request ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯.
+        /// </summary>
+        public static string NoMatchesText {
+            get {
+                return ResourceManager.GetString("NoMatchesText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose the resolution, theme or language you prefer.
         /// </summary>
         public static string OtherSettingsSubTitleText {
@@ -129,6 +300,96 @@ namespace AssetsView.Data.Languages {
         public static string OtherSettingsText {
             get {
                 return ResourceManager.GetString("OtherSettingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is it possible to become our partner?.
+        /// </summary>
+        public static string PartnerExpanderHeader {
+            get {
+                return ResourceManager.GetString("PartnerExpanderHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We are open for partnership. For more information, please contact us by this email example@mybusiness.org..
+        /// </summary>
+        public static string PartnerExpanderText {
+            get {
+                return ResourceManager.GetString("PartnerExpanderText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Up by 0,00% (0,000000 USD).
+        /// </summary>
+        public static string PercentageChangeText {
+            get {
+                return ResourceManager.GetString("PercentageChangeText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Popular.
+        /// </summary>
+        public static string PopularTitle {
+            get {
+                return ResourceManager.GetString("PopularTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick settings and hotkeys.
+        /// </summary>
+        public static string QuickSettingsText {
+            get {
+                return ResourceManager.GetString("QuickSettingsText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10Y.
+        /// </summary>
+        public static string RadioButton10Y {
+            get {
+                return ResourceManager.GetString("RadioButton10Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1Y.
+        /// </summary>
+        public static string RadioButton1Y {
+            get {
+                return ResourceManager.GetString("RadioButton1Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5Y.
+        /// </summary>
+        public static string RadioButton5Y {
+            get {
+                return ResourceManager.GetString("RadioButton5Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Answers to your possible questions.
+        /// </summary>
+        public static string ReferenceSubTitleText {
+            get {
+                return ResourceManager.GetString("ReferenceSubTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reference.
+        /// </summary>
+        public static string ReferenceText {
+            get {
+                return ResourceManager.GetString("ReferenceText", resourceCulture);
             }
         }
         
@@ -151,6 +412,60 @@ namespace AssetsView.Data.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Type a country / currency.
+        /// </summary>
+        public static string SearchTextBoxText {
+            get {
+                return ResourceManager.GetString("SearchTextBoxText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the first currency.
+        /// </summary>
+        public static string SelectCurrencyText1 {
+            get {
+                return ResourceManager.GetString("SelectCurrencyText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the second currency.
+        /// </summary>
+        public static string SelectCurrencyText2 {
+            get {
+                return ResourceManager.GetString("SelectCurrencyText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select favourite rates.
+        /// </summary>
+        public static string SelectFavouriteRatesTitleText {
+            get {
+                return ResourceManager.GetString("SelectFavouriteRatesTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set hotkeys that are convenient for you.
+        /// </summary>
+        public static string SetHotkeysText {
+            get {
+                return ResourceManager.GetString("SetHotkeysText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string SettingsRadioButtonToolTipText {
+            get {
+                return ResourceManager.GetString("SettingsRadioButtonToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Open Settings.
         /// </summary>
         public static string SettingsText {
@@ -165,6 +480,15 @@ namespace AssetsView.Data.Languages {
         public static string SubTitleText {
             get {
                 return ResourceManager.GetString("SubTitleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swap currencies in the converter.
+        /// </summary>
+        public static string SwapCurrenciesShortText {
+            get {
+                return ResourceManager.GetString("SwapCurrenciesShortText", resourceCulture);
             }
         }
         

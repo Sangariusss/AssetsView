@@ -101,6 +101,7 @@
                     <RadioButton.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
+                                x:Name="DashboardRadioButtonToolTipText"
                                 Margin="13,8,0,0"
                                 FontSize="13"
                                 FontWeight="Regular"
@@ -136,6 +137,7 @@
                     <RadioButton.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
+                                x:Name="SettingsRadioButtonToolTipText"
                                 Margin="19,8,0,0"
                                 FontSize="13"
                                 FontWeight="Regular"
@@ -168,6 +170,7 @@
                     <RadioButton.ToolTip>
                         <ToolTip PlacementTarget="{Binding ElementName=DashboardButton}" Style="{StaticResource ButtonToolTipStyle}">
                             <TextBlock
+                                x:Name="HelpRadioButtonToolTipText"
                                 Margin="28,8,0,0"
                                 FontSize="13"
                                 FontWeight="Regular"

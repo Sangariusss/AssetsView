@@ -444,7 +444,7 @@
         <Setter Property="FontFamily" Value="/Data/Fonts/Mariupol-Regular.ttf" />
         <Setter Property="FontSize" Value="15" />
         <Setter Property="FontWeight" Value="Regular" />
-        <Setter Property="Padding" Value="50,15,30,15" />
+        <Setter Property="Padding" Value="50,15,30,12" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="VerticalAlignment" Value="Stretch" />
         <Setter Property="VerticalContentAlignment" Value="Center" />

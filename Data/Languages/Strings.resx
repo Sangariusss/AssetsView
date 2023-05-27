@@ -117,17 +117,68 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AssetsViewExpanderHeader" xml:space="preserve">
+    <value>What is AssetsView?</value>
+  </data>
+  <data name="AssetsViewExpanderText" xml:space="preserve">
+    <value>AssetsView is an app for easy currency tracking. We use exchange rate information from the Bank of England.</value>
+  </data>
+  <data name="ChartExpanderHeader" xml:space="preserve">
+    <value>How to use the chart panel? What is it?</value>
+  </data>
+  <data name="ChartExpanderText" xml:space="preserve">
+    <value>A chart is a specific type of data displayed in the chart panel. The existing data type in the AssetsView chart is the current currency. It is very easy to use the chart, you just need to select your favorite currency pair in the "Favorite rates" panel and enable it to show the exchange rate in the "Chart" panel under the "Convert" panel.</value>
+  </data>
+  <data name="ConvertTitle" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="CurrencyConverterExpanderHeader" xml:space="preserve">
+    <value>What capabilities does the currency converter offer in the AssetsView?</value>
+  </data>
+  <data name="CurrencyConverterExpanderText" xml:space="preserve">
+    <value>The currency converter in the AssetsView program allows you to convert amounts from one currency to another at currency exchange rates of the Bank of England.</value>
+  </data>
+  <data name="DashboardRadioButtonToolTipText" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="DashboardShortText" xml:space="preserve">
+    <value>Open Dashboard</value>
+  </data>
   <data name="DashboardText" xml:space="preserve">
     <value>Open Dashboard</value>
   </data>
   <data name="DeleteFavouriteRatesText" xml:space="preserve">
     <value>Delete all your favorite charts</value>
   </data>
+  <data name="FavouriteRatesExpanderHeader" xml:space="preserve">
+    <value>How to use the favourite rates panel?</value>
+  </data>
+  <data name="FavouriteRatesExpanderText" xml:space="preserve">
+    <value>You need to click on the add button and add the currency pair you like to your list, after which you can turn it on and off in the chart panel.</value>
+  </data>
+  <data name="FavouriteRatesTitleText" xml:space="preserve">
+    <value>Favourite rates</value>
+  </data>
+  <data name="HelpRadioButtonToolTipText" xml:space="preserve">
+    <value>Help</value>
+  </data>
   <data name="HelpText" xml:space="preserve">
     <value>Open Help</value>
   </data>
+  <data name="HotkeysExpanderHeader" xml:space="preserve">
+    <value>How do hotkeys work and how to use them?</value>
+  </data>
+  <data name="HotkeysExpanderText" xml:space="preserve">
+    <value>Hotkeys work in such a way that by pressing, for example, "CTRL + E", you can instantly go to the settings. To use hotkeys, you need to go to the Settings section and enable them by specifying the keyboard shortcuts that are convenient for you.</value>
+  </data>
   <data name="HotkeysTitleText" xml:space="preserve">
     <value>Hotkeys settings</value>
+  </data>
+  <data name="LanguageRadioButtonContent1" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LanguageRadioButtonContent2" xml:space="preserve">
+    <value>Ukrainian</value>
   </data>
   <data name="LanguageShortText" xml:space="preserve">
     <value>Choose the language</value>
@@ -135,11 +186,47 @@
   <data name="LanguageText" xml:space="preserve">
     <value>Choose the language you are comfortable with</value>
   </data>
+  <data name="NoFoundFavouritesText" xml:space="preserve">
+    <value>You haven't added any favourite rates yet</value>
+  </data>
+  <data name="NoMatchesText" xml:space="preserve">
+    <value>Nothing was found for your request ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯</value>
+  </data>
   <data name="OtherSettingsSubTitleText" xml:space="preserve">
     <value>Choose the resolution, theme or language you prefer</value>
   </data>
   <data name="OtherSettingsText" xml:space="preserve">
     <value>Other settings</value>
+  </data>
+  <data name="PartnerExpanderHeader" xml:space="preserve">
+    <value>Is it possible to become our partner?</value>
+  </data>
+  <data name="PartnerExpanderText" xml:space="preserve">
+    <value>We are open for partnership. For more information, please contact us by this email example@mybusiness.org.</value>
+  </data>
+  <data name="PercentageChangeText" xml:space="preserve">
+    <value>Up by 0,00% (0,000000 USD)</value>
+  </data>
+  <data name="PopularTitle" xml:space="preserve">
+    <value>Popular</value>
+  </data>
+  <data name="QuickSettingsText" xml:space="preserve">
+    <value>Quick settings and hotkeys</value>
+  </data>
+  <data name="RadioButton10Y" xml:space="preserve">
+    <value>10Y</value>
+  </data>
+  <data name="RadioButton1Y" xml:space="preserve">
+    <value>1Y</value>
+  </data>
+  <data name="RadioButton5Y" xml:space="preserve">
+    <value>5Y</value>
+  </data>
+  <data name="ReferenceSubTitleText" xml:space="preserve">
+    <value>Answers to your possible questions</value>
+  </data>
+  <data name="ReferenceText" xml:space="preserve">
+    <value>Reference</value>
   </data>
   <data name="ResolutionShortText" xml:space="preserve">
     <value>Choose the resolution</value>
@@ -147,11 +234,32 @@
   <data name="ResolutionText" xml:space="preserve">
     <value>Choose the screen resolution that suits you best</value>
   </data>
+  <data name="SearchTextBoxText" xml:space="preserve">
+    <value>Type a country / currency</value>
+  </data>
+  <data name="SelectCurrencyText1" xml:space="preserve">
+    <value>Select the first currency</value>
+  </data>
+  <data name="SelectCurrencyText2" xml:space="preserve">
+    <value>Select the second currency</value>
+  </data>
+  <data name="SelectFavouriteRatesTitleText" xml:space="preserve">
+    <value>Select favourite rates</value>
+  </data>
+  <data name="SetHotkeysText" xml:space="preserve">
+    <value>Set hotkeys that are convenient for you</value>
+  </data>
+  <data name="SettingsRadioButtonToolTipText" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="SettingsText" xml:space="preserve">
     <value>Open Settings</value>
   </data>
   <data name="SubTitleText" xml:space="preserve">
     <value>Set hotkeys that are convenient for you</value>
+  </data>
+  <data name="SwapCurrenciesShortText" xml:space="preserve">
+    <value>Swap currencies in the converter</value>
   </data>
   <data name="SwapCurrenciesText" xml:space="preserve">
     <value>Swap currencies in the converter</value>

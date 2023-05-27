@@ -88,15 +88,15 @@
                     </Button>
                 </Grid>
                 <ListView x:Name="CountryListView" Width="584" Height="247" Background="#0E0E0E" BorderThickness="0" Margin="26,21,30,0" ItemTemplate="{StaticResource CurrencyListItem}" ItemsSource="{Binding CountrySeries}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
-                <TextBlock x:Name="NoMatchesTextBlock" Text="Nothing was found for your request ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯" Foreground="#525252" FontSize="18" FontFamily="Mariupol" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Margin="127,-227,128,0" />
+                <TextBlock x:Name="NoMatchesTextBlock" Width="425" Text="Nothing was found for your request ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯" Foreground="#525252" FontSize="18" FontFamily="Mariupol" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Margin="127,-227,128,0" />
             </StackPanel>
 
             <!-- ConvertPanel -->
             <StackPanel x:Name="ConvertPanel" Width="640" Height="388" Margin="37,0,34,541" Background="#FF0E0E0E" Grid.Row="0" Grid.Column="0" Visibility="Visible">
                 <StackPanel>
-                    <TextBlock x:Name="Title" Style="{StaticResource TextBlockStyle}" Text="Convert" FontSize="25" Width="95" Height="24" Margin="30,35,515,0" FontWeight="Bold"/>
+                    <TextBlock x:Name="ConvertTitle" Style="{StaticResource TextBlockStyle}" Text="Convert" FontSize="25" Width="150" Height="30" Margin="30,35,465,0" FontWeight="Bold"/>
                 </StackPanel>
-                <StackPanel Width="581" Height="50" Margin="29,30,30,0">
+                <StackPanel Width="581" Height="50" Margin="29,24,30,0">
                     <Grid Height="50">
                         <TextBox x:Name="CurrencyTextBox1" Width="461" Height="50" Background="Black" BorderThickness="1.5" BorderBrush="#141414" Margin="0,0,120,0" Padding="16,0,0,0" Foreground="White" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontSize="18" FontWeight="Bold" TextAlignment="Left" VerticalContentAlignment="Center" PreviewTextInput="CurrencyTextBox_PreviewTextInput" TextChanged="CurrencyTextBox_TextChanged"/>
                         <Button x:Name="CurrencyButton1" Style="{DynamicResource ButtonHoverStyle}" Width="120" Height="50" Margin="461,0,0,0" Background="#141414" BorderThickness="0" Click="CurrencyButton1_Click">
@@ -125,7 +125,7 @@
                     </Grid>
                 </StackPanel>
                 <TextBlock x:Name="ExchangeRateTextBlock1" Style="{StaticResource TextBlockStyle}" Text="1 EUR = 1,06770 USD" Width="220" Height="19" Margin="30,36,390,0" FontSize="18" FontWeight="Medium"/>
-                <TextBlock x:Name="PercentageChangeTextBlock" Text="Up by 0,00% (0,000000 USD)" Width="190" Height="18" Margin="30,16,420,30" FontSize="15" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Regular" Foreground="#32CD32"/>
+                <TextBlock x:Name="PercentageChangeTextBlock" Text="Up by 0,00% (0,000000 USD)" Width="240" Height="18" Margin="30,16,370,30" FontSize="15" FontFamily="Data/Fonts/Mariupol-Regular.ttf" FontWeight="Regular" Foreground="#32CD32"/>
             </StackPanel>
             <StackPanel x:Name="ChartPanel" Width="640" Height="530" Margin="37,399,34,0" Background="#FF0E0E0E" Grid.Column="0">
                 <StackPanel Width="640" Height="120">
@@ -167,7 +167,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <TextBlock Text="Favourite rates" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="180" Height="24" FontWeight="Bold" Margin="31,35,324,29" Grid.RowSpan="1"/>
+                        <TextBlock x:Name="FavouriteRatesTitle" Text="Favourite rates" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="290" Height="30" FontWeight="Bold" Margin="31,35,216,23" Grid.RowSpan="1"/>
                         <Button x:Name="AddFavouriteRatesButton" Style="{DynamicResource RoundedButtonStyle}" Width="40" Height="40" Grid.Column="1" Margin="0,27,26,21" Background="#FF171717" BorderBrush="#FF171717" Cursor="Hand" Click="AddFavouriteRatesButton_Click">
                             <Image Height="21" Width="21" Source="/Data/Icons/plus.png"/>
                         </Button>
@@ -175,10 +175,10 @@
                 </StackPanel>
 
                 <ListView x:Name="FavouriteListView" Width="550" Height="368" BorderThickness="0" Margin="32,0,0,0" Background="Transparent" ItemContainerStyle="{StaticResource ListViewItemStyle}" ItemTemplate="{StaticResource FavouriteListItem}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
-                <TextBlock x:Name="NoFoundFavouritesTextBlock" Text="You haven't added any favourite rates yet" Foreground="#525252" FontSize="18" FontFamily="Mariupol" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="120,-392,120,0" />
+                <TextBlock x:Name="NoFoundFavouritesTextBlock" Width="450" Text="You haven't added any favourite rates yet" Foreground="#525252" FontSize="18" FontFamily="Mariupol" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="120,-392,20,0" />
 
                 <StackPanel x:Name="PopularPanel" Width="601" Height="69" Margin="0,35,0,0">
-                    <TextBlock Text="Popular" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="93" Height="30" Margin="35,23,473,22" FontWeight="Bold"/>
+                    <TextBlock x:Name="PopularTitle" Text="Popular" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="136" Height="30" Margin="35,23,430,22" FontWeight="Bold"/>
                 </StackPanel>
 
                 <StackPanel Width="546" Height="52" Margin="30,27,20,0" Orientation="Horizontal">
@@ -243,7 +243,7 @@
             </WrapPanel>
 
             <WrapPanel x:Name="AddFavouriteRatesPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="1" Grid.Row="0" Visibility="Visible">
-                <TextBlock Text="Select favourite rates" Style="{StaticResource TextBlockStyle}" Margin="33,36,0,0" FontSize="25" FontWeight="Bold"/>
+                <TextBlock x:Name="SelectFavouriteRatesTitle" Text="Select favourite rates" Style="{StaticResource TextBlockStyle}" Margin="33,36,0,0" FontSize="25" FontWeight="Bold"/>
                 <Button x:Name="CloseButton" Style="{StaticResource RoundedButtonStyle}" Width="45" Height="45" Margin="252,27,0,0" Background="#FF171717" BorderBrush="Transparent" Cursor="Hand" Click="CloseButton_Click">
                     <Image Height="30" Width="30" Source="/Data/Icons/cross.png" />
                 </Button>
@@ -270,11 +270,12 @@
                 </StackPanel>
 
                 <ListView x:Name="FavouriteRatesListView" Width="540" Height="634" Background="#0E0E0E" BorderThickness="0" Margin="28,33,0,0" ItemContainerStyle="{StaticResource ListViewItemStyle}" ItemTemplate="{StaticResource FavouriteRatesListItem}" ItemsSource="{Binding CountrySeries}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+                <TextBlock x:Name="NoMatchesFavouriteTextBlock" Width="425" Text="Nothing was found for your request ¯⁠\⁠_⁠(⁠ツ⁠)⁠_⁠/⁠¯" Foreground="#525252" FontSize="18" FontFamily="Mariupol" FontWeight="Medium" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Margin="106,-617,0,0" />
             </WrapPanel>
 
             <StackPanel x:Name="ExtendedPanel" Width="486" Height="929" Grid.Column="2" Background="#FF0E0E0E" Visibility="Visible">
-                <TextBlock Text="Quick settings and hotkeys" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="323" Height="30" Margin="30,32,133,0" FontWeight="Bold"/>
-                <TextBlock Text="Set hotkeys that are convenient for you" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="323" Height="21" Margin="30,17,133,0" FontWeight="Medium"/>
+                <TextBlock x:Name="QuickSettingsTextBlock" Text="Quick settings and hotkeys" Style="{StaticResource TextBlockStyle}" FontSize="25" Width="323" Height="30" Margin="30,32,133,0" FontWeight="Bold"/>
+                <TextBlock x:Name="SetHotkeysTextBlock" Text="Set hotkeys that are convenient for you" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="323" Height="21" Margin="30,17,133,0" FontWeight="Medium"/>
                 
                 <Grid
                 Height="50"
@@ -286,6 +287,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock
+                    x:Name="DashboardTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -322,6 +324,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock
+                    x:Name="SettingsTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -358,6 +361,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock
+                    x:Name="HelpTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -394,6 +398,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock
+                    x:Name="DeleteFavouriteRatesTextBlock" 
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -430,6 +435,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock
+                    x:Name="SwapCurrenciesTextBlock"
                     Margin="22,15,0,11"
                     FontSize="18"
                     FontWeight="Medium"
@@ -456,7 +462,7 @@
                     </StackPanel>
                 </Grid>
 
-                <TextBlock Text="Choose the theme you like" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,42,232,0" FontWeight="Medium"/>
+                <TextBlock x:Name="ThemeTextBlock" Text="Choose the theme you like" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,42,232,0" FontWeight="Medium"/>
                 <Grid
                     Height="50"
                     Margin="30,26,26,0"
@@ -485,8 +491,8 @@
                             Style="{DynamicResource SettingsRadioButtonStyle}" />
                     </StackPanel>
                 </Grid>
-                
-                <TextBlock Text="Choose the language" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,26,232,0" FontWeight="Medium"/>
+
+                <TextBlock x:Name="LanguageTextBlock" Text="Choose the language" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,26,232,0" FontWeight="Medium"/>
                 <Grid
                     Height="50"
                     Margin="30,26,26,0"
@@ -515,8 +521,8 @@
                             Style="{DynamicResource SettingsRadioButtonStyle}" />
                     </StackPanel>
                 </Grid>
-                
-                <TextBlock Text="Choose the resolution" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,26,232,0" FontWeight="Medium"/>
+
+                <TextBlock x:Name="ResolutionTextBlock" Text="Choose the resolution" Style="{StaticResource TextBlockGrayStyle}" FontSize="18" Width="225" Height="21" Margin="30,26,232,0" FontWeight="Medium"/>
                 <Grid
                     Height="50"
                     Margin="30,26,26,0"
