@@ -95,7 +95,6 @@ namespace AssetsView.MVVM.View
         public string? NasdaqCurrencyCode { get; set; }
         public string? ImageSource { get; set; }
         public string? ImageRoundedSource { get; set; }
-
     }
 
     public class CurrencyCountryManager
@@ -447,6 +446,9 @@ namespace AssetsView.MVVM.View
                 {
                     convertedAmount = amount * (1.0 / exchangeRate);
                     CurrencyTextBox2.Text = convertedAmount.ToString("0.##");
+                    CurrencyTextBox1.SelectionStart = CurrencyTextBox1.Text.Length;
+                    CurrencyTextBox1.SelectionLength = 0;
+                    CurrencyTextBox1.Focus();
                 }
                 else
                 {
@@ -459,6 +461,9 @@ namespace AssetsView.MVVM.View
                 {
                     convertedAmount = amount * exchangeRate;
                     CurrencyTextBox1.Text = convertedAmount.ToString("0.##");
+                    CurrencyTextBox2.SelectionStart = CurrencyTextBox2.Text.Length;
+                    CurrencyTextBox2.SelectionLength = 0;
+                    CurrencyTextBox2.Focus();
                 }
                 else
                 {
@@ -615,24 +620,6 @@ namespace AssetsView.MVVM.View
 
         }
 
-        private bool isDataContextSwapped = false;
-        private void FavouriteSwitchButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Toggle the DataContext values of SelectCurrencyTextBox1 and SelectCurrencyTextBox2
-            if (isDataContextSwapped)
-            {
-                SelectCurrencyTextBox1.DataContext = SelectedCurrencyTextBlock1.DataContext;
-                SelectCurrencyTextBox2.DataContext = SelectedCurrencyTextBlock2.DataContext;
-            }
-            else
-            {
-                SelectCurrencyTextBox1.DataContext = SelectedCurrencyTextBlock2.DataContext;
-                SelectCurrencyTextBox2.DataContext = SelectedCurrencyTextBlock1.DataContext;
-            }
-
-            isDataContextSwapped = !isDataContextSwapped;
-        }
-
         ObservableCollection<FavouriteListItem> favouriteList = new ObservableCollection<FavouriteListItem>();
         public class FavouriteListItem
         {
@@ -640,6 +627,7 @@ namespace AssetsView.MVVM.View
             public ImageSource ImageRoundedSource2 { get; set; }
             public string CurrencyConversionText { get; set; }
             public string ExchangeRateText { get; set; }
+            public string CurrencyCode { get; set; }
         }
 
         private void StarToggleButton_Checked(object sender, RoutedEventArgs e)
@@ -717,7 +705,6 @@ namespace AssetsView.MVVM.View
 
             if (selectedItem != null)
             {
-                // Перевірка, якщо значення ImageRoundedSource вже встановлені
                 if (!(ImageRounded1.DataContext?.Equals(new { ImageRoundedSource = selectedItem.ImageRoundedSource1 }) ?? true) && !(ImageRounded2.DataContext?.Equals(new { ImageRoundedSource = selectedItem.ImageRoundedSource2 }) ?? true))
                 {
                     ImageRounded1.DataContext = new { ImageRoundedSource = selectedItem.ImageRoundedSource1 };

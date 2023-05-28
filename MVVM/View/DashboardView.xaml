@@ -242,7 +242,7 @@
                 </StackPanel>
             </WrapPanel>
 
-            <WrapPanel x:Name="AddFavouriteRatesPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="1" Grid.Row="0" Visibility="Visible">
+            <WrapPanel x:Name="AddFavouriteRatesPanel" Width="596" Height="933" Margin="0,0,33,0" Background="#FF0E0E0E" Grid.Column="1" Grid.Row="0" Visibility="Hidden">
                 <TextBlock x:Name="SelectFavouriteRatesTitle" Text="Select favourite rates" Style="{StaticResource TextBlockStyle}" Margin="33,36,0,0" FontSize="25" FontWeight="Bold"/>
                 <Button x:Name="CloseButton" Style="{StaticResource RoundedButtonStyle}" Width="45" Height="45" Margin="252,27,0,0" Background="#FF171717" BorderBrush="Transparent" Cursor="Hand" Click="CloseButton_Click">
                     <Image Height="30" Width="30" Source="/Data/Icons/cross.png" />
@@ -254,7 +254,7 @@
                         <TextBlock x:Name="SelectedCurrencyTextBlock1" Text="{Binding SelectedCurrency.CurrencyCode}" Style="{StaticResource TextBlockStyle}" Margin="58,15,0,15" FontSize="15" Width="32" Height="14" FontWeight="Bold" HorizontalAlignment="Left" IsHitTestVisible="False"/>
                         <TextBlock x:Name="SelectedCurrencyNameTextBlock1" Text="{Binding SelectedCurrency.Name}" Style="{StaticResource TextBlockGrayStyle}" Margin="119,15,0,12" FontSize="15" Width="130" Height="20" HorizontalAlignment="Left" IsHitTestVisible="False"/>
                         <Image x:Name="SelectedCurrencyImage1" Source="{Binding SelectedCurrency.ImageRoundedSource, FallbackValue=Data/Icons/circle.png}" Width="20" Height="20" Margin="13,0,507,0" IsHitTestVisible="False"/>
-                        <Button x:Name="DeleteSelectedCurrencyButton1" Width="45" Height="45" Margin="495,0,0,0" Style="{StaticResource ButtonHoverStyle}" Background="#1B1B1B" BorderThickness="0" Visibility="Collapsed" Click="DeleteSelectedCurrencyButton1_Click">
+                        <Button x:Name="DeleteSelectedCurrencyButton1" Width="45" Height="45" Margin="495,0,0,0" Style="{StaticResource ButtonHoverStyle}" Background="#1B1B1B" BorderThickness="0" Visibility="Collapsed" Click="DeleteSelectedCurrencyButton1_Click" Cursor="Hand">
                             <Image Source="/Data/Icons/crossRed.png" Width="30" Height="30"/>
                         </Button>
                     </Grid>
@@ -263,7 +263,7 @@
                         <TextBlock x:Name="SelectedCurrencyTextBlock2" Text="{Binding SelectedCurrency.CurrencyCode}" Style="{StaticResource TextBlockStyle}" Margin="58,15,0,15" FontSize="15" Width="32" Height="14" FontWeight="Bold" HorizontalAlignment="Left" IsHitTestVisible="False"/>
                         <TextBlock x:Name="SelectedCurrencyNameTextBlock2" Text="{Binding SelectedCurrency.Name}" Style="{StaticResource TextBlockGrayStyle}" Margin="119,15,0,12" FontSize="15" Width="130" Height="20" HorizontalAlignment="Left" IsHitTestVisible="False"/>
                         <Image x:Name="SelectedCurrencyImage2" Source="{Binding SelectedCurrency.ImageRoundedSource, FallbackValue=Data/Icons/circle.png}" Width="20" Height="20" Margin="13,0,507,0" IsHitTestVisible="False"/>
-                        <Button x:Name="DeleteSelectedCurrencyButton2" Width="45" Height="45" Margin="495,0,0,0" Style="{StaticResource ButtonHoverStyle}" Background="#1B1B1B" BorderThickness="0" Visibility="Collapsed" Click="DeleteSelectedCurrencyButton2_Click">
+                        <Button x:Name="DeleteSelectedCurrencyButton2" Width="45" Height="45" Margin="495,0,0,0" Style="{StaticResource ButtonHoverStyle}" Background="#1B1B1B" BorderThickness="0" Visibility="Collapsed" Click="DeleteSelectedCurrencyButton2_Click" Cursor="Hand">
                             <Image Source="/Data/Icons/crossRed.png" Width="30" Height="30"/>
                         </Button>
                     </Grid>

@@ -2,8 +2,8 @@
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <IsThemeRadioButtonChecked1>true</IsThemeRadioButtonChecked1>
   <IsThemeRadioButtonChecked2>false</IsThemeRadioButtonChecked2>
-  <IsLanguageRadioButtonChecked1>false</IsLanguageRadioButtonChecked1>
-  <IsLanguageRadioButtonChecked2>true</IsLanguageRadioButtonChecked2>
+  <IsLanguageRadioButtonChecked1>true</IsLanguageRadioButtonChecked1>
+  <IsLanguageRadioButtonChecked2>false</IsLanguageRadioButtonChecked2>
   <IsResolutionRadioButtonChecked1>false</IsResolutionRadioButtonChecked1>
   <IsResolutionRadioButtonChecked2>false</IsResolutionRadioButtonChecked2>
   <IsResolutionRadioButtonChecked3>true</IsResolutionRadioButtonChecked3>
