@@ -52,7 +52,7 @@ namespace AssetsView.Styles {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/AssetsView;V1.0.0.0;component/styles/buttonstyles.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/AssetsView;component/styles/buttonstyles.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Styles\ButtonStyles.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -86,7 +86,7 @@
                     BorderBrush="Transparent"
                     Command="{Binding DashboardViewCommand}"
                     Cursor="Hand"
-                    IsChecked="True"
+                    IsChecked="{Binding IsDashboardSelected, Mode=TwoWay}"
                     Style="{DynamicResource RadioButtonHoverStyle}">
                     <Grid>
                         <Image
@@ -121,6 +121,7 @@
                     BorderBrush="Transparent"
                     Command="{Binding SettingsViewCommand}"
                     Cursor="Hand"
+                    IsChecked="{Binding IsSettingsSelected, Mode=TwoWay}"
                     Style="{DynamicResource RadioButtonHoverStyle}">
                     <Grid>
                         <Image
@@ -156,6 +157,7 @@
                     BorderBrush="Transparent"
                     Command="{Binding HelpViewCommand}"
                     Cursor="Hand"
+                    IsChecked="{Binding IsHelpSelected, Mode=TwoWay}"
                     Style="{DynamicResource RadioButtonHoverStyle}">
                     <Grid>
                         <Image

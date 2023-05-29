@@ -297,7 +297,6 @@ namespace AssetsView.MVVM.View
             {
                 // Generate URL for making an API request
                 string requestUrl = GenerateRequestCurrentExchangeRateUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode);
-                Console.Write(requestUrl);
                 // Use the request URL to fetch the exchange rate data
                 using HttpClient client = new();
                 HttpResponseMessage response = await client.GetAsync(requestUrl);
@@ -372,7 +371,6 @@ namespace AssetsView.MVVM.View
 
                 // Generate URL for making an API request
                 string requestUrl = GenerateRequestHistoryExchangeRateUrl(country1.NasdaqCurrencyCode, country2.NasdaqCurrencyCode, startDate, endDate);
-                Console.Write(requestUrl);
 
                 // Use the request URL to fetch the exchange rate data
                 using HttpClient client = new();
@@ -446,9 +444,13 @@ namespace AssetsView.MVVM.View
                 {
                     convertedAmount = amount * (1.0 / exchangeRate);
                     CurrencyTextBox2.Text = convertedAmount.ToString("0.##");
-                    CurrencyTextBox1.SelectionStart = CurrencyTextBox1.Text.Length;
-                    CurrencyTextBox1.SelectionLength = 0;
-                    CurrencyTextBox1.Focus();
+
+                    if (CurrencyTextBox1.IsKeyboardFocused)
+                    {
+                        CurrencyTextBox1.SelectionStart = CurrencyTextBox1.Text.Length;
+                        CurrencyTextBox1.SelectionLength = 0;
+                        CurrencyTextBox1.Focus();
+                    }
                 }
                 else
                 {
@@ -461,9 +463,12 @@ namespace AssetsView.MVVM.View
                 {
                     convertedAmount = amount * exchangeRate;
                     CurrencyTextBox1.Text = convertedAmount.ToString("0.##");
-                    CurrencyTextBox2.SelectionStart = CurrencyTextBox2.Text.Length;
-                    CurrencyTextBox2.SelectionLength = 0;
-                    CurrencyTextBox2.Focus();
+                    if (CurrencyTextBox2.IsKeyboardFocused)
+                    {
+                        CurrencyTextBox2.SelectionStart = CurrencyTextBox2.Text.Length;
+                        CurrencyTextBox2.SelectionLength = 0;
+                        CurrencyTextBox2.Focus();
+                    }
                 }
                 else
                 {
