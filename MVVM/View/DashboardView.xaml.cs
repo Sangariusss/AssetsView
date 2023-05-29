@@ -635,23 +635,72 @@ namespace AssetsView.MVVM.View
             public string CurrencyCode { get; set; }
         }
 
+        private bool IsItemInList(FavouriteListItem newItem)
+        {
+            foreach (var item in favouriteList)
+            {
+                if (item.ImageRoundedSource1?.ToString() == newItem.ImageRoundedSource1?.ToString() &&
+                    item.ImageRoundedSource2?.ToString() == newItem.ImageRoundedSource2?.ToString() &&
+                    item.CurrencyConversionText == newItem.CurrencyConversionText &&
+                    item.ExchangeRateText == newItem.ExchangeRateText &&
+                    item.CurrencyCode == newItem.CurrencyCode)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
         private void StarToggleButton_Checked(object sender, RoutedEventArgs e)
         {
-            FavouriteListView.ItemsSource = favouriteList;
-            ImageSource imageRoundedSource1 = ImageRounded1.Source;
-            ImageSource imageRoundedSource2 = ImageRounded2.Source;
-            string currencyConversionText = CurrencyConversionTextBlock.Text;
-            string exchangeRateText = ExchangeRateTextBlock2.Text;
+            if (FavouriteListView.Items.Count > 0)
+            {
+                ImageSource imageRoundedSource1 = ImageRounded1.Source;
+                ImageSource imageRoundedSource2 = ImageRounded2.Source;
+                string currencyConversionText = CurrencyConversionTextBlock.Text;
+                string exchangeRateText = ExchangeRateTextBlock2.Text;
 
-            FavouriteListItem item = new FavouriteListItem();
-            item.ImageRoundedSource1 = imageRoundedSource1;
-            item.ImageRoundedSource2 = imageRoundedSource2;
-            item.CurrencyConversionText = CurrencyConversionTextBlock.Text;
-            item.ExchangeRateText = ExchangeRateTextBlock2.Text;
+                FavouriteListItem newItem = new FavouriteListItem()
+                {
+                    ImageRoundedSource1 = imageRoundedSource1,
+                    ImageRoundedSource2 = imageRoundedSource2,
+                    CurrencyConversionText = currencyConversionText,
+                    ExchangeRateText = exchangeRateText
+                };
 
-            favouriteList.Add(item);
-            UpdateNotFoundFavouritesVisibility();
+                bool itemExists = IsItemInList(newItem);
+
+                if (!itemExists)
+                {
+                    favouriteList.Add(newItem);
+                    UpdateNotFoundFavouritesVisibility();
+                }
+                else
+                {
+                    UpdateNotFoundFavouritesVisibility();
+                }
+            }
+            else
+            {
+                FavouriteListView.ItemsSource = favouriteList;
+                ImageSource imageRoundedSource1 = ImageRounded1.Source;
+                ImageSource imageRoundedSource2 = ImageRounded2.Source;
+                string currencyConversionText = CurrencyConversionTextBlock.Text;
+                string exchangeRateText = ExchangeRateTextBlock2.Text;
+
+                FavouriteListItem item = new FavouriteListItem();
+                item.ImageRoundedSource1 = imageRoundedSource1;
+                item.ImageRoundedSource2 = imageRoundedSource2;
+                item.CurrencyConversionText = CurrencyConversionTextBlock.Text;
+                item.ExchangeRateText = ExchangeRateTextBlock2.Text;
+
+                favouriteList.Add(item);
+                UpdateNotFoundFavouritesVisibility();
+            }
         }
+
 
         private void StarToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -697,8 +746,16 @@ namespace AssetsView.MVVM.View
             ImageSource imageRoundedSource1 = ImageRounded1.Source;
             ImageSource imageRoundedSource2 = ImageRounded2.Source;
 
-            bool isCurrencyPairInFavourites = favouriteList.Any(item =>
-                item.ImageRoundedSource1 == imageRoundedSource1 && item.ImageRoundedSource2 == imageRoundedSource2);
+            bool isCurrencyPairInFavourites = false;
+
+            foreach (var item in favouriteList)
+            {
+                if (item.ImageRoundedSource1.Equals(imageRoundedSource1) && item.ImageRoundedSource2.Equals(imageRoundedSource2))
+                {
+                    isCurrencyPairInFavourites = true;
+                    break;
+                }
+            }
 
             StarToggleButton.IsChecked = isCurrencyPairInFavourites;
         }
