@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AssetsViewExpanderHeader" xml:space="preserve">
+    <value>Що таке AssetsView?</value>
+  </data>
+  <data name="AssetsViewExpanderText" xml:space="preserve">
+    <value>AssetsView - це застосунок для зручного відстеження курсів валют. Ми використовуємо інформацію про курси валют від Банку Англії.</value>
+  </data>
+  <data name="ChartExpanderHeader" xml:space="preserve">
+    <value>Як користуватися панеллю графіків? Що це таке?</value>
+  </data>
+  <data name="ChartExpanderText" xml:space="preserve">
+    <value>Графік - це певний тип даних, що відображається на панелі графіків. Поточним типом даних на графіку AssetsView є поточна валюта. Використовувати графік дуже просто, вам потрібно лише вибрати вашу улюблену пару валют на панелі "Улюблені курси" і увімкнути його для відображення курсу обміну на панелі "Графік" під панеллю "Конвертувати".</value>
+  </data>
+  <data name="ConvertTitle" xml:space="preserve">
+    <value>Конвертор</value>
+  </data>
+  <data name="CurrencyConverterExpanderHeader" xml:space="preserve">
+    <value>Які можливості надає валютний обмінник в AssetsView?</value>
+  </data>
+  <data name="CurrencyConverterExpanderText" xml:space="preserve">
+    <value>Конвертер валют в програмі AssetsView дозволяє конвертувати суми з однієї валюти в іншу за курсом обміну валют Банку Англії.</value>
+  </data>
+  <data name="DashboardRadioButtonToolTipText" xml:space="preserve">
+    <value>Інформаційна панель</value>
+  </data>
+  <data name="DashboardShortText" xml:space="preserve">
+    <value>Інформаційна панель</value>
+  </data>
+  <data name="DashboardText" xml:space="preserve">
+    <value>Відкрийте інформаційну панель</value>
+  </data>
+  <data name="DeleteFavouriteRatesText" xml:space="preserve">
+    <value>Видалити всі улюблені графіки</value>
+  </data>
+  <data name="FavouriteRatesExpanderHeader" xml:space="preserve">
+    <value>Як користуватися панеллю обраних курсів валют?</value>
+  </data>
+  <data name="FavouriteRatesExpanderText" xml:space="preserve">
+    <value>Вам потрібно натиснути на кнопку "Додати" і обрати вподобану валютну пару до свого списку, після чого ви зможете вмикати та вимикати її на панелі графіків.</value>
+  </data>
+  <data name="FavouriteRatesTitleText" xml:space="preserve">
+    <value>Улюблені пари валют</value>
+  </data>
+  <data name="HelpRadioButtonToolTipText" xml:space="preserve">
+    <value>Довідник</value>
+  </data>
+  <data name="HelpText" xml:space="preserve">
+    <value>Відкрийте довідку</value>
+  </data>
+  <data name="HotkeysExpanderHeader" xml:space="preserve">
+    <value>Як працюють гарячі клавіші та як ними користуватися?</value>
+  </data>
+  <data name="HotkeysExpanderText" xml:space="preserve">
+    <value>Гарячі клавіші працюють таким чином, що натиснувши, наприклад, клавіші "CTRL + E", ви можете миттєво перейти до налаштувань. Для використання гарячих клавіш потрібно зайти в розділ "Налаштування" і включити їх, вказавши зручні для вас комбінації клавіш.</value>
+  </data>
+  <data name="HotkeysTitleText" xml:space="preserve">
+    <value>Гарячі клавіші</value>
+  </data>
+  <data name="LanguageRadioButtonContent1" xml:space="preserve">
+    <value>Англійська</value>
+  </data>
+  <data name="LanguageRadioButtonContent2" xml:space="preserve">
+    <value>Українська</value>
+  </data>
+  <data name="LanguageShortText" xml:space="preserve">
+    <value>Виберіть мову</value>
+  </data>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Виберіть мову, якою вам зручно користуватися</value>
+  </data>
+  <data name="NoFoundFavouritesText" xml:space="preserve">
+    <value>Ви ще не додали жодного улюбленого курсу валют</value>
+  </data>
+  <data name="NoMatchesText" xml:space="preserve">
+    <value>За вашим запитом нічого не знайдено ¯\_(ツ)_/¯</value>
+  </data>
+  <data name="OtherSettingsSubTitleText" xml:space="preserve">
+    <value>Виберіть роздільну здатність, тему або мову, якій ви віддаєте перевагу</value>
+  </data>
+  <data name="OtherSettingsText" xml:space="preserve">
+    <value>Інші налаштування</value>
+  </data>
+  <data name="PartnerExpanderHeader" xml:space="preserve">
+    <value>Чи можливо стати нашим партнером?</value>
+  </data>
+  <data name="PartnerExpanderText" xml:space="preserve">
+    <value>Ми відкриті до співпраці. Для отримання додаткової інформації, будь ласка, зв'яжіться з нами за цією електронною адресою example@mybusiness.org.</value>
+  </data>
+  <data name="PercentageChangeText" xml:space="preserve">
+    <value>Піднялось на 0,00% (0,000000 USD)</value>
+  </data>
+  <data name="PopularTitle" xml:space="preserve">
+    <value>Популярні</value>
+  </data>
+  <data name="QuickSettingsText" xml:space="preserve">
+    <value>Швидкі налаштування</value>
+  </data>
+  <data name="RadioButton10Y" xml:space="preserve">
+    <value>10Р</value>
+  </data>
+  <data name="RadioButton1Y" xml:space="preserve">
+    <value>1Р</value>
+  </data>
+  <data name="RadioButton5Y" xml:space="preserve">
+    <value>5Р</value>
+  </data>
+  <data name="ReferenceSubTitleText" xml:space="preserve">
+    <value>Відповіді на ваші можливі запитання</value>
+  </data>
+  <data name="ReferenceText" xml:space="preserve">
+    <value>Довідник</value>
+  </data>
+  <data name="ResolutionShortText" xml:space="preserve">
+    <value>Розмір екрану</value>
+  </data>
+  <data name="ResolutionText" xml:space="preserve">
+    <value>Виберіть роздільну здатність екрана, яка вам найбільше підходить</value>
+  </data>
+  <data name="SearchTextBoxText" xml:space="preserve">
+    <value>Введіть країну / валюту</value>
+  </data>
+  <data name="SelectCurrencyText1" xml:space="preserve">
+    <value>Виберіть першу валюту</value>
+  </data>
+  <data name="SelectCurrencyText2" xml:space="preserve">
+    <value>Виберіть другу валюту</value>
+  </data>
+  <data name="SelectFavouriteRatesTitleText" xml:space="preserve">
+    <value>Виберіть улюблені пари валют</value>
+  </data>
+  <data name="SetHotkeysText" xml:space="preserve">
+    <value>Налаштуйте гарячі клавіші</value>
+  </data>
+  <data name="SettingsRadioButtonToolTipText" xml:space="preserve">
+    <value>Налаштування</value>
+  </data>
+  <data name="SettingsText" xml:space="preserve">
+    <value>Відкрийте вікно налаштувань</value>
+  </data>
+  <data name="SubTitleText" xml:space="preserve">
+    <value>Налаштуйте зручні для вас гарячі клавіші</value>
+  </data>
+  <data name="SwapCurrenciesShortText" xml:space="preserve">
+    <value>Змінити місцями валюти</value>
+  </data>
+  <data name="SwapCurrenciesText" xml:space="preserve">
+    <value>Змінити місцями валюти у конвертері</value>
+  </data>
+  <data name="ThemeRadioButtonContent1" xml:space="preserve">
+    <value>Темна тема</value>
+  </data>
+  <data name="ThemeRadioButtonContent2" xml:space="preserve">
+    <value>Світла тема</value>
+  </data>
+  <data name="ThemeShortText" xml:space="preserve">
+    <value>Виберіть тему</value>
+  </data>
+  <data name="ThemeText" xml:space="preserve">
+    <value>Виберіть тему, яка вам подобається</value>
+  </data>
+</root>

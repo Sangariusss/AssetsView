@@ -652,7 +652,6 @@ namespace AssetsView.MVVM.View
             return false;
         }
 
-
         private void StarToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             if (FavouriteListView.Items.Count > 0)
@@ -733,12 +732,14 @@ namespace AssetsView.MVVM.View
 
         private void ImageRounded1_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            UpdateToggleButtonCheckedState();
+            ImageRounded1.UpdateLayout();
+            Dispatcher.BeginInvoke(new Action(() => UpdateToggleButtonCheckedState()));
         }
 
         private void ImageRounded2_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            UpdateToggleButtonCheckedState();
+            ImageRounded2.UpdateLayout();
+            Dispatcher.BeginInvoke(new Action(() => UpdateToggleButtonCheckedState()));
         }
 
         private void UpdateToggleButtonCheckedState()
@@ -746,18 +747,21 @@ namespace AssetsView.MVVM.View
             ImageSource imageRoundedSource1 = ImageRounded1.Source;
             ImageSource imageRoundedSource2 = ImageRounded2.Source;
 
-            bool isCurrencyPairInFavourites = false;
+            bool isCurrencyPairInFavourites;
 
             foreach (var item in favouriteList)
             {
-                if (item.ImageRoundedSource1.Equals(imageRoundedSource1) && item.ImageRoundedSource2.Equals(imageRoundedSource2))
+                if (item.ImageRoundedSource1 == imageRoundedSource1 && item.ImageRoundedSource2 == imageRoundedSource2)
                 {
                     isCurrencyPairInFavourites = true;
-                    break;
                 }
-            }
+                else
+                {
+                    isCurrencyPairInFavourites = false;
+                }
 
-            StarToggleButton.IsChecked = isCurrencyPairInFavourites;
+                StarToggleButton.IsChecked = isCurrencyPairInFavourites;               
+            }
         }
 
         private void SelectButton_Click(object sender, RoutedEventArgs e)

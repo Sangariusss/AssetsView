@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Debug\net6.0-windows\win-x64\
+D:\Коледж\AssetsView\obj\Debug\net6.0-windows\win-x64\
 AssetsView
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\E5-2670\Desktop\CW\AssetsView\App.xaml
+D:\Коледж\AssetsView\App.xaml
 61371741837
-681772149897
-111478819418
-205-157178223
+75-1305997356
+13-1088142817
+2081044520926
 MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;
 
 False

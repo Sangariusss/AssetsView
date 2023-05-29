@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\E5-2670\\Desktop\\CW\\AssetsView\\AssetsView.csproj": {}
+    "D:\\Коледж\\AssetsView\\AssetsView.csproj": {}
   },
   "projects": {
-    "C:\\Users\\E5-2670\\Desktop\\CW\\AssetsView\\AssetsView.csproj": {
+    "D:\\Коледж\\AssetsView\\AssetsView.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\E5-2670\\Desktop\\CW\\AssetsView\\AssetsView.csproj",
+        "projectUniqueName": "D:\\Коледж\\AssetsView\\AssetsView.csproj",
         "projectName": "AssetsView",
-        "projectPath": "C:\\Users\\E5-2670\\Desktop\\CW\\AssetsView\\AssetsView.csproj",
-        "packagesPath": "C:\\Users\\E5-2670\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\E5-2670\\Desktop\\CW\\AssetsView\\obj\\publish\\win-x64\\",
+        "projectPath": "D:\\Коледж\\AssetsView\\AssetsView.csproj",
+        "packagesPath": "C:\\Users\\volod\\.nuget\\packages\\",
+        "outputPath": "D:\\Коледж\\AssetsView\\obj\\publish\\win-x64\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\E5-2670\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\volod\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -53,9 +48,17 @@
               "target": "Package",
               "version": "[2.0.0-beta.701, )"
             },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.5, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
+            },
+            "ServiceStack.Text": {
+              "target": "Package",
+              "version": "[6.8.0, )"
             }
           },
           "imports": [
@@ -77,7 +80,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

@@ -294,3 +294,6 @@ D:\Коледж\AssetsView\obj\Debug\net6.0-windows\refint\AssetsView.dll
 D:\Коледж\AssetsView\obj\Debug\net6.0-windows\AssetsView.pdb
 D:\Коледж\AssetsView\obj\Debug\net6.0-windows\AssetsView.genruntimeconfig.cache
 D:\Коледж\AssetsView\obj\Debug\net6.0-windows\ref\AssetsView.dll
+D:\Коледж\AssetsView\bin\Debug\net6.0-windows\Data\config.xml
+D:\Коледж\AssetsView\bin\Debug\net6.0-windows\Data\Languages\Strings.resx
+D:\Коледж\AssetsView\bin\Debug\net6.0-windows\Data\Languages\Strings.uk.resx

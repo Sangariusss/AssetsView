@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\E5-2670\Desktop\CW\AssetsView\obj\Release\net6.0-windows\
+D:\Коледж\AssetsView\obj\Release\net6.0-windows\
 AssetsView
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\E5-2670\Desktop\CW\AssetsView\App.xaml
-7-1516560771
-70989702123
-14-1286692306
-205-117166577
-MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\DashboardViewTEST.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;
+D:\Коледж\AssetsView\App.xaml
+61371741837
+75-1305997356
+15-9191922
+2081044520926
+MainWindow.xaml;MVVM\View\DashboardView.xaml;MVVM\View\HelpView.xaml;MVVM\View\SettingsView.xaml;Styles\ButtonStyles.xaml;Styles\TextBlockStyles.xaml;
 
 True
 

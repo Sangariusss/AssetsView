@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\E5-2670\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\E5-2670\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\volod\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\volod\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Reflection.Metadata.MetadataUpdater.IsSupported": false,
